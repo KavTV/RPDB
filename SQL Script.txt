@@ -1,3 +1,5 @@
+/* CREATE TABLES */
+
 DROP TABLE IF EXISTS Projects CASCADE;
 DROP TABLE IF EXISTS Education CASCADE;
 DROP TABLE IF EXISTS Students CASCADE;
@@ -31,3 +33,112 @@ CREATE TABLE StudentProjects (
 	FOREIGN KEY (ProjectId) REFERENCES Projects(ProjectId),
 	FOREIGN KEY (Username) REFERENCES Students(Username)
 );
+
+Insert into Education values (1, 'IT-Supporter');
+Insert into Education values (2, 'Infrastruktur');
+Insert into Education values (3, 'Programmering');
+
+
+
+/* FUNCTIONS AND PROCEDURES */
+
+CREATE or replace FUNCTION FN_GetStudents () 
+Returns Table(username varchar, fullname varchar, education varchar)
+as $$
+BEGIN
+/*Returns all students*/
+RETURN QUERY SELECT DISTINCT students.username, students.fullname, education.education from students 
+LEFT JOIN education
+ON education.educationid = students.educationid;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE or replace FUNCTION FN_getstudentprojects(student varchar) 
+Returns Table(projectid int, headline varchar, documentation varchar, description varchar)
+as $$
+BEGIN
+/*Returns all students projects*/
+RETURN QUERY SELECT DISTINCT projects.projectid, projects.headline, projects.documentation, projects.description from studentprojects 
+LEFT JOIN Projects
+ON studentprojects.projectid = projects.projectid
+WHERE studentprojects.username = student;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE or replace FUNCTION FN_getprojects() 
+Returns Table(projectid int, headline varchar, documentation varchar, description varchar)
+as $$
+BEGIN
+/*Returns all students*/
+RETURN QUERY SELECT projects.projectid, projects.headline, projects.documentation, projects.description from projects
+ORDER BY projectid;
+
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE or replace FUNCTION FN_getprojectstudents(_id integer) 
+Returns Table(username varchar, fullname varchar, educationid integer)
+as $$
+BEGIN
+/*Returns all the students in the specified project*/
+RETURN QUERY SELECT students.username, students.fullname, students.educationid from studentprojects
+LEFT JOIN students
+ON students.username = studentprojects.username
+WHERE studentprojects.projectid = _id;
+
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE OR REPLACE PROCEDURE SP_createproject(_headline varchar(70), _documentation varchar(255), _description varchar(255), _username varchar(30))
+LANGUAGE plpgsql
+
+AS $$
+
+DECLARE
+   v_id int;
+   BEGIN
+	INSERT INTO projects(headline,documentation,description)
+	VALUES(_headline,_documentation,_description) RETURNING  projectid INTO v_id;
+	
+	INSERT INTO studentprojects 
+	VALUES(v_id, _username);
+	
+END
+$$;
+
+
+/**/
+CREATE OR REPLACE PROCEDURE SP_DeleteProject(_projectid integer)
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 DELETE FROM studentprojects WHERE projectid = _projectid;
+	 DELETE FROM Projects WHERE projectid = _projectid;
+	 
+END
+$$;
+
+/**/
+CREATE OR REPLACE PROCEDURE SP_editproject(_projectid integer, _headline varchar(70), _documentation varchar(255), _description varchar(255))
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 UPDATE projects SET headline = _headline, documentation = _documentation, description = _description
+	 WHERE projectid = _projectid;
+	 
+END
+$$;
+
+/**/
