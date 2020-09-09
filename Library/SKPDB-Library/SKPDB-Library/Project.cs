@@ -28,6 +28,5 @@ namespace SKPDB_Library
             this.studentList = studentList;
         }
 
-
     }
 }

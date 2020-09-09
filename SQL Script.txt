@@ -49,7 +49,8 @@ BEGIN
 /*Returns all students*/
 RETURN QUERY SELECT DISTINCT students.username, students.fullname, education.education from students 
 LEFT JOIN education
-ON education.educationid = students.educationid;
+ON education.educationid = students.educationid
+ORDER BY students.username;
 
 END; $$
 LANGUAGE PLPGSQL;
@@ -63,7 +64,8 @@ BEGIN
 RETURN QUERY SELECT DISTINCT projects.projectid, projects.headline, projects.documentation, projects.description from studentprojects 
 LEFT JOIN Projects
 ON studentprojects.projectid = projects.projectid
-WHERE studentprojects.username = student;
+WHERE studentprojects.username = student
+ORDER BY projects.projectid;
 
 END; $$
 LANGUAGE PLPGSQL;
@@ -83,14 +85,17 @@ LANGUAGE PLPGSQL;
 
 /**/
 CREATE or replace FUNCTION FN_getprojectstudents(_id integer) 
-Returns Table(username varchar, fullname varchar, educationid integer)
+Returns Table(username varchar, fullname varchar, educationid varchar)
 as $$
 BEGIN
 /*Returns all the students in the specified project*/
-RETURN QUERY SELECT students.username, students.fullname, students.educationid from studentprojects
+RETURN QUERY SELECT students.username, students.fullname, education.education from studentprojects
 LEFT JOIN students
 ON students.username = studentprojects.username
-WHERE studentprojects.projectid = _id;
+LEFT JOIN education
+ON education.educationid = students.educationid
+WHERE studentprojects.projectid = _id
+ORDER BY students.fullname;
 
 
 END; $$

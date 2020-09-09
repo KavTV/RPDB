@@ -73,7 +73,7 @@ namespace SKPDB_Library
         /// Returns a single project object
         /// </summary>
         /// <param name="projectId">Id of the project</param>
-        public Project GetProject(string projectId)
+        public Project GetProject(int projectId)
         {
             return dal.GetProject(projectId);
         }

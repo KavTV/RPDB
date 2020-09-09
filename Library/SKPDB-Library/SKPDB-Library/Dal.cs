@@ -241,7 +241,7 @@ namespace SKPDB_Library
         /// </summary>
         /// <param name="projectId">Id of the project</param>
         /// <returns></returns>
-        public Project GetProject(string projectId)
+        public Project GetProject(int projectId)
         {
             //Locals
             Project project = null;
@@ -259,7 +259,7 @@ namespace SKPDB_Library
             // Reads all content from reservations table
             while (reader.Read())
             {
-                int id = int.Parse(reader["username"].ToString());
+                int id = int.Parse(reader["projectid"].ToString());
                 project = new Project(
                     id,
                     reader["headline"].ToString(),
