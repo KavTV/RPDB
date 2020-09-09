@@ -1,11 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "mRN+z6BEgJG5lPLh4l9LpBrcRIRK9V877se3JtWNFLbMlIRjDriNS7elRy3w2l24deHysFnrHBXlpz5V+CT75A==",
+  "dgSpecHash": "IE67VZyz8H54r3NNhwyRoZRs79l4chS8h8xY69HjIDD23mFKG8FNM1Z20u4ia46tzluLEDT33H35cWX/4w8UpQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kasp609g\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\npgsql\\4.1.4\\npgsql.4.1.4.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.text.encodings.web\\4.6.0\\system.text.encodings.web.4.6.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

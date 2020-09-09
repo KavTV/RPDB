@@ -4,6 +4,6 @@ C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\bin
 C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.csprojAssemblyReference.cache
 C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.AssemblyInfoInputs.cache
 C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.AssemblyInfo.cs
-C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.csproj.CoreCompileInputs.cache
 C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.dll
 C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.pdb
+C:\Users\kasp609g\Documents\GitHub\SKPDB\Library\SKPDB-Library\SKPDB-Library\obj\Debug\netstandard2.0\SKPDB-Library.csproj.CoreCompileInputs.cache
