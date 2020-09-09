@@ -142,3 +142,31 @@ END
 $$;
 
 /**/
+CREATE or replace FUNCTION FN_GetProject(_id integer) 
+Returns Table(projectid int, headline varchar, documentation varchar, description varchar)
+as $$
+BEGIN
+
+RETURN QUERY SELECT projects.projectid, projects.headline, projects.documentation, projects.description from projects
+WHERE projects.projectid = _id;
+
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE or replace FUNCTION FN_GetStudent(_username varchar) 
+Returns Table(username varchar, fullname varchar, education varchar)
+as $$
+BEGIN
+
+RETURN QUERY SELECT students.username, students.fullname, education.education from students
+LEFT JOIN education
+ON education.educationid = students.educationid
+WHERE students.username = _username;
+
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
