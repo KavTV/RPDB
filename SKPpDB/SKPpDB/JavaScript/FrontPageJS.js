@@ -1,5 +1,5 @@
 ﻿var TableList = document.getElementById("TableList");
-var Projects = FetchJson("https://localhost:44369/projects");
+var Projects = FetchJson("https://localhost:44369/api/projects");
 
 window.addEventListener('load', function () {
     LoadTable();
@@ -28,5 +28,5 @@ function LoadTable() {
 }
 
 function LoadJson() {
-    Projects = FetchJson("https://localhost:44369/projects");
+    Projects = FetchJson("https://localhost:44369/api/projects");
 }

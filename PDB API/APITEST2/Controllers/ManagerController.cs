@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using SKPDB_Library;
+using Microsoft.AspNetCore.Cors;
 
 namespace APITEST2.Controllers
 {
     [Route("api")]
     [ApiController]
+    [EnableCors("AllowAll")]
     public class ManagerController : ControllerBase
     {
         Manager manager = new Manager("Server = 127.0.0.1; Port=5432; User Id = postgres; Password=123; Database=SKPDB;");

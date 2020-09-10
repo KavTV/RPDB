@@ -33,24 +33,27 @@ namespace SKPDB_Library
         /// <summary>
         /// Creates a project
         /// </summary>
-        public void CreateProject(string headline, string documentation, string description, string username)
+        /// <returns>True if completed</returns>
+        public bool CreateProject(string headline, string documentation, string description, string username)
         {
-            dal.CreateProject(headline, documentation, description, username);
+            return dal.CreateProject(headline, documentation, description, username);
         }
         /// <summary>
         /// Deletes the project
         /// </summary>
         /// <param name="projectid">Id of project</param>
-        public void DeleteProject(int id)
+        /// <returns>True if completed</returns>
+        public bool DeleteProject(int id)
         {
-            dal.DeleteProject(id);
+            return dal.DeleteProject(id);
         }
         /// <summary>
         /// Edits the whole project
         /// </summary>
-        public void EditProject(int projectid, string headline, string documentation, string description)
+        /// <returns>True if completed</returns>
+        public bool EditProject(int projectid, string headline, string documentation, string description)
         {
-            dal.EditProject(projectid, headline, documentation, description);
+            return dal.EditProject(projectid, headline, documentation, description);
         }
         /// <summary>
         /// Returns a list with all students in the project
@@ -76,6 +79,23 @@ namespace SKPDB_Library
         public Project GetProject(int projectId)
         {
             return dal.GetProject(projectId);
+        }
+
+        /// <summary>
+        /// Adds a user to a project
+        /// </summary>
+        /// <returns>True if completed</returns>
+        public bool AddToProject(int projectid, string username)
+        {
+            return dal.AddToProject(projectid, username);
+        }
+        /// <summary>
+        /// Removes a user from project
+        /// </summary>
+        /// <returns>True if completed</returns>
+        public bool RemoveFromProject(int projectid, string username)
+        {
+            return dal.RemoveFromProject(projectid, username);
         }
     }
 }

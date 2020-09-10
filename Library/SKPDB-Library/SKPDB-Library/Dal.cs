@@ -147,7 +147,7 @@ namespace SKPDB_Library
         /// <summary>
         /// Creates a project
         /// </summary>
-        public void CreateProject(string headline, string documentation, string description, string username)
+        public bool CreateProject(string headline, string documentation, string description, string username)
         {
             if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(username))
             {
@@ -163,14 +163,14 @@ namespace SKPDB_Library
             command.Parameters.AddWithValue("description", description);
             command.Parameters.AddWithValue("username", username);
 
-            ExecuteNonQuery(command);
+            return ExecuteNonQuery(command);
 
         }
         /// <summary>
         /// Deletes the project
         /// </summary>
         /// <param name="projectid">Id of project</param>
-        public void DeleteProject(int projectid)
+        public bool DeleteProject(int projectid)
         {
 
             // Execute function
@@ -179,13 +179,13 @@ namespace SKPDB_Library
 
             command.Parameters.AddWithValue("projectid", projectid);
 
-            ExecuteNonQuery(command);
+            return ExecuteNonQuery(command);
 
         }
         /// <summary>
         /// Edits the whole project
         /// </summary>
-        public void EditProject(int projectid, string headline, string documentation, string description)
+        public bool EditProject(int projectid, string headline, string documentation, string description)
         {
 
             // Execute function
@@ -197,7 +197,7 @@ namespace SKPDB_Library
             command.Parameters.AddWithValue("documentation", documentation);
             command.Parameters.AddWithValue("description", description);
 
-            ExecuteNonQuery(command);
+            return ExecuteNonQuery(command);
 
         }
 
@@ -272,8 +272,36 @@ namespace SKPDB_Library
             return project;
         }
 
+        public bool AddToProject(int projectid, string username)
+        {
 
-        private void ExecuteNonQuery(NpgsqlCommand command)
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_addtoproject(@projectid, @username)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+            command.Parameters.AddWithValue("username", username);
+
+            return ExecuteNonQuery(command);
+
+        }
+
+        public bool RemoveFromProject(int projectid, string username)
+        {
+
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_removefromproject(@projectid, @username)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+            command.Parameters.AddWithValue("username", username);
+
+            return ExecuteNonQuery(command);
+
+        }
+
+
+        private bool ExecuteNonQuery(NpgsqlCommand command)
         {
             try
             {
@@ -286,11 +314,12 @@ namespace SKPDB_Library
                 connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();
+                return true;
             }
             catch (Exception)
             {
 
-                throw;
+                return false;
             }
         }
     }

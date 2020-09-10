@@ -175,3 +175,28 @@ END; $$
 LANGUAGE PLPGSQL;
 
 /**/
+CREATE OR REPLACE PROCEDURE SP_AddToProject(_projectid integer, _username varchar )
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 INSERT INTO studentprojects VALUES(_projectid, _username);
+	 
+END
+$$;
+
+/**/
+CREATE OR REPLACE PROCEDURE SP_RemoveFromProject(_projectid integer, _username varchar )
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 DELETE FROM studentprojects 
+	 WHERE studentprojects.projectid = _projectid AND studentprojects.username = _username;  
+	 
+END
+$$;
+
+/**/
