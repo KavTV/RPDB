@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\seba6474\\source\\repos\\APITEST2\\APITEST2\\APITEST2.csproj": {}
+    "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\PDB API\\APITEST2\\APITEST2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\seba6474\\source\\repos\\APITEST2\\APITEST2\\APITEST2.csproj": {
+    "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\PDB API\\APITEST2\\APITEST2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\seba6474\\source\\repos\\APITEST2\\APITEST2\\APITEST2.csproj",
+        "projectUniqueName": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\PDB API\\APITEST2\\APITEST2.csproj",
         "projectName": "APITEST2",
-        "projectPath": "C:\\Users\\seba6474\\source\\repos\\APITEST2\\APITEST2\\APITEST2.csproj",
-        "packagesPath": "C:\\Users\\seba6474\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\seba6474\\source\\repos\\APITEST2\\APITEST2\\obj\\",
+        "projectPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\PDB API\\APITEST2\\APITEST2.csproj",
+        "packagesPath": "C:\\Users\\kasp609g\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\PDB API\\APITEST2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\seba6474\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kasp609g\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
