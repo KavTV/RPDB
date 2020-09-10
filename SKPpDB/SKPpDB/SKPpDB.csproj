@@ -118,6 +118,7 @@
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
     <Content Include="Style\frontPage.css" />
+    <Content Include="WatchProject.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +137,13 @@
       <DependentUpon>DefaultMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WatchProject.aspx.cs">
+      <DependentUpon>WatchProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WatchProject.aspx.designer.cs">
+      <DependentUpon>WatchProject.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage\DefaultMaster.Master" />
