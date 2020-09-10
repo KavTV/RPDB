@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
     <Content Include="Style\frontPage.css" />
     <Content Include="Web.config" />

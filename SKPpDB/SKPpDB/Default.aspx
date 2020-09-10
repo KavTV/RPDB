@@ -17,14 +17,14 @@
                 <header class="col-md-2 rightBorderGreen">Udviklings dokument</header>
                 <header class="col-md-2">Medarbejder</header>
             </article>
-            <asp:section x:Name="ProjectList" class="TableRowBox ScrollLook">
-                <article class="TableBody row">
+            <section id="TableList" class="TableRowBox ScrollLook" onload="LoadTable()">
+<%--             <article class="TableBody row">
                     <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
                     <header class="col-md-6 ScrollLook">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</header>
                     <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
                     <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
-                </article>
-            </asp:section>
+                </article>--%>
+            </section>
         </section>
     </section>
 </asp:Content>

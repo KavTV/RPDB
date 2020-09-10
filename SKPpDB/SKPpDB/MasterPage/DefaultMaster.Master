@@ -27,5 +27,6 @@
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
     <script src="../JavaScript/GetJson.js"></script>
+    <script src="../JavaScript/FrontPageJS.js"></script>
 </body>
 </html>
