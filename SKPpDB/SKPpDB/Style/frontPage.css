@@ -131,7 +131,13 @@ body, html   {
     overflow-y: auto;
     overflow-x: hidden;
 }
-
+.TableRowBox a{
+    color: black;
+    display: block;
+}
+.TableRowBox a:hover{
+    color: black;
+}
 .rightBorderGreen {
     border-right: 1px solid #698a6c;
 }

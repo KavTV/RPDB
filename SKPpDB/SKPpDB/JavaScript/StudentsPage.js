@@ -4,10 +4,9 @@ var Project = FetchJson("https://localhost:44369/api/students").done(function ()
     UpdateTable();
 });
 
- function UpdateTable() {
+function UpdateTable() {
 
-     
-     console.log(Project);
+
     Project.responseJSON.forEach(element => {
         var projects = element["ProjectList"];
         var projectstring = "";
@@ -26,5 +25,6 @@ function TableAddRow(Name, Projects, Education) {
         '<header class="col-md-3 ScrollLook">' + Name + '</header>' +
         '<header class="col-md-6 ScrollLook">' + Projects + '</header>' +
         '<header class="col-md-3 ScrollLook">' + Education + '</header>' +
-        '</article">';
+        '</article"> ';
 }
+
