@@ -1,11 +1,9 @@
 ﻿var TableList = document.getElementById("TableList");
 
-
 var Project;
 
 window.addEventListener('load', function () {
 
-    
     console.log(Project);
     UpdateTable();
 })

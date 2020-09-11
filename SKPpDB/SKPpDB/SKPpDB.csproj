@@ -117,7 +117,8 @@
     <Content Include="Default.aspx" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
-    <Content Include="JavaScript\OverviewPage.js" />
+    <Content Include="JavaScript\ProjectPage.js" />
+    <Content Include="JavaScript\StudentsPage.js" />
     <Content Include="Students.aspx" />
     <Content Include="Style\frontPage.css" />
     <Content Include="WatchProject.aspx" />

@@ -19,5 +19,5 @@
         </section>
     </section>
 
-     <script src="../JavaScript/OverviewPage.js"></script>
+     <script src="../JavaScript/ProjectPage.js"></script>
 </asp:Content>

@@ -1,9 +1,7 @@
 ﻿var TableList = document.getElementById("TableList");
-var Project = FetchJson("https://localhost:44369/api/projects");
-
-window.addEventListener('load', function () {
+var Project = FetchJson("https://localhost:44369/api/projects").done(function () {
     LoadTable();
-})
+});
 
 function TableAddRow(Headline, Description, Documentation, Students) {
     TableList.innerHTML += '<article class="TableBody row">' +
