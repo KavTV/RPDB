@@ -1,5 +1,5 @@
 ﻿var TableList = document.getElementById("TableList");
-var Projects = FetchJson("https://localhost:44369/api/projects");
+var Project = FetchJson("https://localhost:44369/api/projects");
 
 window.addEventListener('load', function () {
     LoadTable();
@@ -15,7 +15,7 @@ function TableAddRow(Headline, Description, Documentation, Students) {
 }
 
 function LoadTable() {
-    Projects.responseJSON.forEach(element => {
+    Project.responseJSON.forEach(element => {
         var students = element["Students"];
         var studentsString = "";
 
@@ -28,5 +28,5 @@ function LoadTable() {
 }
 
 function LoadJson() {
-    Projects = FetchJson("https://localhost:44369/api/projects");
+    Project = FetchJson("https://localhost:44369/api/projects");
 }
