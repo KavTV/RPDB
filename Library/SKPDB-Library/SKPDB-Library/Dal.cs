@@ -208,6 +208,10 @@ namespace SKPDB_Library
         /// <returns></returns>
         public Student GetStudent(string username)
         {
+            if (string.IsNullOrEmpty(username))
+            {
+                return null;
+            }
             //Locals
             Student student = null;
 
@@ -219,17 +223,25 @@ namespace SKPDB_Library
 
             // Opens connection
             connection.Open();
-            NpgsqlDataReader reader = command.ExecuteReader();
-
-            // Reads all content from reservations table
-            while (reader.Read())
+            try
             {
-                string user = reader["username"].ToString();
-                student = new Student(
-                    user,
-                    reader["education"].ToString(),
-                    reader["fullname"].ToString(),
-                    GetStudentProjects(user));
+
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                // Reads all content from reservations table
+                while (reader.Read())
+                {
+                    string user = reader["username"].ToString();
+                    student = new Student(
+                        user,
+                        reader["education"].ToString(),
+                        reader["fullname"].ToString(),
+                        GetStudentProjects(user));
+                }
+            }
+            catch (Exception)
+            {
+
             }
             connection.Close();
 
