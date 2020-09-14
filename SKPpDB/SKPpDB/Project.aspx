@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Projekt" Language="C#" MasterPageFile="~/MasterPage/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="WatchProject.aspx.cs" Inherits="SKPpDB.WatchProject" %>
+﻿<%@ Page Title="Projekt" Language="C#" MasterPageFile="~/MasterPage/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="SKPpDB.WatchProject" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

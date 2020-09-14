@@ -121,7 +121,7 @@
     <Content Include="JavaScript\StudentsPage.js" />
     <Content Include="Students.aspx" />
     <Content Include="Style\frontPage.css" />
-    <Content Include="WatchProject.aspx" />
+    <Content Include="Project.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -147,12 +147,12 @@
     <Compile Include="Students.aspx.designer.cs">
       <DependentUpon>Students.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WatchProject.aspx.cs">
-      <DependentUpon>WatchProject.aspx</DependentUpon>
+    <Compile Include="Project.aspx.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WatchProject.aspx.designer.cs">
-      <DependentUpon>WatchProject.aspx</DependentUpon>
+    <Compile Include="Project.aspx.designer.cs">
+      <DependentUpon>Project.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

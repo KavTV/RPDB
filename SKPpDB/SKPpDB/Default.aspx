@@ -15,7 +15,7 @@
                 <header class="col-md-2 rightBorderGreen">Projekt navn</header>
                 <header class="col-md-6 rightBorderGreen">Projekt beskrivelse</header>
                 <header class="col-md-2 rightBorderGreen">Udviklings dokument</header>
-                <header class="col-md-2">Medarbejder</header>
+                <header class="col-md-2">Medarbejdere</header>
             </article>
             <section id="TableList" class="TableRowBox ScrollLook" onload="LoadTable()">
                 <%--             <article class="TableBody row">

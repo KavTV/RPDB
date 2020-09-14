@@ -151,7 +151,7 @@ namespace SKPDB_Library
         {
             if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(username))
             {
-                return;
+                return false;
             }
 
             // Execute function

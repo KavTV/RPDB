@@ -2,19 +2,24 @@
     font-family: Milk;
     src: url(font/LEMONMILK-Medium.otf);
 }
+
 @font-face {
     font-family: Avenir;
     src: url(font/AvenirLTStd-Medium.otf);
 }
 
 @media (min-width: 1700px) {
-
 }
 
-body, html   {
+body, html {
     margin: 0;
     height: 100%;
 }
+
+    body a {
+        color: black;
+        display: block;
+    }
 
 .TopSection {
     display: block;
@@ -23,25 +28,28 @@ body, html   {
     background-color: rgb(241 239 239);
 }
 
-.TopSection .Big {
-    color: #009c00;
-    font-family: Milk;
-    font-size: 3.5rem;
-    display: inline;
-}
+    .TopSection .Big {
+        color: #009c00;
+        font-family: Milk;
+        font-size: 3.5rem;
+        display: inline;
+    }
 
-.TopSection header {
-    padding: 20px;
-    text-align: center;
-    width: auto;
-}
+    .TopSection header {
+        padding: 20px;
+        text-align: center;
+        width: auto;
+    }
 
-.TopSection h1 {
-    font-family: Avenir;
-    font-size: 2rem;
-    display: inline;
-    color: black;
-}
+    .TopSection h1 {
+        font-family: Avenir;
+        font-size: 2rem;
+        display: inline;
+        color: black;
+    }
+    .TopSection a:hover{
+        text-decoration: none;
+    }
 
 .Mainbox {
     position: relative;
@@ -59,28 +67,27 @@ body, html   {
     text-align: center;
 }
 
-.Option input[type=button] {
-    background-color: rgb(99, 127, 163);
-    padding: 10px 0;
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: white;
-    outline: none;
-    text-shadow: 1px 1px 1px black;
-    border-radius: 20px;
-}
+    .Option input[type=button] {
+        background-color: rgb(99, 127, 163);
+        padding: 10px 0;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: white;
+        outline: none;
+        text-shadow: 1px 1px 1px black;
+        border-radius: 20px;
+    }
 
-.Option input[type=button]:hover {
-    background-color: rgb(80, 104, 136);
+        .Option input[type=button]:hover {
+            background-color: rgb(80, 104, 136);
+        }
 
-}
-
-.Option input[type=text] {
-    padding: 10px;
-    font-size: 1.3rem;
-    outline: none;
-    border-radius: 20px;
-}
+    .Option input[type=text] {
+        padding: 10px;
+        font-size: 1.3rem;
+        outline: none;
+        border-radius: 20px;
+    }
 
 .Table {
     position: relative;
@@ -97,14 +104,14 @@ body, html   {
     box-shadow: 1px 1px 3px 0px black;
 }
 
-.TableHead header {
-    padding: 10px 20px;
-    font-size: 1.5em;
-    color: white;
-    text-shadow: 1px 1px 2px black;
-    display: inline-block;
-    white-space: nowrap;
-}
+    .TableHead header {
+        padding: 10px 20px;
+        font-size: 1.5em;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        display: inline-block;
+        white-space: nowrap;
+    }
 
 .TableBody {
     margin: 5px;
@@ -114,14 +121,13 @@ body, html   {
     background-color: #eee;
     border-radius: 20px;
     box-shadow: 1px 1px 3px 0px black;
-
 }
 
-.TableBody header {
-    padding: 10px 20px;
-    max-height: 100px;
-    overflow-y: auto;
-}
+    .TableBody header {
+        padding: 10px 20px;
+        max-height: 100px;
+        overflow-y: auto;
+    }
 
 .TableRowBox {
     margin-top: 10px;
@@ -131,13 +137,11 @@ body, html   {
     overflow-y: auto;
     overflow-x: hidden;
 }
-.TableRowBox a{
-    color: black;
-    display: block;
-}
-.TableRowBox a:hover{
-    color: black;
-}
+
+    .TableRowBox a:hover {
+        color: black;
+    }
+
 .rightBorderGreen {
     border-right: 1px solid #698a6c;
 }
@@ -147,20 +151,17 @@ body, html   {
 }
 
 
-.ScrollLook::-webkit-scrollbar-track
-{
+.ScrollLook::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
 }
 
-.ScrollLook::-webkit-scrollbar
-{
+.ScrollLook::-webkit-scrollbar {
     height: 95%;
     width: 6px;
 }
 
-.ScrollLook::-webkit-scrollbar-thumb
-{
+.ScrollLook::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #7fa482;

@@ -2,7 +2,9 @@
 
 var Project = FetchJson("https://localhost:44369/api/students").done(function () {
     UpdateTable();
-});
+}).fail(function () {
+    AddError("Kunne ikke få fat i databasen");
+})
 
 function UpdateTable() {
 
@@ -26,5 +28,11 @@ function TableAddRow(Name, Projects, Education) {
         '<header class="col-md-6 ScrollLook">' + Projects + '</header>' +
         '<header class="col-md-3 ScrollLook">' + Education + '</header>' +
         '</article"> ';
+}
+
+function AddError(error) {
+    TableList.innerHTML = '<article class="TableBody row">' +
+        '<header class="col-md-12">' + error + '</header>' +
+        '</article>';
 }
 

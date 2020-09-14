@@ -14,15 +14,17 @@
 </head>
 <body>
     <section class="TopSection">
-        <article>
-                
-            <header>
-                <span class="Big">SKP
-                </span>
-                <h1>Projekt Database
-                </h1>
-            </header>
-        </article>
+        <a href="../Default.aspx">
+            <article>
+
+                <header>
+                    <span class="Big">SKP
+                    </span>
+                    <h1>Projekt Database
+                    </h1>
+                </header>
+            </article>
+        </a>
     </section>
     <section class="Mainbox">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
