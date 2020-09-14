@@ -29,9 +29,6 @@ function LoadTable() {
     });
 }
 
-function LoadJson() {
-    Project = FetchJson("https://localhost:44369/api/projects");
-}
 
 function AddError(error) {
     TableList.innerHTML = '<article class="TableBody row">' +

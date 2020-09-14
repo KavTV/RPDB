@@ -59,6 +59,19 @@ body, html {
     background-color: rgb(175 190 200);
     overflow-y: visible;
 }
+.ButtonLook {
+    background-color: rgb(99, 127, 163);
+    padding: 10px 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    outline: none;
+    text-shadow: 1px 1px 1px black;
+    border-radius: 20px;
+}
+    .ButtonLook:hover {
+        background-color: rgb(80, 104, 136);
+    }
 
 .Option {
     margin: 0 auto;

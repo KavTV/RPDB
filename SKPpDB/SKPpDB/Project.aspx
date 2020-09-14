@@ -4,8 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <article class="Option container-fluid">
-        <input type="button" value="Rediger" class="col-4">
-        <input type="button" value="Slet" class="col-4">
+        <%--<input type="button" value="Slet" class="col-4">--%>
+        <form runat="server">
+            <asp:Button runat="server" type="button" CssClass="col-4 ButtonLook" Text="Rediger"/>
+            <asp:Button runat="server" ID="DeleteBTN" CssClass="col-4 ButtonLook" Text="Slet" OnClick="DeleteBTN_Click" />
+        </form>
     </article>
     <section class="Table container-fluid">
         <article class="TableHead row">
@@ -15,9 +18,8 @@
             <header class="col-md-2">Medarbejder</header>
         </article>
         <section id="TableList" class="TableRowBox ScrollLook">
-            
         </section>
     </section>
 
-     <script src="../JavaScript/ProjectPage.js"></script>
+    <script src="../JavaScript/ProjectPage.js"></script>
 </asp:Content>
