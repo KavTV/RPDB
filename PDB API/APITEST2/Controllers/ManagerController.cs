@@ -80,7 +80,7 @@ namespace APITEST2.Controllers
             [FromQuery] string documentation,
             [FromQuery] string description)
         {
-            if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(projectid))
+            if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description))
             {
                 return BadRequest();
             }
