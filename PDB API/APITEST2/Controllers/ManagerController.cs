@@ -92,5 +92,41 @@ namespace APITEST2.Controllers
             return BadRequest();
         }
 
+        [Route("addtoproject")]
+        [HttpPost]
+        public IActionResult AddToProject(
+            [FromQuery] int projectid,
+            [FromQuery] string username)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                return BadRequest();
+            }
+            if (manager.AddToProject(projectid, username))
+            {
+                return Ok();
+            }
+            return BadRequest();
+
+        }
+
+        [Route("removefromproject")]
+        [HttpPost]
+        public IActionResult RemoveFromProject(
+            [FromQuery] int projectid,
+            [FromQuery] string username)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                return BadRequest();
+            }
+            if (manager.RemoveFromProject(projectid, username))
+            {
+                return Ok();
+            }
+            return BadRequest();
+
+        }
+
     }
 }
