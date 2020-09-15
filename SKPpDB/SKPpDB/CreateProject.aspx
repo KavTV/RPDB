@@ -9,6 +9,7 @@
             </header>
             
             <article class="container-fluid">
+                <p runat="server" id="text"></p>
                 <h4>
                     Projekt navn:
                 </h4>
@@ -28,13 +29,11 @@
                     <select name="elever" id="Students">
                     </select>
                     <input type="submit" value="+" onclick="AddSelectedStudent()">
-                    <select class="ScrollLook" name="Selected Elever" size="5" id="SelectedStudents">
+                    <select class="ScrollLook" name="SelectedStudents" size="5" id="SelectedStudents">
                     </select>
                     <input type="submit" value="-" onclick="RemoveSelectedStudent()">
                 </article>
-                <form runat="server">
-                    <asp:Button id="CreateButton" Text="Tilføj Projekt" runat="server" />
-                </form>
+                <button value="kage" />
             </article>
         </section>
     <script src="../JavaScript/createProject.js"></script>

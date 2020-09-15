@@ -25,10 +25,14 @@ function AddSelectedStudent() {
     var optionElement = SelectElement.selectedOptions[0];
 
     if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex) {        
+        var newOption = document.createElement("option");
+        newOption.text = student["Name"] + ' (' + student["Education"] + ')';
+        newOption.value = student["Username"];
+
         StudentIndexList.push(SelectElement.selectedIndex);
         optionElement.disabled = true;
         SelectElement.selectedIndex++;
-        StudentListBox.innerHTML += '<option value="' + student["Username"] + '">' + student["Name"] + ' (' + student["Education"] + ')' + '</option>';
+        StudentListBox.options.add(newOption);
     }
 }
 
