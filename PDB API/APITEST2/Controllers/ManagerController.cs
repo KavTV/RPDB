@@ -52,5 +52,45 @@ namespace APITEST2.Controllers
             return json;
         }
 
+        [Route("createproject")]
+        [HttpPost]
+        public IActionResult CreateProject(
+            [FromQuery] string headline,
+            [FromQuery] string documentation,
+            [FromQuery] string description,
+            [FromQuery] string username)
+        {
+            if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(username))
+            {
+                return BadRequest();
+            }
+
+            if (manager.CreateProject(headline, documentation, description, username))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [Route("editproject")]
+        [HttpPost]
+        public IActionResult EditProject(
+            [FromQuery] int projectid,
+            [FromQuery] string headline,
+            [FromQuery] string documentation,
+            [FromQuery] string description)
+        {
+            if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(projectid))
+            {
+                return BadRequest();
+            }
+            //EditProject returns true if everything goes alright
+            if (manager.EditProject(projectid, headline, documentation, description))
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
     }
 }

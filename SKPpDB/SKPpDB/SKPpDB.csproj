@@ -116,7 +116,9 @@
   <ItemGroup>
     <Content Include="CreateProject.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="EditProject.aspx" />
     <Content Include="JavaScript\createProject.js" />
+    <Content Include="JavaScript\EditPage.js" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
     <Content Include="JavaScript\ProjectPage.js" />
@@ -142,6 +144,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProject.aspx.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProject.aspx.designer.cs">
+      <DependentUpon>EditProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage\DefaultMaster.Master.cs">
       <DependentUpon>DefaultMaster.Master</DependentUpon>
