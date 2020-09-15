@@ -114,18 +114,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateProject.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="JavaScript\createProject.js" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
     <Content Include="JavaScript\ProjectPage.js" />
     <Content Include="JavaScript\StudentsPage.js" />
     <Content Include="Students.aspx" />
+    <Content Include="Style\Create.css" />
     <Content Include="Style\frontPage.css" />
     <Content Include="Project.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,0 +1,27 @@
+.CreateBox {
+    padding: 20px;
+    margin: 0px auto;
+    width: 40% !important;
+    text-align: center;
+}
+
+.CreateBox header {
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-family: Avenir;
+    font-size: 50px;
+}
+
+.CreateBox input[type=text] {
+    padding: 5px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 10px;
+}
+
+select {
+    min-width: 250px;
+    max-width: 300px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
