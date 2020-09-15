@@ -31,9 +31,14 @@ namespace SKPpDB
             }
             catch (Exception)
             {
-
+                
             }
 
+        }
+
+        protected void Redirect_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EditProject.aspx");
         }
     }
 }
