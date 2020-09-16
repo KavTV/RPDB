@@ -18,22 +18,7 @@ namespace SKPpDB
 
         protected void EditButton_Click(object sender, EventArgs e)
         {
-            string query = Request.QueryString["projectid"];
-            if (string.IsNullOrWhiteSpace(query))
-            {
-                return;
-            }
-            try
-            {
-                int queryint = int.Parse(query);
-
-                manager.EditProject(queryint, HeadlineText.Value, DocumentationText.Value, DescriptionText.Value);
-
-            }
-            catch (Exception)
-            {
-
-            }
+            
 
 
         }
