@@ -34,9 +34,9 @@ namespace SKPDB_Library
         /// Creates a project
         /// </summary>
         /// <returns>True if completed</returns>
-        public bool CreateProject(string headline, string documentation, string description, string username)
+        public bool CreateProject(string headline, string documentation, string description, string[] usernames)
         {
-            return dal.CreateProject(headline, documentation, description, username);
+            return dal.CreateProject(headline, documentation, description, usernames);
         }
         /// <summary>
         /// Deletes the project
@@ -51,9 +51,9 @@ namespace SKPDB_Library
         /// Edits the whole project
         /// </summary>
         /// <returns>True if completed</returns>
-        public bool EditProject(int projectid, string headline, string documentation, string description)
+        public bool EditProject(int projectid, string headline, string documentation, string description, string[] usernames)
         {
-            return dal.EditProject(projectid, headline, documentation, description);
+            return dal.EditProject(projectid, headline, documentation, description, usernames);
         }
         /// <summary>
         /// Returns a list with all students in the project

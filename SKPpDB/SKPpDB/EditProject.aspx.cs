@@ -26,15 +26,16 @@ namespace SKPpDB
             try
             {
                 int queryint = int.Parse(query);
-                
+
                 manager.EditProject(queryint, HeadlineText.Value, DocumentationText.Value, DescriptionText.Value);
-                
+
             }
             catch (Exception)
             {
 
             }
-            
+
+
         }
     }
 }

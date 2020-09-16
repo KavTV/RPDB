@@ -38,7 +38,8 @@ namespace SKPpDB
 
         protected void Redirect_Click(object sender, EventArgs e)
         {
-            Response.Redirect("EditProject.aspx");
+            string query = Request.QueryString["projectid"];
+            Response.Redirect($"EditProject.aspx?projectid={query}");
         }
     }
 }

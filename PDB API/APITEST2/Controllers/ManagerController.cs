@@ -65,7 +65,11 @@ namespace APITEST2.Controllers
                 return BadRequest();
             }
 
-            if (manager.CreateProject(headline, documentation, description, username))
+            string[] usernameSplit = username.Split(",");
+
+
+
+            if (manager.CreateProject(headline, documentation, description, usernameSplit))
             {
                 return Ok();
             }
@@ -78,14 +82,16 @@ namespace APITEST2.Controllers
             [FromQuery] int projectid,
             [FromQuery] string headline,
             [FromQuery] string documentation,
-            [FromQuery] string description)
+            [FromQuery] string description,
+            [FromQuery] string usernames)
         {
             if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description))
             {
                 return BadRequest();
             }
+            string[] usernameSplit = usernames.Split(",");
             //EditProject returns true if everything goes alright
-            if (manager.EditProject(projectid, headline, documentation, description))
+            if (manager.EditProject(projectid, headline, documentation, description, usernameSplit))
             {
                 return Ok();
             }

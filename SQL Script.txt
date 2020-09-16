@@ -102,21 +102,24 @@ END; $$
 LANGUAGE PLPGSQL;
 
 /**/
-CREATE OR REPLACE PROCEDURE SP_createproject(_headline varchar(70), _documentation varchar(255), _description varchar(255), _username varchar(30))
+CREATE OR REPLACE PROCEDURE SP_createproject(_headline varchar(70), _documentation varchar(255), _description varchar(255), _username varchar[])
 LANGUAGE plpgsql
 
 AS $$
 
 DECLARE
    v_id int;
+   u varchar;
    BEGIN
 	INSERT INTO projects(headline,documentation,description)
 	VALUES(_headline,_documentation,_description) RETURNING  projectid INTO v_id;
 	
+	FOREACH u IN ARRAY _username
+	LOOP
 	INSERT INTO studentprojects 
-	VALUES(v_id, _username);
-	
-END
+	VALUES(v_id, u);
+	END LOOP;
+END;
 $$;
 
 
@@ -134,16 +137,27 @@ END
 $$;
 
 /**/
-CREATE OR REPLACE PROCEDURE SP_editproject(_projectid integer, _headline varchar(70), _documentation varchar(255), _description varchar(255))
+CREATE OR REPLACE PROCEDURE SP_editproject(_projectid integer, _headline varchar(70), _documentation varchar(255), _description varchar(255),_username varchar[])
 LANGUAGE plpgsql
 
 AS $$
+DECLARE
+	u varchar;
 BEGIN
 	 
 	 UPDATE projects SET headline = _headline, documentation = _documentation, description = _description
 	 WHERE projectid = _projectid;
 	 
-END
+	 DELETE FROM studentprojects
+	 WHERE projectid = _projectid;
+	 
+	 FOREACH u IN ARRAY _username
+	LOOP
+	INSERT INTO studentprojects 
+	VALUES(_projectid, u);
+	END LOOP;
+	 
+END;
 $$;
 
 /**/

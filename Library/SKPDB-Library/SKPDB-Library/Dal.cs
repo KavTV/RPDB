@@ -147,12 +147,33 @@ namespace SKPDB_Library
         /// <summary>
         /// Creates a project
         /// </summary>
-        public bool CreateProject(string headline, string documentation, string description, string username)
+        public bool CreateProject(string headline, string documentation, string description, string[] usernames)
         {
-            if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(username))
+            if (string.IsNullOrWhiteSpace(headline))
             {
                 return false;
             }
+            foreach (var item in usernames)
+            {
+                if (string.IsNullOrWhiteSpace(item))
+                {
+                    return false;
+                }
+            }
+            //Make arraystring
+            string usernameArray = "";
+            for (int i = 0; i < usernames.Length; i++)
+            {
+                if (i != usernames.Length - 1)
+                {
+                    usernameArray += $"'{usernames[i]}',";
+                }
+                else
+                {
+                    usernameArray += $"'{usernames[i]}'";
+                }
+            }
+
 
             // Execute function
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
@@ -161,7 +182,7 @@ namespace SKPDB_Library
             command.Parameters.AddWithValue("headline", headline);
             command.Parameters.AddWithValue("documentation", documentation);
             command.Parameters.AddWithValue("description", description);
-            command.Parameters.AddWithValue("username", username);
+            command.Parameters.Add("username", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text).Value = usernames;
 
             return ExecuteNonQuery(command);
 
@@ -185,17 +206,18 @@ namespace SKPDB_Library
         /// <summary>
         /// Edits the whole project
         /// </summary>
-        public bool EditProject(int projectid, string headline, string documentation, string description)
+        public bool EditProject(int projectid, string headline, string documentation, string description, string[] usernames)
         {
 
             // Execute function
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-            NpgsqlCommand command = new NpgsqlCommand("CALL sp_editproject(@projectid, @headline, @documentation, @description)", connection);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_editproject(@projectid, @headline, @documentation, @description, @username)", connection);
 
             command.Parameters.AddWithValue("projectid", projectid);
             command.Parameters.AddWithValue("headline", headline);
             command.Parameters.AddWithValue("documentation", documentation);
             command.Parameters.AddWithValue("description", description);
+            command.Parameters.Add("username", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text).Value = usernames;
 
             return ExecuteNonQuery(command);
 
@@ -317,7 +339,6 @@ namespace SKPDB_Library
         {
             try
             {
-
                 // Creates connection
                 NpgsqlConnection connection = new NpgsqlConnection(connectionString);
                 command.Connection = connection;
@@ -330,7 +351,6 @@ namespace SKPDB_Library
             }
             catch (Exception)
             {
-
                 return false;
             }
         }
