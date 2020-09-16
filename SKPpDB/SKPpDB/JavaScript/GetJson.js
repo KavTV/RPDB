@@ -8,3 +8,12 @@
         return null;
     }
 }
+
+function PostData(Url) {
+    try {
+        fetch(Url, {method: 'POST'});
+    }
+    catch {
+        return null
+    }
+}
