@@ -54,15 +54,12 @@ function RemoveSelectedStudent() {
     }
 }
 
-function GetOneSelectedStudent(row) {
-    return StudentListBox.options[row].value
-}
-
 function GetSelectedStudents() {
     var student = [];
     for (var i = 0; i < StudentListBox.options.length; i++) {
         student.push(StudentListBox.options[i].value);
     }
+    return student;
     console.log(student);
 }
 //#endregion
@@ -70,21 +67,26 @@ function GetSelectedStudents() {
 
 //Create Project
 function createProject() {
-    if (projectNameElement.value && projectDescriptionElement.value && StudentIndexList.length > 0) {
-        var projectLeader = GetOneSelectedStudent(0);
+    if (projectNameElement.value && projectDescriptionElement.value && projectDocumentationElement.value && StudentIndexList.length > 0) {
+        var projectLeader = GetSelectedStudents();
         var projectName = projectNameElement.value;
         var projectDescription = projectDescriptionElement.value;
         var projectDocumentation = projectDocumentationElement.value;
-        PostData("https://localhost:44369/api/createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + projectLeader);
+
+        var studentString = "";
+        studentString += projectLeader + ",";
+        studentString = studentString.substring(0, studentString.length - 1);
+
+        PostData("https://localhost:44369/api/createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + studentString);
         window.location.href = "https://localhost:44334/";
     }
     else {
-        console.log("not all forfillment is required jet");
+        console.log("not all forfillment is required yet");
     }
 }
 
 function FillmentRequire() {
-    if (projectNameElement.value && projectDescriptionElement.value && StudentIndexList.length > 0) {
+    if (projectNameElement.value && projectDescriptionElement.value && projectDocumentationElement.value && StudentIndexList.length > 0) {
         createButtonElement.disabled = false;
     }
     else {

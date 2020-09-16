@@ -21,7 +21,7 @@
                 <h4>
                     Dokumentions Link:
                 </h4>
-                <input id="ProjectDocumentation" class="col-md" type="text" placeholder="Dokumentions Link">
+                <input id="ProjectDocumentation" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Dokumentions Link">
                 <h4>
                     Elever:
                 </h4>
