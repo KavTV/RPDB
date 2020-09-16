@@ -6,7 +6,7 @@
         <article class="Option container-fluid">
             <input type="button" value="Opdater" class="col-2">
             <input type="text" placeholder="Search Project" class="col-5">
-            <input type="button" value="Tilføj Projekt" class="col-2">
+            <input type="button" onclick="window.location.href = 'CreateProject.aspx';" value="Tilføj Projekt" class="col-2">
             <input type="button" value="Filter" class="col-2">
         </article>
         <!--DataBase Table-->

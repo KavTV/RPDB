@@ -13,27 +13,27 @@
                 <h4>
                     Projekt navn:
                 </h4>
-                <input class="col-md" type="text" placeholder="Projekt Navn">
+                <input id="ProjectName" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Projekt Navn">
                 <h4>
                     Projekt Beskrivelse:
                 </h4>
-                <input class="col-md" type="text" placeholder="Projekt Beskrivelse">
+                <input id="ProjectDesription" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Projekt Beskrivelse">
                 <h4>
                     Dokumentions Link:
                 </h4>
-                <input class="col-md" type="text" placeholder="Dokumentions Link">
+                <input id="ProjectDocumentation" class="col-md" type="text" placeholder="Dokumentions Link">
                 <h4>
                     Elever:
                 </h4>
                 <article id="studentBox">
                     <select name="elever" id="Students">
                     </select>
-                    <input type="submit" value="+" onclick="AddSelectedStudent()">
+                    <input type="submit" value="+" onclick="AddSelectedStudent(); FillmentRequire()">
                     <select class="ScrollLook" name="SelectedStudents" size="5" id="SelectedStudents">
                     </select>
-                    <input type="submit" value="-" onclick="RemoveSelectedStudent()">
+                    <input type="submit" value="-" onclick="RemoveSelectedStudent(); FillmentRequire()">
                 </article>
-                <button value="kage" />
+                <input id="CreateButton" type="button" onclick="createProject()" value="Opret Projekt" disabled/>
             </article>
         </section>
     <script src="../JavaScript/createProject.js"></script>

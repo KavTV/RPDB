@@ -1,6 +1,16 @@
+var projectNameElement = document.getElementById("ProjectName");
+var projectDescriptionElement = document.getElementById("ProjectDesription");
+var projectDocumentationElement = document.getElementById("ProjectDocumentation");
+var createButtonElement = document.getElementById("CreateButton");
+
+//#region STUDENT SYSTEM
+
+//Student System elements
 var SelectElement = document.getElementById("Students");
 var studentBox = document.getElementById("studentBox");
 var StudentListBox = document.getElementById("SelectedStudents");
+
+//Student system variable
 var StudentIndexList = [];
 var students = FetchJson("https://localhost:44369/api/students").done(function() {
     if (students.responseJSON != null) {
@@ -24,7 +34,7 @@ function AddSelectedStudent() {
     var student = students.responseJSON[SelectElement.selectedIndex];
     var optionElement = SelectElement.selectedOptions[0];
 
-    if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex) {        
+    if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex && SelectElement.selectedIndex != -1) {        
         var newOption = document.createElement("option");
         newOption.text = student["Name"] + ' (' + student["Education"] + ')';
         newOption.value = student["Username"];
@@ -37,7 +47,47 @@ function AddSelectedStudent() {
 }
 
 function RemoveSelectedStudent() {
-    SelectElement.options[StudentIndexList[StudentListBox.selectedIndex]].disabled = false;
-    StudentIndexList.splice(StudentListBox.selectedIndex, 1);
-    StudentListBox.selectedOptions[0].remove();
+    if (StudentListBox.selectedOptions[0]) {
+        SelectElement.options[StudentIndexList[StudentListBox.selectedIndex]].disabled = false;
+        StudentIndexList.splice(StudentListBox.selectedIndex, 1);
+        StudentListBox.selectedOptions[0].remove();
+    }
+}
+
+function GetOneSelectedStudent(row) {
+    return StudentListBox.options[row].value
+}
+
+function GetSelectedStudents() {
+    var student = [];
+    for (var i = 0; i < StudentListBox.options.length; i++) {
+        student.push(StudentListBox.options[i].value);
+    }
+    console.log(student);
+}
+//#endregion
+
+
+//Create Project
+function createProject() {
+    if (projectNameElement.value && projectDescriptionElement.value && StudentIndexList.length > 0) {
+        var projectLeader = GetOneSelectedStudent(0);
+        var projectName = projectNameElement.value;
+        var projectDescription = projectDescriptionElement.value;
+        var projectDocumentation = projectDocumentationElement.value;
+        PostData("https://localhost:44369/api/createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + projectLeader);
+        window.location.href = "https://localhost:44334/";
+    }
+    else {
+        console.log("not all forfillment is required jet");
+    }
+}
+
+function FillmentRequire() {
+    if (projectNameElement.value && projectDescriptionElement.value && StudentIndexList.length > 0) {
+        createButtonElement.disabled = false;
+    }
+    else {
+        createButtonElement.disabled = true;
+    }
 }
