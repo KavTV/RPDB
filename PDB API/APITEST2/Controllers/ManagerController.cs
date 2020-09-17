@@ -15,7 +15,7 @@ namespace APITEST2.Controllers
     [EnableCors("AllowAll")]
     public class ManagerController : ControllerBase
     {
-        Manager manager = new Manager("Server = 127.0.0.1; Port=5432; User Id = postgres; Password=123; Database=SKPDB;");
+        Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
 
 
         [Route("students")]

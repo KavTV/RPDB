@@ -10,7 +10,7 @@ namespace SKPpDB
 {
     public partial class EditProject : System.Web.UI.Page
     {
-        Manager manager = new Manager(Constants.ConnectionString);
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
