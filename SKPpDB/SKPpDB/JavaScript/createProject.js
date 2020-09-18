@@ -1,3 +1,5 @@
+LoadingScreen(true);
+
 var projectNameElement = document.getElementById("ProjectName");
 var projectDescriptionElement = document.getElementById("ProjectDesription");
 var projectDocumentationElement = document.getElementById("ProjectDocumentation");
@@ -16,8 +18,9 @@ var students = FetchJson("https://localhost:44369/api/students").done(function()
     if (students.responseJSON != null) {
         LoadSelect();
     }
-}).fail(function() {
-    studentBox.innerHTML = "<h6 style='color: red;'>Connection Fail</h6>"
+    LoadingScreen(false);
+}).fail(function () {
+    MainError();
 });
 
 function LoadSelect() {
@@ -68,6 +71,7 @@ function GetSelectedStudents() {
 //Create Project
 function createProject() {
     if (projectNameElement.value && projectDescriptionElement.value && projectDocumentationElement.value && StudentIndexList.length > 0) {
+        LoadingScreen(true);
         var projectLeader = GetSelectedStudents();
         var projectName = projectNameElement.value;
         var projectDescription = projectDescriptionElement.value;
@@ -77,8 +81,14 @@ function createProject() {
         studentString += projectLeader + ",";
         studentString = studentString.substring(0, studentString.length - 1);
 
-        PostData("https://localhost:44369/api/createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + studentString);
-        window.location.href = "https://localhost:44334/";
+        PostData("https://localhost:44369/api/createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + studentString)
+            .done(function () {
+                LoadingScreen(false);
+                window.location.href = "../";
+            }).fail(function () {
+                LoadingScreen(false);
+                document.getElementById("Mainbox").innerHTML += '<h6 style="text-align: center; color: red;">Kunne ikke oprettes</h6>';
+            });
     }
     else {
         console.log("not all forfillment is required yet");

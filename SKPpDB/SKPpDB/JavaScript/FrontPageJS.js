@@ -1,9 +1,8 @@
 ﻿var TableList = document.getElementById("TableList");
-var Project = FetchJson("https://localhost:44369/api/projects").done(function () {
-    LoadTable();
-}).fail(function () {
-    AddError("Kunne ikke få fat i databasen");
-});
+var Project;
+
+var RefeshPause = false;
+RefeshProjects();
 
 function TableAddRow(Id, Headline, Description, Documentation, Students) {
     TableList.innerHTML += '<article class="TableBody row">' +
@@ -17,6 +16,7 @@ function TableAddRow(Id, Headline, Description, Documentation, Students) {
 
 function LoadTable() {
     console.log(Project);
+    TableList.innerHTML = "";
     Project.responseJSON.forEach(element => {
         var students = element["Students"];
         var studentsString = "";
@@ -31,7 +31,32 @@ function LoadTable() {
 
 
 function AddError(error) {
-    TableList.innerHTML = '<article class="TableBody row">' +
-        '<header class="col-md-12">' + error + '</header>' +
-        '</article>';
+    TableList.innerHTML = '<h6 style="color: red; text-align: center;">' + error + '</h6>';
+}
+
+function Projectfind(string) {
+    string = "skp";
+    for (var i = 0; i < Project.responseJSON.length; i++) {
+        var searchProjects = Project.responseJSON.find(element => {
+            
+
+        });
+    }
+}
+
+function RefeshProjects() {
+    if (!RefeshPause) {
+        console.log("refeshing");
+        RefeshPause = true;
+
+        TableList.innerHTML = '<img src="Style/Image/loadingIcon.png" class="loading" alt="Loading ..."/><h6 style = "text-align:center;">Loading ...</h6>'
+
+        Project = FetchJson("https://localhost:44369/api/projects").done(function () {
+            LoadTable();
+            RefeshPause = false;
+        }).fail(function () {
+            AddError("Kunne ik finde projekterne, prøv igen senere");
+            RefeshPause = false;
+        });
+    }
 }

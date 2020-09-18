@@ -1,44 +1,31 @@
-﻿
+﻿LoadingScreen(true);
+
 var projectNameElement = document.getElementById("HeadlineText");
 var projectDescriptionElement = document.getElementById("DescriptionText");
 var projectDocumentationElement = document.getElementById("DocumentationText");
 var createButtonElement = document.getElementById("EditButton");
 
-window.addEventListener('load', function () {
+var students = FetchJson("https://localhost:44369/api/students").done(function () {
+    if (students.responseJSON != null) {
+        LoadSelect();
+        var Project = FetchJson("https://localhost:44369/api/project?projectid=" + getParams(window.location.href)['projectid']).done(function () {
 
-    FillInput();
-})
+            projectNameElement.value = Project.responseJSON["Headline"];
+            projectDescriptionElement.value = Project.responseJSON["Description"];
+            projectDocumentationElement.value = Project.responseJSON["Documentation"];
+            var students = Project.responseJSON["Students"];
+            students.forEach(student => { FillStudents(student) });
+            LoadingScreen(false);
 
-//Fill forms with the project information.
-async function FillInput() {
-    var params = getParams(window.location.href);
-    var Project = await FetchJson("https://localhost:44369/api/project?projectid=" + params['projectid']);
-    
-    
-    projectNameElement.value = Project["Headline"];
-    projectDescriptionElement.value = Project["Description"];
-    projectDocumentationElement.value = Project["Documentation"];
-    var students = Project["Students"];
-    students.forEach(student => { FillStudents(student) })
-    
-}
-
-function FillStudents(student) {
-    //Add students to studentbox
-    //var student = students.responseJSON[SelectElement.selectedIndex];
-    var optionElement = SelectElement.selectedOptions[0];
-
-    if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex && SelectElement.selectedIndex != -1) {
-        var newOption = document.createElement("option");
-        newOption.text = student["Name"] + ' (' + student["Education"] + ')';
-        newOption.value = student["Username"];
-
-        StudentIndexList.push(SelectElement.selectedIndex);
-        optionElement.disabled = true;
-        SelectElement.selectedIndex++;
-        StudentListBox.options.add(newOption);
+        }).fail(function () {
+            MainError();
+        });
     }
-}
+}).fail(function () {
+    MainError();
+});
+
+
 
 //#region STUDENT SYSTEM
 
@@ -49,13 +36,6 @@ var StudentListBox = document.getElementById("SelectedStudents");
 
 //Student system variable
 var StudentIndexList = [];
-var students = FetchJson("https://localhost:44369/api/students").done(function () {
-    if (students.responseJSON != null) {
-        LoadSelect();
-    }
-}).fail(function () {
-    studentBox.innerHTML = "<h6 style='color: red;'>Connection Fail</h6>"
-});
 
 function LoadSelect() {
     students.responseJSON.forEach(element => {
@@ -97,9 +77,29 @@ function GetSelectedStudents() {
         student.push(StudentListBox.options[i].value);
     }
     return student;
-    console.log(student);
 }
 //#endregion
+
+function FillStudents(student) {
+    //Add students to studentbox
+    //var student = students.responseJSON[SelectElement.selectedIndex];
+    var optionElement = [];
+    for (var i = 0; i < SelectElement.options.length; i++) {
+        optionElement.push(SelectElement.options[i]);
+    }
+
+    var studentIndex = optionElement.findIndex(element => element.value == student["Username"]);
+
+    if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex && SelectElement.selectedIndex != -1) {
+        var newOption = document.createElement("option");
+        newOption.text = student["Name"] + ' (' + student["Education"] + ')';
+        newOption.value = student["Username"];
+
+        StudentIndexList.push(studentIndex);
+        SelectElement.options[studentIndex].disabled = true;
+        StudentListBox.options.add(newOption);
+    }
+}
 
 
 //Edit Project
@@ -131,16 +131,3 @@ function FillmentRequire() {
         createButtonElement.disabled = true;
     }
 }
-
-var getParams = function (url) {
-    var params = {};
-    var parser = document.createElement('a');
-    parser.href = url;
-    var query = parser.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        params[pair[0]] = decodeURIComponent(pair[1]);
-    }
-    return params;
-};

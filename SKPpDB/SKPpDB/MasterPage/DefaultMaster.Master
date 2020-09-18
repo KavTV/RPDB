@@ -4,6 +4,7 @@
 <html>
 <head runat="server">
     <title>SKP - PDB</title>
+    <link href="../Style/MasterStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Style/frontPage.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,21 +13,29 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <section class="TopSection">
-        <a href="../Default.aspx">
-            <article>
+<body class="ScrollLook">
+    <section id="loading" class="LoadingBox" style="display: none;">
+        <article>
 
-                <header>
-                    <span class="Big">SKP
-                    </span>
-                    <h1>Projekt Database
-                    </h1>
-                </header>
-            </article>
-        </a>
+            <img class="loadingIcon" src="Style/Image/loadingIcon.png" alt="Loading ..."/>
+            <h4>Loading ... </h4>
+
+        </article>
     </section>
-    <section class="Mainbox">
+    <section class="TopSection">
+        <article>
+            <header onclick="window.location.href = '../Default.aspx';">
+                <span class="Big">
+                    SKP
+                </span>
+                <h1>
+                    Projekt Database
+                </h1>
+            </header>
+            <img onclick="" class="MenuButton" src="../Style/Image/menuIcon.png" />
+        </article>
+    </section>
+    <section id="Mainbox" class="Mainbox">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </section>

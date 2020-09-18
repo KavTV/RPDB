@@ -20,8 +20,17 @@
 }
 
 select {
-    min-width: 250px;
-    max-width: 300px;
+    width: 90%;
     border-radius: 10px;
     padding: 5px 10px;
+}
+
+textarea {
+    padding: 5px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 10px;
+    border-width: 2px;
+    min-height: 100px;
+    width: 100%;
 }

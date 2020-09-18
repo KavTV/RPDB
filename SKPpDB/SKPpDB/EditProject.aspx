@@ -22,8 +22,6 @@
             <h4>Elever:
             </h4>
             <article id="studentBox" >
-                
-
                     <select name="elever" id="Students">
                     </select>
                     <input type="submit" value="+" onclick="AddSelectedStudent(); FillmentRequire();">

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <article class="Option container-fluid">
-            <input type="button" value="Opdater" class="col-2">
+            <input type="button" value="Opdater" onclick="RefeshProjects()" class="col-2">
             <input type="text" placeholder="Search Project" class="col-5">
             <input type="button" onclick="window.location.href = 'CreateProject.aspx';" value="Tilføj Projekt" class="col-2">
             <input type="button" value="Filter" class="col-2">
@@ -18,7 +18,9 @@
                 <header class="col-md-2">Medarbejdere</header>
             </article>
             <section id="TableList" class="TableRowBox ScrollLook" onload="LoadTable()">
-                <%--             <article class="TableBody row">
+                <img src="Style/Image/loadingIcon.png" class="loading" alt="Loading ..."/>
+                <h6 style="text-align:center;">Loading ...</h6>
+                <%--<article class="TableBody row">
                     <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
                     <header class="col-md-6 ScrollLook">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</header>
                     <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
@@ -27,5 +29,4 @@
             </section>
         </section>
     <script src="../JavaScript/FrontPageJS.js"></script>
-
 </asp:Content>
