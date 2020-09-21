@@ -31,6 +31,10 @@ var getParams = function (url) {
     return params;
 };
 
+function MenuBoxWidth(Width) {
+    document.getElementById("MenuBox").style.width = Width;
+}
+
 function LoadingScreen(onOrOff) {
     if (onOrOff) {
         document.getElementById("loading").style.display = "block";

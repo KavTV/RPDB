@@ -13,10 +13,10 @@ body, html {
     height: 100%;
 }
 
-    body a {
-        color: black;
-        display: block;
-    }
+body a {
+    color: black;
+    display: block;
+}
 
 .TopSection {
     display: block;
@@ -25,29 +25,30 @@ body, html {
     background-color: rgb(241 239 239);
 }
 
-    .TopSection .Big {
-        color: #009c00;
-        font-family: Milk;
-        font-size: 3.5rem;
-        display: inline;
-    }
+.TopSection .Big {
+    color: #009c00;
+    font-family: Milk;
+    font-size: 3.5rem;
+    display: inline;
+}
 
-    .TopSection header {
-        padding: 20px;
-        text-align: center;
-        width: auto;
-        cursor: pointer;
-    }
+.TopSection header {
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto;
+    width: fit-content;
+}
 
-    .TopSection h1 {
-        font-family: Avenir;
-        font-size: 2rem;
-        display: inline;
-        color: black;
-    }
-    .TopSection a:hover{
-        text-decoration: none;
-    }
+.TopSection h1 {
+    font-family: Avenir;
+    font-size: 2rem;
+    display: inline;
+    color: black;
+}
+.TopSection a:hover{
+    text-decoration: none;
+}
 
 .Mainbox {
     position: relative;

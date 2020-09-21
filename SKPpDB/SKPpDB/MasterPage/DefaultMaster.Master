@@ -16,10 +16,17 @@
 <body class="ScrollLook">
     <section id="loading" class="LoadingBox" style="display: none;">
         <article>
-
             <img class="loadingIcon" src="Style/Image/loadingIcon.png" alt="Loading ..."/>
             <h4>Loading ... </h4>
-
+        </article>
+    </section>
+    <section id="MenuBox" class="MenuBox">
+        <header onclick="MenuBoxWidth('0px');">
+            &times;
+        </header>
+        <article>
+            <a href="../">Projekter</a>
+            <a href="../students.aspx">Elever</a>
         </article>
     </section>
     <section class="TopSection">
@@ -32,7 +39,7 @@
                     Projekt Database
                 </h1>
             </header>
-            <img onclick="" class="MenuButton" src="../Style/Image/menuIcon.png" />
+            <img onclick="MenuBoxWidth('500px');" class="MenuButton" src="../Style/Image/menuIcon.png" />
         </article>
     </section>
     <section id="Mainbox" class="Mainbox">
