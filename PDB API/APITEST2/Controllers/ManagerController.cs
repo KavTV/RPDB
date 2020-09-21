@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Cors;
 
 namespace APITEST2.Controllers
 {
-    [Route("api")]
+    [Route("")]
     [ApiController]
     [EnableCors("AllowAll")]
     public class ManagerController : ControllerBase
