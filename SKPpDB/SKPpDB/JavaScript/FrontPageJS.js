@@ -51,7 +51,7 @@ function RefeshProjects() {
 
         TableList.innerHTML = '<img src="Style/Image/loadingIcon.png" class="loading" alt="Loading ..."/><h6 style = "text-align:center;">Loading ...</h6>'
 
-        Project = FetchJson("https://localhost:44369/api/projects").done(function () {
+        Project = FetchJson("projects").done(function () {
             LoadTable();
             RefeshPause = false;
         }).fail(function () {

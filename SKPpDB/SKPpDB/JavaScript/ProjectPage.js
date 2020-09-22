@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
 
 async function UpdateTable() {
     var params = getParams(window.location.href);
-    Project = await FetchJson("https://localhost:44369/api/project?projectid=" + params['projectid']);
+    Project = await FetchJson("project?projectid=" + params['projectid']);
     
 
     var students = Project["Students"];

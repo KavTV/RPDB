@@ -5,10 +5,10 @@ var projectDescriptionElement = document.getElementById("DescriptionText");
 var projectDocumentationElement = document.getElementById("DocumentationText");
 var createButtonElement = document.getElementById("EditButton");
 
-var students = FetchJson("https://localhost:44369/api/students").done(function () {
+var students = FetchJson("students").done(function () {
     if (students.responseJSON != null) {
         LoadSelect();
-        var Project = FetchJson("https://localhost:44369/api/project?projectid=" + getParams(window.location.href)['projectid']).done(function () {
+        var Project = FetchJson("project?projectid=" + getParams(window.location.href)['projectid']).done(function () {
 
             projectNameElement.value = Project.responseJSON["Headline"];
             projectDescriptionElement.value = Project.responseJSON["Description"];
@@ -115,8 +115,8 @@ function EditProject() {
         studentString += projectLeader + ",";
         studentString = studentString.substring(0, studentString.length - 1);
 
-        PostData("https://localhost:44369/api/editproject?projectid=" + params['projectid'] + "&headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&usernames=" + studentString);
-        window.location.href = "https://localhost:44334/";
+        PostData("editproject?projectid=" + params['projectid'] + "&headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&usernames=" + studentString);
+        window.location.href = "../";
     }
     else {
         console.log("not all forfillment is required yet");

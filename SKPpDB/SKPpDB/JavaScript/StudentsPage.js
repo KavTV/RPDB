@@ -1,6 +1,6 @@
 ﻿var TableList = document.getElementById("TableList");
 
-var Project = FetchJson("https://localhost:44369/api/students").done(function () {
+var Project = FetchJson("students").done(function () {
     UpdateTable();
 }).fail(function () {
     AddError("Kunne ikke få fat i databasen");

@@ -1,7 +1,9 @@
-﻿function FetchJson(Url) {
+﻿var Apisite = "https://api.projektdatabase.skprg.dk/";
+
+function FetchJson(Url) {
 
     try {
-        var data = $.getJSON(Url);
+        var data = $.getJSON(Apisite + Url);
         return data;
     }
     catch {
@@ -11,7 +13,7 @@
 
 function PostData(Url) {
     try {
-        return $.post(Url);
+        return $.post(Apisite + Url);
     }
     catch {
         return 403;
@@ -48,3 +50,4 @@ function MainError() {
     LoadingScreen(false);
     document.getElementById("Mainbox").innerHTML = "<h4 style='color: red; text-align:center;'>Kunne ikke oprette forbinelse til service<br>Prøv igen senere</h4>";
 }
+

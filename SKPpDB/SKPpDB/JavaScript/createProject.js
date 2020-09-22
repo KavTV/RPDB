@@ -14,7 +14,7 @@ var StudentListBox = document.getElementById("SelectedStudents");
 
 //Student system variable
 var StudentIndexList = [];
-var students = FetchJson("https://localhost:44369/api/students").done(function() {
+var students = FetchJson("students").done(function() {
     if (students.responseJSON != null) {
         LoadSelect();
     }
@@ -81,7 +81,7 @@ function createProject() {
         studentString += projectLeader + ",";
         studentString = studentString.substring(0, studentString.length - 1);
 
-        PostData("https://localhost:44369/api/createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + studentString)
+        PostData("createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + studentString)
             .done(function () {
                 LoadingScreen(false);
                 window.location.href = "../";
