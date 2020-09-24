@@ -1,31 +1,38 @@
 ﻿var TableList = document.getElementById("TableList");
+var params = getParams(window.location.href);
 
-window.addEventListener('load', function () {
-
+var Project = FetchJson("student?username=" + params['username']).done(function () {
     UpdateTable();
+}).fail(function () {
+    AddError("Kunne ikke få fat i databasen");
 })
 
-async function UpdateTable() {
-    var params = getParams(window.location.href);
-    Project = await FetchJson("https://localhost:44369/api/project?projectid=" + params['projectid']);
 
+function UpdateTable() {
 
-    var students = Project["Students"];
-    var studentsString = "";
-
-    students.forEach(student => {
-        studentsString += student["Name"] + '<br>';
+    var response = Project.responseJSON;
+    var projects = Project.responseJSON["ProjectList"];
+    var projectstring = "";
+    console.log(projects);
+    projects.forEach(project => {
+        projectstring += '<a href="Project.aspx?projectid=' + project["Id"] + '">' + project["Headline"] + '</a>';
     });
 
-    TableAddRow(Project["Headline"], Project["Description"], Project["Documentation"], studentsString);
+    TableAddRow(response["Name"], projectstring, response["Education"], response["Username"]);
+
 
 }
 
-function TableAddRow(Headline, Description, Documentation, Students) {
+function TableAddRow(Name, Projects, Education, username) {
     TableList.innerHTML += '<article class="TableBody row">' +
-        '<header class="col-md-2 ScrollLook">' + Headline + '</header>' +
-        '<header class="col-md-6 ScrollLook">' + Description + '</header>' +
-        '<header class="col-md-2 ScrollLook">' + Documentation + '</header>' +
-        '<header class="col-md-2 ScrollLook">' + Students + '</header>' +
-        '</article">';
+        '<header class="col-md-3 ScrollLook">' + Name + '</header>' +
+        '<header class="col-md-6 ScrollLook">' + Projects + '</header>' +
+        '<header class="col-md-3 ScrollLook">' + Education + '</header>' +
+        '</article"> ';
+}
+
+function AddError(error) {
+    TableList.innerHTML = '<article class="TableBody row">' +
+        '<header class="col-md-12">' + error + '</header>' +
+        '</article>';
 }
