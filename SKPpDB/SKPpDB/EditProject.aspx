@@ -15,7 +15,7 @@
             <input id="HeadlineText" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Projekt Navn">
             <h4>Projekt Beskrivelse:
             </h4>
-            <input id="DescriptionText" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Projekt Beskrivelse">
+            <textarea id="DescriptionText" onchange="FillmentRequire()" class="col-md" placeholder="Projekt Beskrivelse"></textarea>
             <h4>Dokumentions Link:
             </h4>
             <input id="DocumentationText" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Dokumentions Link">
@@ -24,13 +24,13 @@
             <article id="studentBox" >
                     <select name="elever" id="Students">
                     </select>
-                    <input type="submit" value="+" onclick="AddSelectedStudent(); FillmentRequire();">
+                    <input type="submit" value="" class="ButtonImage" style="background-image: url('Style/Image/plusIcon.png')" onclick="AddSelectedStudent(); FillmentRequire();">
                 
                 
                     <select class="ScrollLook" name="Selected Elever" size="5" id="SelectedStudents">
                     </select>
 
-                    <input type="submit" value="-" onclick="RemoveSelectedStudent(); FillmentRequire();">
+                    <input type="submit" value="" class="ButtonImage" style="background-image: url('Style/Image/deleteIcon.png')" onclick="RemoveSelectedStudent(); FillmentRequire();">
                 
             </article>
                 <input id="EditButton" type="button" onclick="EditProject()" value="Gem" disabled />

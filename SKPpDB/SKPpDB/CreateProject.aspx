@@ -16,7 +16,7 @@
         <h4>
             Projekt Beskrivelse:
         </h4>
-        <textarea class="ScrollLook" id="ProjectDesription" onchange="FillmentRequire()"  class="col-md" rows="5" placeholder="Projekt Beskrivelse"></textarea>
+        <textarea class="ScrollLook" id="ProjectDesription" onchange="FillmentRequire()" class="col-md" rows="5" placeholder="Projekt Beskrivelse"></textarea>
         <h4>
             Dokumentions Link:
         </h4>

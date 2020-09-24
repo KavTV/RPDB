@@ -59,6 +59,7 @@ insert into students values ('seba6474', 3, 'Sebastian Lind Karlsen');
 insert into students values ('seba8769', 2, 'Sebastian Palm');
 insert into students values ('simo132h', 1, 'Simon Winkel');
 insert into students values ('stef8464', 2, 'Stefan Johansson Toft');
+insert into students values ('sune1275', 2 , 'Sune Ålsbøl Brandt');
 insert into students values ('teom0002', 3, 'Teo');
 insert into students values ('thom09r7', 3, 'Thomas Carl Alexander Dänhardt');
 insert into students values ('tobi3686', 3, 'Tobias Rosenvinge. Hammer.');
