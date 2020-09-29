@@ -62,3 +62,23 @@ function RefeshProjects() {
         });
     }
 }
+
+function SearchProjects() {
+    
+    console.log(searchbar.value);
+    if (!RefeshPause) {
+        console.log("refeshing");
+        RefeshPause = true;
+
+        TableList.innerHTML = '<img src="Style/Image/loadingIcon.png" class="loading" alt="Loading ..."/><h6 style = "text-align:center;">Loading ...</h6>'
+
+        const searchbar = document.getElementById("searchbar").value;
+        Project = FetchJson("searchprojects?search=" + searchbar).done(function () {
+            LoadTable();
+            RefeshPause = false;
+        }).fail(function () {
+            AddError("Kunne ik finde projekterne, prøv igen senere");
+            RefeshPause = false;
+        });
+    }
+}

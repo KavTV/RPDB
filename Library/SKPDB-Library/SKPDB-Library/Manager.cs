@@ -97,5 +97,23 @@ namespace SKPDB_Library
         {
             return dal.RemoveFromProject(projectid, username);
         }
+
+        /// <summary>
+        /// Returns a list with all projects, and all students in the project that the user searched for
+        /// </summary>
+        /// <returns></returns>
+        public List<Project> SearchProjects(string search)
+        {
+            return dal.SearchProjects(search);
+        }
+
+        /// <summary>
+        /// Returns a list with all students and their projects that the user searched for
+        /// </summary>
+        /// <returns></returns>
+        public List<Student> SearchStudents(string search)
+        {
+            return dal.SearchStudents(search);
+        }
     }
 }

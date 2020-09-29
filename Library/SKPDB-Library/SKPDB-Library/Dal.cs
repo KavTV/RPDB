@@ -334,6 +334,72 @@ namespace SKPDB_Library
 
         }
 
+        public List<Project> SearchProjects(string search)
+        {
+            //Locals
+            List<Project> projectList = new List<Project>();
+
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_searchprojects(@search)", connection);
+
+            command.Parameters.AddWithValue("search", search);
+
+            // Opens connection
+            connection.Open();
+            NpgsqlDataReader reader = command.ExecuteReader();
+
+            // Reads all content from reservations table
+            while (reader.Read())
+            {
+                int projectId = Int32.Parse(reader["projectid"].ToString());
+                projectList.Add(new Project(
+                    projectId,
+                    reader["headline"].ToString(),
+                    reader["documentation"].ToString(),
+                    reader["description"].ToString(),
+                    GetProjectStudents(projectId)));
+
+            }
+            connection.Close();
+            return projectList;
+        }
+
+        /// <summary>
+        /// Returns a list with all students and their projects that the user searched for
+        /// </summary>
+        /// <returns></returns>
+        public List<Student> SearchStudents(string search)
+        {
+            // Locals
+            List<Student> studentList = new List<Student>();
+
+
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_searchstudents(@search)", connection);
+
+            command.Parameters.AddWithValue("search", search);
+
+            // Opens connection
+            connection.Open();
+            NpgsqlDataReader reader = command.ExecuteReader();
+
+            // Reads all content from reservations table
+            while (reader.Read())
+            {
+                studentList.Add(new Student(
+                    reader["username"].ToString(),
+                    reader["education"].ToString(),
+                    reader["fullname"].ToString(),
+                    GetStudentProjects(reader["username"].ToString())));
+
+            }
+            connection.Close();
+
+            return studentList;
+        }
+
 
         private bool ExecuteNonQuery(NpgsqlCommand command)
         {

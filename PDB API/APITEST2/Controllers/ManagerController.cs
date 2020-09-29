@@ -134,5 +134,18 @@ namespace APITEST2.Controllers
 
         }
 
+        [Route("searchprojects")]
+        [HttpGet]
+        public string SearchProjects(
+            [FromQuery] string search)
+        {
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                return null;
+            }
+            var json = JsonSerializer.Serialize<List<Project>>(manager.SearchProjects(search));
+            return json;
+        }
+
     }
 }

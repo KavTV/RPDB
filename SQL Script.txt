@@ -214,3 +214,45 @@ END
 $$;
 
 /**/
+
+CREATE or replace FUNCTION FN_searchprojects(_search varchar) 
+Returns Table(projectid int, headline varchar, documentation varchar, description varchar)
+as $$
+BEGIN
+
+RETURN QUERY SELECT DISTINCT projects.projectid, projects.headline, projects.documentation, projects.description from projects
+JOIN studentprojects
+ON projects.projectid = studentprojects.projectid
+JOIN students
+ON students.username = studentprojects.username
+WHERE projects.description ILIKE '%'|| _search || '%' OR projects.headline ILIKE '%'|| _search || '%' OR students.fullname ILIKE '%'|| _search || '%'
+ORDER BY projects.projectid;
+
+END; $$
+LANGUAGE PLPGSQL;
+/**/
+
+CREATE or replace FUNCTION FN_searchstudents(_search varchar) 
+Returns Table(username varchar, fullname varchar, education integer)
+as $$
+BEGIN
+
+if _search = 'noproject' then
+RETURN QUERY SELECT  students.username, students.fullname, students.educationid from students
+WHERE students.username NOT IN(SELECT DISTINCT students.username from students JOIN studentprojects ON students.username = studentprojects.username)  
+ORDER BY students.username;
+
+else
+
+RETURN QUERY SELECT students.username, students.fullname, students.educationid from students
+JOIN education
+ON education.educationid = students.educationid
+WHERE students.username ILIKE _search || '%' OR students.fullname ILIKE '%'|| _search || '%' OR education.education ILIKE _search || '%'
+ORDER BY students.username;
+
+END if;
+
+END; $$
+LANGUAGE PLPGSQL;
+/**/
+
