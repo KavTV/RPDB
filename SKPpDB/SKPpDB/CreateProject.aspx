@@ -20,7 +20,7 @@
         <h4>
             Dokumentions Link:
         </h4>
-        <input id="ProjectDocumentation" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Dokumentions Link">
+        <input id="ProjectDocumentation" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Link til teams mappe">
         <h4>
             Elever:
         </h4>

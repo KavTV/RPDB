@@ -16,13 +16,15 @@ function TableAddRow(Id, Headline, Description, Documentation, Students) {
 
 function LoadTable() {
     console.log(Project);
+    
+    //console.log(Project.responseJSON.filter(a => a.Students[3] == "Programmering"));
     TableList.innerHTML = "";
     Project.responseJSON.forEach(element => {
         var students = element["Students"];
         var studentsString = "";
 
         students.forEach(student => {
-            studentsString += student["Name"] + '<br>';
+            studentsString += student["Name"] + ',<br>';
         });
 
         TableAddRow(element["Id"],element["Headline"], element["Description"], element["Documentation"], studentsString);

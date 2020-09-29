@@ -19,7 +19,7 @@ async function UpdateTable() {
     var studentsString = "";
 
     students.forEach(student => {
-        studentsString += student["Name"] + '<br>';
+        studentsString += student["Name"] + ',<br>';
     });
 
     TableAddRow(Project["Headline"], Project["Description"], Project["Documentation"], studentsString);
