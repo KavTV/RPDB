@@ -16,7 +16,7 @@
     display: block;
     top: 0;
     right: 0;
-    background-color: #000000dd;
+    background-color: #192841e6;
     z-index: 10;
     box-shadow: 0px 0px 5px 0px black;
     transition: 1s;
@@ -46,7 +46,7 @@
 
     .MenuBox a {
         font-size: 42px;
-        color: #b1b1b1;
+        color: #d6d6d6;
         text-decoration: none;
         transition: 0.5s;
         padding: 5px 10px;
@@ -54,7 +54,7 @@
 
         .MenuBox a:hover, .MenuBox a:focus {
             text-decoration: none;
-            color: #f1f1f1;
+            color: #8a8787;
         }
 
 /* Menu Design End */

@@ -24,9 +24,13 @@
         <header onclick="MenuBoxWidth('0px');">
             &times;
         </header>
-        <article>
-            <a href="../">Projekter</a>
-            <a href="../students.aspx">Elever</a>
+        <article class="d-flex flex-column">
+            <div class="my-2">
+            <a class="btn btn-outline-light " href="../">Projekter</a>
+            </div>
+            <div class="my-2">
+            <a class="btn btn-outline-light " href="../students.aspx">Elever</a>
+                </div>
         </article>
     </section>
     <section class="TopSection">
