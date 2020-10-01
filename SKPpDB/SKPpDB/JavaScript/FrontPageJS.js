@@ -16,7 +16,7 @@ function TableAddRow(Id, Headline, Description, Documentation, Students) {
 
 function LoadTable() {
     console.log(Project);
-    
+
     //console.log(Project.responseJSON.filter(a => a.Students[3] == "Programmering"));
     TableList.innerHTML = "";
     Project.responseJSON.forEach(element => {
@@ -27,10 +27,9 @@ function LoadTable() {
             studentsString += student["Name"] + ',<br>';
         });
 
-        TableAddRow(element["Id"],element["Headline"], element["Description"], element["Documentation"], studentsString);
+        TableAddRow(element["Id"], element["Headline"], element["Description"], element["Documentation"], studentsString);
     });
 }
-
 
 function AddError(error) {
     TableList.innerHTML = '<h6 style="color: red; text-align: center;">' + error + '</h6>';
@@ -40,8 +39,6 @@ function Projectfind(string) {
     string = "skp";
     for (var i = 0; i < Project.responseJSON.length; i++) {
         var searchProjects = Project.responseJSON.find(element => {
-            
-
         });
     }
 }
@@ -64,7 +61,6 @@ function RefeshProjects() {
 }
 
 function SearchProjects() {
-    
     console.log(searchbar.value);
     if (!RefeshPause) {
         console.log("refeshing");

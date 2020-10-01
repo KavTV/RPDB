@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using SKPDB_Library;
+﻿using SKPDB_Library;
+using System;
 
 namespace SKPpDB
 {
     public partial class WatchProject : System.Web.UI.Page
     {
-        Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
+        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
         }
 
         protected void DeleteBTN_Click(object sender, EventArgs e)
@@ -31,9 +25,7 @@ namespace SKPpDB
             }
             catch (Exception)
             {
-                
             }
-
         }
 
         protected void Redirect_Click(object sender, EventArgs e)

@@ -1,5 +1,4 @@
-﻿
-/* Menu Design */
+﻿/* Menu Design */
 
 .MenuButton {
     height: 75px;
@@ -25,41 +24,40 @@
     color: white;
 }
 
-.MenuBox header {
-    position: absolute;
-    right: 35px;
-    font-size: 80px;
-    cursor: pointer;
-    color: #b1b1b1;
-    transition: 0.5s;
-}
+    .MenuBox header {
+        position: absolute;
+        right: 35px;
+        font-size: 80px;
+        cursor: pointer;
+        color: #b1b1b1;
+        transition: 0.5s;
+    }
 
-.MenuBox header:hover {
-    color: #f1f1f1;
-}
+        .MenuBox header:hover {
+            color: #f1f1f1;
+        }
 
-.MenuBox article {
-    position: absolute;
-    top: 35%;
-    width: 100%;
-    text-align: center;
-}
+    .MenuBox article {
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        text-align: center;
+    }
 
-.MenuBox a {
-    font-size: 42px;
-    color: #b1b1b1;
-    text-decoration: none;
-    transition: 0.5s;
-    padding: 5px 10px;
-}
+    .MenuBox a {
+        font-size: 42px;
+        color: #b1b1b1;
+        text-decoration: none;
+        transition: 0.5s;
+        padding: 5px 10px;
+    }
 
-.MenuBox a:hover, .MenuBox a:focus {
-    text-decoration: none;
-    color: #f1f1f1;
-}
+        .MenuBox a:hover, .MenuBox a:focus {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
 
 /* Menu Design End */
-
 
 /* Loading Design */
 .LoadingBox {
@@ -69,19 +67,19 @@
     height: 100%;
     width: 100%;
     z-index: 10;
-    text-align:center;
+    text-align: center;
     color: white;
     text-shadow: 1px 1px 1px black;
 }
 
-.LoadingBox article {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
+    .LoadingBox article {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
 
 .loadingIcon {
     text-align: center;
@@ -105,7 +103,6 @@
     }
 }
 /* Loading Design End */
-
 
 .ButtonImage {
     border: none;

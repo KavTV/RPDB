@@ -16,7 +16,7 @@
 <body class="ScrollLook">
     <section id="loading" class="LoadingBox" style="display: none;">
         <article>
-            <img class="loadingIcon" src="Style/Image/loadingIcon.png" alt="Loading ..."/>
+            <img class="loadingIcon" src="Style/Image/loadingIcon.png" alt="Loading ..." />
             <h4>Loading ... </h4>
         </article>
     </section>
@@ -32,11 +32,9 @@
     <section class="TopSection">
         <article>
             <header onclick="window.location.href = '../Default.aspx';">
-                <span class="Big">
-                    SKP
+                <span class="Big">SKP
                 </span>
-                <h1>
-                    Projekt Database
+                <h1>Projekt Database
                 </h1>
             </header>
             <img onclick="MenuBoxWidth('500px');" class="MenuButton" src="../Style/Image/menuIcon.png" />
@@ -46,6 +44,5 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </section>
-
 </body>
 </html>

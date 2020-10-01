@@ -9,14 +9,12 @@ var students = FetchJson("students").done(function () {
     if (students.responseJSON != null) {
         LoadSelect();
         var Project = FetchJson("project?projectid=" + getParams(window.location.href)['projectid']).done(function () {
-
             projectNameElement.value = Project.responseJSON["Headline"];
             projectDescriptionElement.value = Project.responseJSON["Description"];
             projectDocumentationElement.value = Project.responseJSON["Documentation"];
             var students = Project.responseJSON["Students"];
             students.forEach(student => { FillStudents(student) });
             LoadingScreen(false);
-
         }).fail(function () {
             MainError();
         });
@@ -24,8 +22,6 @@ var students = FetchJson("students").done(function () {
 }).fail(function () {
     MainError();
 });
-
-
 
 //#region STUDENT SYSTEM
 
@@ -100,7 +96,6 @@ function FillStudents(student) {
         StudentListBox.options.add(newOption);
     }
 }
-
 
 //Edit Project
 function EditProject() {

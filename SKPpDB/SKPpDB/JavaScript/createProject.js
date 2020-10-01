@@ -14,7 +14,7 @@ var StudentListBox = document.getElementById("SelectedStudents");
 
 //Student system variable
 var StudentIndexList = [];
-var students = FetchJson("students").done(function() {
+var students = FetchJson("students").done(function () {
     if (students.responseJSON != null) {
         LoadSelect();
     }
@@ -37,7 +37,7 @@ function AddSelectedStudent() {
     var student = students.responseJSON[SelectElement.selectedIndex];
     var optionElement = SelectElement.selectedOptions[0];
 
-    if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex && SelectElement.selectedIndex != -1) {        
+    if (StudentIndexList.find(element => element == SelectElement.selectedIndex) != SelectElement.selectedIndex && SelectElement.selectedIndex != -1) {
         var newOption = document.createElement("option");
         newOption.text = student["Name"] + ' (' + student["Education"] + ')';
         newOption.value = student["Username"];
@@ -66,7 +66,6 @@ function GetSelectedStudents() {
     console.log(student);
 }
 //#endregion
-
 
 //Create Project
 function createProject() {

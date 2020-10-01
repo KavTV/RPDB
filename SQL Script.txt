@@ -233,18 +233,20 @@ LANGUAGE PLPGSQL;
 /**/
 
 CREATE or replace FUNCTION FN_searchstudents(_search varchar) 
-Returns Table(username varchar, fullname varchar, education integer)
+Returns Table(username varchar, fullname varchar, education varchar)
 as $$
 BEGIN
 
 if _search = 'noproject' then
-RETURN QUERY SELECT  students.username, students.fullname, students.educationid from students
+RETURN QUERY SELECT  students.username, students.fullname, education.education from students
+JOIN education
+ON education.educationid = students.educationid
 WHERE students.username NOT IN(SELECT DISTINCT students.username from students JOIN studentprojects ON students.username = studentprojects.username)  
 ORDER BY students.username;
 
 else
 
-RETURN QUERY SELECT students.username, students.fullname, students.educationid from students
+RETURN QUERY SELECT students.username, students.fullname, education.education from students
 JOIN education
 ON education.educationid = students.educationid
 WHERE students.username ILIKE _search || '%' OR students.fullname ILIKE '%'|| _search || '%' OR education.education ILIKE _search || '%'

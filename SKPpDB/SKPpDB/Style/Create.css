@@ -5,19 +5,19 @@
     text-align: center;
 }
 
-.CreateBox header {
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    font-family: Avenir;
-    font-size: 50px;
-}
+    .CreateBox header {
+        color: white;
+        text-shadow: 2px 2px 2px black;
+        font-family: Avenir;
+        font-size: 50px;
+    }
 
-.CreateBox input[type=text] {
-    padding: 5px;
-    font-size: 1rem;
-    outline: none;
-    border-radius: 10px;
-}
+    .CreateBox input[type=text] {
+        padding: 5px;
+        font-size: 1rem;
+        outline: none;
+        border-radius: 10px;
+    }
 
 select {
     width: 90%;

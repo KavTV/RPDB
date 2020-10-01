@@ -7,9 +7,7 @@ var Project = FetchJson("student?username=" + params['username']).done(function 
     AddError("Kunne ikke få fat i databasen");
 })
 
-
 function UpdateTable() {
-
     var response = Project.responseJSON;
     var projects = Project.responseJSON["ProjectList"];
     var projectstring = "";
@@ -19,8 +17,6 @@ function UpdateTable() {
     });
 
     TableAddRow(response["Name"], projectstring, response["Education"], response["Username"]);
-
-
 }
 
 function TableAddRow(Name, Projects, Education, username) {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 using SKPDB_Library;
-using Microsoft.AspNetCore.Cors;
+using System.Collections.Generic;
+using System.Text.Json;
 
 namespace APITEST2.Controllers
 {
@@ -15,8 +11,7 @@ namespace APITEST2.Controllers
     [EnableCors("AllowAll")]
     public class ManagerController : ControllerBase
     {
-        Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
-
+        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
 
         [Route("students")]
         [HttpGet]
@@ -67,8 +62,6 @@ namespace APITEST2.Controllers
 
             string[] usernameSplit = username.Split(",");
 
-
-
             if (manager.CreateProject(headline, documentation, description, usernameSplit))
             {
                 return Ok();
@@ -113,7 +106,6 @@ namespace APITEST2.Controllers
                 return Ok();
             }
             return BadRequest();
-
         }
 
         [Route("removefromproject")]
@@ -131,7 +123,6 @@ namespace APITEST2.Controllers
                 return Ok();
             }
             return BadRequest();
-
         }
 
         [Route("searchprojects")]
@@ -147,5 +138,17 @@ namespace APITEST2.Controllers
             return json;
         }
 
+        [Route("searchstudents")]
+        [HttpGet]
+        public string SearchStudents(
+            [FromQuery] string search)
+        {
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                return null;
+            }
+            var json = JsonSerializer.Serialize<List<Student>>(manager.SearchStudents(search));
+            return json;
+        }
     }
 }

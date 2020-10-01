@@ -21,21 +21,19 @@
             <input id="DocumentationText" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Dokumentions Link">
             <h4>Elever:
             </h4>
-            <article id="studentBox" >
-                    <select name="elever" id="Students">
-                    </select>
-                    <input type="submit" value="" class="ButtonImage" style="background-image: url('Style/Image/plusIcon.png')" onclick="AddSelectedStudent(); FillmentRequire();">
-                
-                
-                    <select class="ScrollLook" name="Selected Elever" size="5" id="SelectedStudents">
-                    </select>
+            <article id="studentBox">
+                <select name="elever" id="Students">
+                </select>
+                <input type="submit" value="" class="ButtonImage" style="background-image: url('Style/Image/plusIcon.png')" onclick="AddSelectedStudent(); FillmentRequire();">
 
-                    <input type="submit" value="" class="ButtonImage" style="background-image: url('Style/Image/deleteIcon.png')" onclick="RemoveSelectedStudent(); FillmentRequire();">
-                
+                <select class="ScrollLook" name="Selected Elever" size="5" id="SelectedStudents">
+                </select>
+
+                <input type="submit" value="" class="ButtonImage" style="background-image: url('Style/Image/deleteIcon.png')" onclick="RemoveSelectedStudent(); FillmentRequire();">
             </article>
-                <input id="EditButton" type="button" onclick="EditProject()" value="Gem" disabled />
+            <input id="EditButton" type="button" onclick="EditProject()" value="Gem" disabled />
         </article>
     </section>
-    
+
     <script src="JavaScript/EditPage.js"></script>
 </asp:Content>

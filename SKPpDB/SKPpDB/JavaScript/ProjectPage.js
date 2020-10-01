@@ -6,14 +6,12 @@ if (getParams(window.location.href)['projectid'] == undefined) {
 }
 
 window.addEventListener('load', function () {
-
     UpdateTable();
 })
 
 async function UpdateTable() {
     var params = getParams(window.location.href);
     Project = await FetchJson("project?projectid=" + params['projectid']);
-    
 
     var students = Project["Students"];
     var studentsString = "";
@@ -23,7 +21,6 @@ async function UpdateTable() {
     });
 
     TableAddRow(Project["Headline"], Project["Description"], Project["Documentation"], studentsString);
-
 }
 
 function TableAddRow(Headline, Description, Documentation, Students) {
