@@ -1,7 +1,4 @@
 ﻿import { ProjectManager } from './Project.js';
+import config from './config.js';
 
-const Projects = new ProjectManager();
-Projects.Update();
-
-document.getElementById('Update').addEventListener("click", function () { Projects.Update();});
-
+const Projects = new ProjectManager(config['Project']);

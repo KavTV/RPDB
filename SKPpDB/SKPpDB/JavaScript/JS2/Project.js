@@ -11,13 +11,15 @@
     }
 }
 
-export function ProjectManager() {
+export function ProjectManager(settings = Object) {
 
-    this.Projects = [];
-    
+    let Projects = Array;
+    let Settings = settings;
+
     this.Update = function () {
+        BoxLoading();
         $.getJSON("https://api.projektdatabase.skprg.dk/projects", function (result) {
-            this.Projects = [];
+            Projects = [];
 
             result.forEach(project => {
                 let students = [];
@@ -25,9 +27,42 @@ export function ProjectManager() {
                     students.push(student['Username']);
                 });
 
-                this.Projects.push(new ProjectObject(project['Id'], project['Headline'], project['Description'], project['Documentation'], students));
+                Projects.push(new ProjectObject(project['Id'], project['Headline'], project['Description'], project['Documentation'], students));
             });
-            console.log(this.Projects);
+            Box();
+            console.log(Projects);
         });
+    }
+
+    const Box = function () {
+        if (Projects) {
+
+            let element = document.getElementById(Settings['BoxID']);
+            element.innerHTML = "";
+
+            Projects.forEach(project => {
+                let text = Settings['HTMLelement'].toString();
+                text = text.replace('%ID%', project.ID)
+                    .replace('%Headline%', project.Headline)
+                    .replace('%Description%', project.Description)
+                    .replace('%Documentation%', project.Documentation)
+                    .replace('%Students%', project.Students);
+                element.innerHTML += text;
+            });
+        }
+    }
+
+    const BoxLoading = function () {
+
+        let element = document.getElementById(Settings['BoxID']);
+        element.innerHTML = Settings['BoxLoadingElement'];
+
+    }
+
+    //EventListner
+    try {
+        document.getElementById(Settings['UpdateID']).addEventListener("click", func => { this.Update(); });
+    } catch (e) {
+
     }
 }

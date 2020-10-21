@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <article class="Option container-fluid">
-        <input id="Update" type="button" value="Opdater" class="col-2">
+        <input id="PUpdate" type="button" value="Opdater" class="col-2">
         <input id="searchbar" type="text" placeholder="Search Project" onchange="SearchProjects()" class="col-5">
         <input type="button" onclick="window.location.href = 'CreateProject.aspx';" value="Tilføj Projekt" class="col-2">
         <input type="button" value="Filter" class="col-2">
