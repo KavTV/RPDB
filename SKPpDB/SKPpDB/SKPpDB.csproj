@@ -116,11 +116,14 @@
   <ItemGroup>
     <Content Include="CreateProject.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DefaultV2.aspx" />
     <Content Include="EditProject.aspx" />
     <Content Include="JavaScript\createProject.js" />
     <Content Include="JavaScript\EditPage.js" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
+    <Content Include="JavaScript\JS2\main.js" />
+    <Content Include="JavaScript\JS2\Project.js" />
     <Content Include="JavaScript\ProjectPage.js" />
     <Content Include="JavaScript\StudentPage.js" />
     <Content Include="JavaScript\StudentsPage.js" />
@@ -151,6 +154,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultV2.aspx.cs">
+      <DependentUpon>DefaultV2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefaultV2.aspx.designer.cs">
+      <DependentUpon>DefaultV2.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProject.aspx.cs">
       <DependentUpon>EditProject.aspx</DependentUpon>
@@ -191,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage\DefaultMaster.Master" />
+    <Content Include="JavaScript\JS2\Design.json" />
     <None Include="packages.config" />
     <Content Include="Style\Font\AvenirLTStd-Medium.otf" />
     <Content Include="Style\Font\LEMONMILK-Medium.otf" />

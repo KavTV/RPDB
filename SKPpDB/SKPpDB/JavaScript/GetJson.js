@@ -1,4 +1,5 @@
 ﻿var Apisite = "https://api.projektdatabase.skprg.dk/";
+console.log("module test");
 
 function FetchJson(Url) {
     try {
