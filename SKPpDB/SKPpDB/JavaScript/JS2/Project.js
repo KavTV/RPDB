@@ -1,12 +1,13 @@
-﻿function ProjectObject(id = Int32Array, headline = String, description = String, documentation = String, students = Array) {
+﻿class ProjectObject {
+    constructor(id = Int32Array, headline = String, description = String, documentation = String, students = Array) {
+        this.ID = id;
+        this.Headline = headline;
+        this.Description = description;
+        this.Documentation = documentation;
+        this.Students = students;
+    }
 
-    this.ID = id;
-    this.Headline = headline;
-    this.Description = description;
-    this.Documentation = documentation;
-    this.Students = students;
-
-    this.Edit = function () {
+    Edit() {
 
     }
 }
