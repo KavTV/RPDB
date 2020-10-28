@@ -29,21 +29,24 @@ export function ProjectManager(settings = Object) {
         BoxLoading();
         let Url = "https://api.projektdatabase.skprg.dk/projects";
 
-        if (Search) {
+        if (Search && Search != " ") {
             Url = `https://api.projektdatabase.skprg.dk/searchprojects?search=${Search} `;
         }
 
         $.getJSON(Url, function (result) {
             Projects = [];
-            result.forEach(project => {
-                let students = [];
-                project['Students'].forEach(student => {
-                    students.push(new Student(student['Username'], student['Name']));
+            try {
+                result.forEach(project => {
+                    let students = [];
+                    project['Students'].forEach(student => {
+                        students.push(new Student(student['Username'], student['Name']));
+                    });
+                    Projects.push(new ProjectObject(project['Id'], project['Headline'], project['Description'], project['Documentation'], students));
                 });
-
-                Projects.push(new ProjectObject(project['Id'], project['Headline'], project['Description'], project['Documentation'], students));
-            });
-            Box();
+                Box();
+            } catch (e) {
+                BoxError(e);
+            }
         }).fail(function () {
             BoxError("Error");
         });
@@ -52,46 +55,56 @@ export function ProjectManager(settings = Object) {
     const Box = function () {
         if (Projects) {
 
-            let element = document.getElementById(Settings['BoxID']);
-            element.innerHTML = "";
+            if (Settings['BoxID']) {
+                let element = document.getElementById(Settings['BoxID']);
+                element.innerHTML = "";
 
-            Projects.forEach(project => {
-                let StudentArray = [];
-                project.Students.forEach(student => {
-                    StudentArray.push(student['Name']);
+                Projects.forEach(project => {
+                    let StudentArray = [];
+                    project.Students.forEach(student => {
+                        StudentArray.push(student['Name']);
+                    });
+
+                    let text = Settings['BoxTableDataElement'].toString();
+                    text = text.replace('%ID%', project.ID)
+                        .replace('%Headline%', project.Headline)
+                        .replace('%Description%', project.Description)
+                        .replace('%Documentation%', project.Documentation)
+                        .replace('%Students%', StudentArray.join(", "));
+                    element.innerHTML += text;
                 });
-
-                let text = Settings['BoxTableDataElement'].toString();
-                text = text.replace('%ID%', project.ID)
-                    .replace('%Headline%', project.Headline)
-                    .replace('%Description%', project.Description)
-                    .replace('%Documentation%', project.Documentation)
-                    .replace('%Students%', StudentArray.join(", "));
-                element.innerHTML += text;
-            });
+            }
         }
     }
 
     const BoxLoading = function () {
 
-        let element = document.getElementById(Settings['BoxID']);
-        element.innerHTML = Settings['BoxLoadingElement'];
+        if (Settings['BoxID'] && Settings['BoxLoadingElement']) {
+            let element = document.getElementById(Settings['BoxID']);
+            element.innerHTML = Settings['BoxLoadingElement'];
+        }
     }
 
     const BoxError = function (error = String) {
 
-        let element = document.getElementById(Settings['BoxID']);
-        element.innerHTML = Settings['BoxErrorElement'].replace("%Error%", error);
+        if (Settings['BoxID'] && Settings['BoxErrorElement']) {
+            let element = document.getElementById(Settings['BoxID']);
+            element.innerHTML = Settings['BoxErrorElement'].replace("%Error%", error);
+        }
 
     }
 
     //EventListner
     try {
-        document.getElementById(Settings['UpdateID']).addEventListener("click", func => { this.Update(); });
-        document.getElementById(Settings['SearchID']).addEventListener("change", func => {
-            Search = func.path[0].value;
-            this.Update();
-        });
+        if (Settings['UpdateID']) {
+            document.getElementById(Settings['UpdateID']).addEventListener("click", func => { this.Update(); });
+        }
+        if (Settings['SearchID']) {
+            document.getElementById(Settings['SearchID']).addEventListener("change", func => {
+                Search = func.path[0].value;
+                this.Update();
+            });
+        }
     } catch (e) {
 
     }

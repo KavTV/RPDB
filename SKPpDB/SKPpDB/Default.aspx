@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SKPpDB.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="DefaultV2.aspx.cs" Inherits="SKPpDB.DefaultV2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <article class="Option container-fluid">
-        <input type="button" value="Opdater" onclick="RefeshProjects()" class="col-2">
-        <input id="searchbar" type="text" placeholder="Search Project" onchange="SearchProjects()" class="col-5">
+        <input id="PUpdate" type="button" value="Opdater" class="col-2">
+        <input id="searchbar" type="text" placeholder="Search Project" class="col-5">
         <input type="button" onclick="window.location.href = 'CreateProject.aspx';" value="Tilføj Projekt" class="col-2">
         <input type="button" value="Filter" class="col-2">
     </article>
@@ -28,5 +28,5 @@
                 </article>--%>
         </section>
     </section>
-    <script src="../JavaScript/FrontPageJS.js"></script>
+    <script type="module" src="../JavaScript/JS2/main.js"></script>
 </asp:Content>
