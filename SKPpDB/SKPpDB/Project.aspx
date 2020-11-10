@@ -20,6 +20,5 @@
         <section id="TableList" class="TableRowBox ScrollLook">
         </section>
     </section>
-
-    <script src="../JavaScript/ProjectPage.js"></script>
+    <script type="module" src="../JavaScript/Main/ProjectPage_Main.js"></script>
 </asp:Content>

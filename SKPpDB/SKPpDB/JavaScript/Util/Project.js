@@ -1,10 +1,35 @@
-﻿class ProjectObject {
-    constructor(id = Int32Array, headline = String, description = String, documentation = String, students = Array) {
-        this.ID = id;
-        this.Headline = headline;
-        this.Description = description;
-        this.Documentation = documentation;
-        this.Students = students;
+﻿export class ProjectObject {
+    ID;
+    Headline;
+    Description;
+    Documentation;
+    Students;
+
+    //Set the object manual up.
+    Manual_Setup(ID = Int32Array, Headline = String, Description = String, Documentation = String, Students = Array) {
+        this.ID = ID;
+        this.Headline = Headline;
+        this.Description = Description;
+        this.Documentation = Documentation;
+        this.Students = Students;
+    }
+
+    //Make an Api Search and let it do it by an ID.
+    async Api_Setup(ID = Int32Array) {
+        let URL = `https://api.projektdatabase.skprg.dk/project?projectid=${ID} `;
+        let resulta;
+
+        await $.getJSON(URL, function (result) {
+            resulta = result;
+        }).fail(function (e) {
+            console.error(e);
+        });
+        this.ID = resulta["Id"];
+        this.Headline = resulta["Headline"];
+        this.Description = resulta["Description"];
+        this.Documentation = resulta["Documentation"];
+
+        console.log(this.ID);
     }
 
     Edit() {
@@ -38,10 +63,12 @@ export function ProjectManager(settings = Object) {
             try {
                 result.forEach(project => {
                     let students = [];
+                    let Project = new ProjectObject();
                     project['Students'].forEach(student => {
                         students.push(new Student(student['Username'], student['Name']));
                     });
-                    Projects.push(new ProjectObject(project['Id'], project['Headline'], project['Description'], project['Documentation'], students));
+                    Project.Manual_Setup(project['Id'], project['Headline'], project['Description'], project['Documentation'], students);
+                    Projects.push(Project);
                 });
                 Box();
             } catch (e) {

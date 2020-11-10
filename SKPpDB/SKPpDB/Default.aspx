@@ -20,13 +20,7 @@
         <section id="TableList" class="TableRowBox ScrollLook" onload="LoadTable()">
             <img src="Style/Image/loadingIcon.png" class="loading" alt="Loading ..." />
             <h6 style="text-align: center;">Loading ...</h6>
-            <%--<article class="TableBody row">
-                    <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
-                    <header class="col-md-6 ScrollLook">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</header>
-                    <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
-                    <header class="col-md-2">Lorem ipsum dolor sit amet.</header>
-                </article>--%>
         </section>
     </section>
-    <script type="module" src="../JavaScript/JS2/main.js"></script>
+    <script type="module" src="../JavaScript/Main/ProjectsPage_Main.js"></script>
 </asp:Content>

@@ -122,11 +122,17 @@
     <Content Include="JavaScript\EditPage.js" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
-    <Content Include="JavaScript\JS2\main.js" />
-    <Content Include="JavaScript\JS2\Project.js" />
+    <Content Include="JavaScript\Util\config.js" />
+    <Content Include="JavaScript\Util\main.js" />
+    <Content Include="JavaScript\Util\Project.js" />
+    <Content Include="JavaScript\Main\ProjectPage_Main.js" />
+    <Content Include="JavaScript\Main\ProjectsPage_Main.js" />
+    <Content Include="JavaScript\Util\Student.js" />
+    <Content Include="JavaScript\Main\StudentsPage_Main.js" />
     <Content Include="JavaScript\ProjectPage.js" />
     <Content Include="JavaScript\StudentPage.js" />
     <Content Include="JavaScript\StudentsPage.js" />
+    <Content Include="JavaScript\Util\Tool.js" />
     <Content Include="Student.aspx" />
     <Content Include="Students.aspx" />
     <Content Include="Style\Create.css" />
@@ -201,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage\DefaultMaster.Master" />
-    <Content Include="JavaScript\JS2\Design.json" />
     <None Include="packages.config" />
     <Content Include="Style\Font\AvenirLTStd-Medium.otf" />
     <Content Include="Style\Font\LEMONMILK-Medium.otf" />
