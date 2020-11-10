@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jOYeWASmRSq2ka25INTYS9hP7IMJXSoGlr/CGXtY/JeJJmu9GKh8mmfv6S4o5OwXHAG6nvHi3WWGUOG+F0lxiA==",
+  "dgSpecHash": "NPG+C1E0vCKsKeH82tXyRYPlDvgRP0cmDPrQfMoTNcFenXM89YQ74sZIygyqyiWijkb1VooTDF71DC+fz0tGmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kasp609g\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\kasp609g\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\kasp609g\\.nuget\\packages\\npgsql\\4.1.4\\npgsql.4.1.4.nupkg.sha512",
     "C:\\Users\\kasp609g\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\kasp609g\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

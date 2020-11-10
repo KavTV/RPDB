@@ -69,12 +69,22 @@ namespace SKPDB_Library
             // Reads all content from reservations table
             while (reader.Read())
             {
+                DateTime start;
+                DateTime end;
+                int statusid;
+                DateTime.TryParse(reader["startdate"].ToString(), out start);
+                DateTime.TryParse(reader["enddate"].ToString(), out end);
+                int.TryParse(reader["status"].ToString(), out statusid);
 
                 projectList.Add(new MiniProject(int.Parse(
                     reader["projectid"].ToString()),
+                    statusid,
+                    reader["projectmanager"].ToString(),
                     reader["headline"].ToString(),
                     reader["documentation"].ToString(),
-                    reader["description"].ToString()));
+                    reader["description"].ToString(),
+                    start,
+                    end));
 
             }
             connection.Close();
@@ -100,13 +110,7 @@ namespace SKPDB_Library
             // Reads all content from reservations table
             while (reader.Read())
             {
-                int projectId = Int32.Parse(reader["projectid"].ToString());
-                projectList.Add(new Project(
-                    projectId,
-                    reader["headline"].ToString(),
-                    reader["documentation"].ToString(),
-                    reader["description"].ToString(),
-                    GetProjectStudents(projectId)));
+                projectList.Add(CreateProject(reader));
 
             }
             connection.Close();
@@ -147,7 +151,7 @@ namespace SKPDB_Library
         /// <summary>
         /// Creates a project
         /// </summary>
-        public bool CreateProject(string headline, string documentation, string description, string[] usernames)
+        public bool CreateProject(int status, string projectmanager, string headline, string documentation, string description, DateTime startdate, DateTime enddate, string[] usernames)
         {
             if (string.IsNullOrWhiteSpace(headline))
             {
@@ -177,11 +181,15 @@ namespace SKPDB_Library
 
             // Execute function
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-            NpgsqlCommand command = new NpgsqlCommand("CALL sp_createproject(@headline, @documentation, @description, @username)", connection);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_createproject(@status,@projectmanager,@headline, @documentation, @description,@startdate,@enddate, @username)", connection);
 
+            command.Parameters.AddWithValue("status", status);
+            command.Parameters.AddWithValue("projectmanager", projectmanager);
             command.Parameters.AddWithValue("headline", headline);
             command.Parameters.AddWithValue("documentation", documentation);
             command.Parameters.AddWithValue("description", description);
+            command.Parameters.AddWithValue("startdate", NpgsqlTypes.NpgsqlDbType.Date, startdate);
+            command.Parameters.AddWithValue("enddate", NpgsqlTypes.NpgsqlDbType.Date, enddate);
             command.Parameters.Add("username", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text).Value = usernames;
 
             return ExecuteNonQuery(command);
@@ -206,17 +214,21 @@ namespace SKPDB_Library
         /// <summary>
         /// Edits the whole project
         /// </summary>
-        public bool EditProject(int projectid, string headline, string documentation, string description, string[] usernames)
+        public bool EditProject(int projectid, int status, string projectmanager, string headline, string documentation, string description, DateTime startdate, DateTime enddate, string[] usernames)
         {
 
             // Execute function
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-            NpgsqlCommand command = new NpgsqlCommand("CALL sp_editproject(@projectid, @headline, @documentation, @description, @username)", connection);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_editproject(@projectid, @status, @projectmanager, @headline, @documentation, @description, @startdate, @enddate, @username)", connection);
 
             command.Parameters.AddWithValue("projectid", projectid);
+            command.Parameters.AddWithValue("status", status);
+            command.Parameters.AddWithValue("projectmanager", projectmanager);
             command.Parameters.AddWithValue("headline", headline);
             command.Parameters.AddWithValue("documentation", documentation);
             command.Parameters.AddWithValue("description", description);
+            command.Parameters.AddWithValue("startdate", NpgsqlTypes.NpgsqlDbType.Date, startdate);
+            command.Parameters.AddWithValue("enddate", NpgsqlTypes.NpgsqlDbType.Date, enddate);
             command.Parameters.Add("username", NpgsqlTypes.NpgsqlDbType.Array | NpgsqlTypes.NpgsqlDbType.Text).Value = usernames;
 
             return ExecuteNonQuery(command);
@@ -290,16 +302,11 @@ namespace SKPDB_Library
             connection.Open();
             NpgsqlDataReader reader = command.ExecuteReader();
 
+
             // Reads all content from reservations table
             while (reader.Read())
             {
-                int id = int.Parse(reader["projectid"].ToString());
-                project = new Project(
-                    id,
-                    reader["headline"].ToString(),
-                    reader["documentation"].ToString(),
-                    reader["description"].ToString(),
-                    GetProjectStudents(id));
+                project = CreateProject(reader);
             }
             connection.Close();
 
@@ -352,13 +359,8 @@ namespace SKPDB_Library
             // Reads all content from reservations table
             while (reader.Read())
             {
-                int projectId = Int32.Parse(reader["projectid"].ToString());
-                projectList.Add(new Project(
-                    projectId,
-                    reader["headline"].ToString(),
-                    reader["documentation"].ToString(),
-                    reader["description"].ToString(),
-                    GetProjectStudents(projectId)));
+
+                projectList.Add(CreateProject(reader));
 
             }
             connection.Close();
@@ -401,6 +403,31 @@ namespace SKPDB_Library
         }
 
 
+        private Project CreateProject(NpgsqlDataReader reader)
+        {
+
+            DateTime start;
+            DateTime end;
+            int statusid;
+            DateTime.TryParse(reader["startdate"].ToString(), out start);
+            DateTime.TryParse(reader["enddate"].ToString(), out end);
+            int.TryParse(reader["status"].ToString(), out statusid);
+
+            int projectId = Int32.Parse(reader["projectid"].ToString());
+            Project project = new Project(
+                projectId,
+                statusid,
+                reader["projectmanager"].ToString(),
+                reader["headline"].ToString(),
+                reader["documentation"].ToString(),
+                reader["description"].ToString(),
+                start,
+                end,
+                GetProjectStudents(projectId));
+
+            return project;
+        }
+
         private bool ExecuteNonQuery(NpgsqlCommand command)
         {
             try
@@ -420,5 +447,121 @@ namespace SKPDB_Library
                 return false;
             }
         }
+
+        public List<Comment> Getprojectcomments(int projectid)
+        {
+            try
+            {
+                List<Comment> comments = new List<Comment>();
+                // Execute function
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_getprojectcomments(@projectid)", connection);
+
+                command.Parameters.AddWithValue("projectid", projectid);
+
+                // Opens connection
+                connection.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+
+                // Reads all content from reservations table
+                while (reader.Read())
+                {
+
+                    DateTime timestamp;
+                    int commentid;
+                    DateTime.TryParse(reader["time_stamp"].ToString(), out timestamp);
+                    int.TryParse(reader["commentid"].ToString(), out commentid);
+
+                    comments.Add(new Comment(
+                        commentid,
+                        reader["username"].ToString(),
+                        reader["msg"].ToString(),
+                        timestamp
+                        ));
+                }
+
+                connection.Close();
+
+                return comments;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public string GetUserPwd(string username)
+        {
+            try
+            {
+                // Execute function
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_getuserpwd(@username)", connection);
+
+                command.Parameters.AddWithValue("username", username);
+
+                // Opens connection
+                connection.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+                string pwd = reader["pwd"].ToString();
+                connection.Close();
+
+                return pwd;
+
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
+        public bool SetPwd(string username, string pwd)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_setpwd(@username, @pwd)", connection);
+
+            command.Parameters.AddWithValue("username", username);
+            command.Parameters.AddWithValue("pwd", NpgsqlTypes.NpgsqlDbType.Char, pwd);
+
+            return ExecuteNonQuery(command);
+        }
+
+        public bool CreateComment(int projectid, string username, string msg)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_createcomment(@projectid, @username, @msg)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+            command.Parameters.AddWithValue("username", username);
+            command.Parameters.AddWithValue("msg", msg);
+
+            return ExecuteNonQuery(command);
+        }
+
+        public string GetAuthToken(string username)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_getauthtoken(@username)", connection);
+
+            command.Parameters.AddWithValue("username", username);
+
+            // Opens connection
+            connection.Open();
+            NpgsqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+            string authtoken = reader["authtoken"].ToString();
+            connection.Close();
+
+            return authtoken;
+        }
+        
     }
 }

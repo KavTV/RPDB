@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using SKPDB_Library;
+using System;
 using System.Collections.Generic;
 using System.Text.Json;
 
@@ -11,7 +12,7 @@ namespace APITEST2.Controllers
     [EnableCors("AllowAll")]
     public class ManagerController : ControllerBase
     {
-        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
+        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPDB;");
 
         [Route("students")]
         [HttpGet]
@@ -50,9 +51,13 @@ namespace APITEST2.Controllers
         [Route("createproject")]
         [HttpPost]
         public IActionResult CreateProject(
+            [FromQuery] int statusid,
+            [FromQuery] string projectmanager,
             [FromQuery] string headline,
             [FromQuery] string documentation,
             [FromQuery] string description,
+            [FromQuery] DateTime startdate,
+            [FromQuery] DateTime enddate,
             [FromQuery] string username)
         {
             if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(username))
@@ -62,7 +67,7 @@ namespace APITEST2.Controllers
 
             string[] usernameSplit = username.Split(",");
 
-            if (manager.CreateProject(headline, documentation, description, usernameSplit))
+            if (manager.CreateProject(statusid,projectmanager, headline, documentation, description, startdate, enddate, usernameSplit))
             {
                 return Ok();
             }
@@ -73,9 +78,13 @@ namespace APITEST2.Controllers
         [HttpPost]
         public IActionResult EditProject(
             [FromQuery] int projectid,
+            [FromQuery] int statusid,
+            [FromQuery] string projectmanager,
             [FromQuery] string headline,
             [FromQuery] string documentation,
             [FromQuery] string description,
+            [FromQuery] DateTime startdate,
+            [FromQuery] DateTime enddate,
             [FromQuery] string usernames)
         {
             if (string.IsNullOrWhiteSpace(headline) || string.IsNullOrWhiteSpace(documentation) || string.IsNullOrWhiteSpace(description))
@@ -84,7 +93,7 @@ namespace APITEST2.Controllers
             }
             string[] usernameSplit = usernames.Split(",");
             //EditProject returns true if everything goes alright
-            if (manager.EditProject(projectid, headline, documentation, description, usernameSplit))
+            if (manager.EditProject(projectid,statusid, projectmanager, headline, documentation, description, startdate, enddate,  usernameSplit))
             {
                 return Ok();
             }
@@ -147,8 +156,30 @@ namespace APITEST2.Controllers
             {
                 return null;
             }
-            var json = JsonSerializer.Serialize<List<Student>>(manager.SearchStudents(search));
-            return json;
+            return JsonSerializer.Serialize<List<Student>>(manager.SearchStudents(search));
+            
+        }
+
+        [Route("getprojectcomments")]
+        [HttpGet]
+        public string GetprojectComments(
+            [FromQuery] int projectid)
+        {
+
+            return JsonSerializer.Serialize(manager.GetProjectComments(projectid));
+            
+        }
+
+        [Route("CreateComment")]
+        [HttpPost]
+        public string CreateComment(
+            [FromQuery] int projectid,
+            [FromQuery] string username,
+            [FromQuery] string msg)
+        {
+
+            return JsonSerializer.Serialize(manager.CreateComment());
+
         }
     }
 }

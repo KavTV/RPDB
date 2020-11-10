@@ -34,9 +34,9 @@ namespace SKPDB_Library
         /// Creates a project
         /// </summary>
         /// <returns>True if completed</returns>
-        public bool CreateProject(string headline, string documentation, string description, string[] usernames)
+        public bool CreateProject(int status, string projectmanager, string headline, string documentation, string description, DateTime startdate, DateTime enddate, string[] usernames)
         {
-            return dal.CreateProject(headline, documentation, description, usernames);
+            return dal.CreateProject(status, projectmanager, headline, documentation, description, startdate, enddate, usernames);
         }
         /// <summary>
         /// Deletes the project
@@ -51,9 +51,9 @@ namespace SKPDB_Library
         /// Edits the whole project
         /// </summary>
         /// <returns>True if completed</returns>
-        public bool EditProject(int projectid, string headline, string documentation, string description, string[] usernames)
+        public bool EditProject(int projectid, int status, string projectmanager, string headline, string documentation, string description, DateTime startdate, DateTime enddate, string[] usernames)
         {
-            return dal.EditProject(projectid, headline, documentation, description, usernames);
+            return dal.EditProject(projectid, status, projectmanager, headline, documentation, description, startdate, enddate, usernames);
         }
         /// <summary>
         /// Returns a list with all students in the project
@@ -114,6 +114,39 @@ namespace SKPDB_Library
         public List<Student> SearchStudents(string search)
         {
             return dal.SearchStudents(search);
+        }
+        public bool CreateComment(int projectid, string username, string msg)
+        {
+            return dal.CreateComment(projectid, username, msg);
+        }
+
+        public List<Comment> GetProjectComments(int projectid)
+        {
+            return dal.Getprojectcomments(projectid);
+        }
+        /// <summary>
+        /// Checks the password is correct
+        /// </summary>
+        /// <returns>True if password matches.</returns>
+        public bool AuthenticatePwd(string username, string pwd)
+        {
+            string hash = dal.GetUserPwd(username);
+            if (hash != null)
+            {
+                //Returns true if the password matches
+                return BCrypt.Net.BCrypt.Verify(pwd, hash);
+            }
+            return false;
+        }
+        public bool SetPwd(string username, string pwd)
+        {
+            string hashed = BCrypt.Net.BCrypt.HashPassword(pwd, 10, BCrypt.Net.SaltRevision.Revision2B);
+            //Save the hashed password
+            return dal.SetPwd(username, hashed);
+        }
+        public string GetAuthToken(string username)
+        {
+            return dal.GetAuthToken(username);
         }
     }
 }

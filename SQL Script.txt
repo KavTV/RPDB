@@ -214,7 +214,6 @@ END
 $$;
 
 /**/
-
 CREATE or replace FUNCTION FN_searchprojects(_search varchar) 
 Returns Table(projectid int, headline varchar, documentation varchar, description varchar)
 as $$
