@@ -178,7 +178,7 @@ namespace APITEST2.Controllers
             [FromQuery] string msg)
         {
 
-            return JsonSerializer.Serialize(manager.CreateComment());
+            return JsonSerializer.Serialize(manager.CreateComment(projectid,username,msg));
 
         }
     }
