@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=4d63bfbfdfd3c6e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Core.1.6.0\lib\net452\BCrypt.Net-Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -133,6 +136,8 @@
     <Content Include="JavaScript\StudentPage.js" />
     <Content Include="JavaScript\StudentsPage.js" />
     <Content Include="JavaScript\Util\Tool.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Reset.aspx" />
     <Content Include="Student.aspx" />
     <Content Include="Students.aspx" />
     <Content Include="Style\Create.css" />
@@ -175,6 +180,13 @@
     <Compile Include="EditProject.aspx.designer.cs">
       <DependentUpon>EditProject.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\DefaultMaster.Master.cs">
       <DependentUpon>DefaultMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +195,13 @@
       <DependentUpon>DefaultMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reset.aspx.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reset.aspx.designer.cs">
+      <DependentUpon>Reset.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

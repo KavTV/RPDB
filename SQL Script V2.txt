@@ -396,4 +396,16 @@ END; $$
 LANGUAGE PLPGSQL;
 
 /**/
+CREATE OR REPLACE FUNCTION FN_GetResetTokenUsername(_tkn varchar)
+Returns Table(username varchar)
+as $$
+BEGIN
 
+RETURN QUERY SELECT secret.username from secret
+WHERE secret.tokn = _tkn
+LIMIT 1;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
