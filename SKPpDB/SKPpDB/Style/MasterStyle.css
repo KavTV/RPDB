@@ -24,38 +24,38 @@
     color: white;
 }
 
-    .MenuBox header {
-        position: absolute;
-        right: 35px;
-        font-size: 80px;
-        cursor: pointer;
-        color: #b1b1b1;
-        transition: 0.5s;
-    }
+.MenuBox header {
+    position: absolute;
+    right: 35px;
+    font-size: 80px;
+    cursor: pointer;
+    color: #b1b1b1;
+    transition: 0.5s;
+}
 
-        .MenuBox header:hover {
-            color: #f1f1f1;
-        }
+.MenuBox header:hover {
+    color: #f1f1f1;
+}
 
-    .MenuBox article {
-        position: absolute;
-        top: 35%;
-        width: 100%;
-        text-align: center;
-    }
+.MenuBox article {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+}
 
-    .MenuBox a {
-        font-size: 42px;
-        color: #d6d6d6;
-        text-decoration: none;
-        transition: 0.5s;
-        padding: 5px 10px;
-    }
+.MenuBox a {
+    font-size: 42px;
+    color: #d6d6d6;
+    text-decoration: none;
+    transition: 0.5s;
+    padding: 5px 10px;
+}
 
-        .MenuBox a:hover, .MenuBox a:focus {
-            text-decoration: none;
-            color: #8a8787;
-        }
+.MenuBox a:hover, .MenuBox a:focus {
+    text-decoration: none;
+    color: #8a8787;
+}
 
 /* Menu Design End */
 
@@ -93,7 +93,7 @@
     animation-timing-function: linear;
 }
 
-@keyframes example {
+@keyframes Loading {
     from {
         transform: rotate(0deg);
     }

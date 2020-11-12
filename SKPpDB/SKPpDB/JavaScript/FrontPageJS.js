@@ -15,7 +15,6 @@ function TableAddRow(Id, Headline, Description, Documentation, Students) {
 }
 
 function LoadTable() {
-
     if (Project.responseJSON != null) {
         TableList.innerHTML = "";
         Project.responseJSON.forEach(element => {

@@ -56,8 +56,9 @@
     <Reference Include="Npgsql, Version=4.1.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.1.4\lib\net461\Npgsql.dll</HintPath>
     </Reference>
-    <Reference Include="SKPDB-Library">
-      <HintPath>..\..\Library\SKPDB-Library\SKPDB-Library\bin\Debug\netstandard2.0\SKPDB-Library.dll</HintPath>
+    <Reference Include="SKPDB-Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\SKPDB-Library.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -125,6 +126,7 @@
     <Content Include="JavaScript\EditPage.js" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
+    <Content Include="JavaScript\Others\Master-site.js" />
     <Content Include="JavaScript\Util\config.js" />
     <Content Include="JavaScript\Util\main.js" />
     <Content Include="JavaScript\Util\Project.js" />
@@ -144,11 +146,14 @@
     <Content Include="Style\frontPage.css" />
     <Content Include="Project.aspx" />
     <Content Include="Style\Image\deleteIcon.png" />
+    <Content Include="Style\Image\LoadingIcon.png" />
     <Content Include="Style\Image\multiplyIcon.png" />
-    <Content Include="Style\Image\loadingIcon.png" />
     <Content Include="Style\Image\menuIcon.png" />
     <Content Include="Style\Image\plusIcon.png" />
     <Content Include="Style\MasterStyle.css" />
+    <Content Include="Style\Styling.css" />
+    <Content Include="Style\Svg\MenuIcon.svg" />
+    <Content Include="Style\Svg\MenuIcon2.svg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +199,13 @@
     <Compile Include="MasterPage\DefaultMaster.Master.designer.cs">
       <DependentUpon>DefaultMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage\Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reset.aspx.cs">
       <DependentUpon>Reset.aspx</DependentUpon>
@@ -226,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage\DefaultMaster.Master" />
+    <Content Include="MasterPage\Master.Master" />
     <None Include="packages.config" />
     <Content Include="Style\Font\AvenirLTStd-Medium.otf" />
     <Content Include="Style\Font\LEMONMILK-Medium.otf" />

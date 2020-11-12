@@ -2,10 +2,10 @@
     "ProjectTable": {
         "UpdateID": "PUpdate",
         "SearchID": "searchbar",
-        "BoxID": "TableList",
+        "BoxID": "TableList", //<tr><td class= "column1" ><div class="scrollable ScrollLook">%Headline%</div></td><td class="column2"><div class="scrollable ScrollLook">%Description%</div></td><td class="column3"><div class="scrollable ScrollLook">%Documentation%</div></td><td class="column4"><div class="scrollable ScrollLook">%Students%</div></td></tr>
         "BoxErrorElement": "<h6 style=\"color: red; text-align: center;\">%Error%</h6>",
         "BoxLoadingElement": "<img src=\"Style/Image/loadingIcon.png\" class=\"loading\" alt=\"Loading ...\" /><h6 style=\"text-align: center;\"> Loading ... </h6>",
-        "BoxTableDataElement": "<article class=\"TableBody row\"><a href=\"Project.aspx?projectid=%ID%\" class=\"col-md-2\"><header class=\"ScrollLook\">%Headline%</header></a><header class=\"col-md-6 ScrollLook\">%Description%</header><header class=\"col-md-2 ScrollLook\">%Documentation%</header><header class=\"col-md-2 ScrollLook\">%Students%</header></article\">"
+        "BoxTableDataElement": "<tr><td class=\"column1\"><div class=\"scrollable ScrollLook\"><a href=\"Project.aspx?projectid=%ID%\">%Headline%</a></div></td><td class=\"column2\"><div class=\"scrollable ScrollLook\">%Description%</div></td><td class=\"column3\"><div class=\"scrollable ScrollLook\">%Documentation%</div></td><td class=\"column4\"><div class=\"scrollable ScrollLook\">%Students%</div></td></tr>"
     },
     "StudentTable": {
         "UpdateID": "PUpdate",

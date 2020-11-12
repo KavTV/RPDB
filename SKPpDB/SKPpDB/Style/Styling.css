@@ -1,0 +1,279 @@
+/*Fonts*/
+
+@font-face {
+    font-family: Milk;
+    src: url(Font/LEMONMILK-Medium.otf);
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(Font/AvenirLTStd-Medium.otf);
+}
+
+/*GLOBAL DESIGN*/
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    background: linear-gradient(45deg, #4184d0, #ac50c8);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.TitleContainer {
+    height: 200px;
+    text-align: center;
+}
+
+.TitleContainer header {
+    position: relative;
+    cursor: pointer;
+    top: 40px;
+    width: 500px;
+    margin: 0 auto;
+    font-family: Avenir;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+    font-size: 25px;
+}
+
+.TitleContainer header span {
+    font-family: Milk;
+    font-size: 60px;
+}
+
+.TitleContainer article {
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    position: absolute;
+    height: 70px;
+    width: 70px;
+}
+
+.TitleContainer article img {
+    height: 100%;
+    width: 100%;
+}
+
+/*MENU DESIGN*/
+
+.Menu {
+    position: fixed;
+    display: block;
+    top: 0;
+    right: 0;
+    background-color: #000a;
+    height: 100%;
+    width: 0px;
+    text-align: center;
+    overflow-x: hidden;
+    z-index: 5;
+    transition: 1s;
+    box-shadow: 1px 1px 20px 1px #0008;
+}
+
+.Menu .Close {
+    position: absolute;
+    right: 35px;
+    font-size: 100px;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 3px 3px 15px black;
+}
+
+.Menu .Close:hover {
+    color: #d0d0d0;
+}
+
+.Menu article {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+}
+
+.Menu a {
+    font-size: 42px;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 10px;
+    display: block;
+    text-shadow: 3px 3px 15px black;
+}
+
+.Menu a:hover, .Menu a:focus {
+    text-decoration: none;
+    color: #d0d0d0;
+}
+
+/*TABLE CONTAINER*/
+.TableContainer {
+    position: relative;
+}
+
+/*INPUT / BUTTON*/
+.TableOption {
+    text-align: center;
+}
+
+.TableOption button {
+    font-family: Avenir;
+    font-size: 23px;
+    padding: 10px 35px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-color: #36304a;
+    margin: 10px;
+    outline: none;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.TableOption button:hover {
+    background-color: #4a416b;
+}
+
+.TableOption button:active {
+    background-color: #36304a;
+}
+
+.TableOption input[type=text] {
+    font-family: Avenir;
+    width: 500px;
+    font-size: 23px;
+    padding: 10px 15px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #36304a;
+}
+
+/*TABLE DESIGN*/
+table {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    border-spacing: 0px;
+    margin: 0 auto;
+}
+
+thead {
+    display: block;
+    width: 100%;
+    background-color: #36304a;
+}
+
+thead tr {
+    font-family: Avenir;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    height: 60px;
+}
+
+tbody {
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody tr {
+    color: #808080;
+    height: 50px;
+    max-height: 75px;
+    background-color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+tbody tr:hover {
+    background-color: #d8d8d8;
+    color: black;
+}
+
+td, th {
+    padding: 5px;    
+}
+
+tbody a {
+    color: unset;
+    text-decoration: none;
+}
+
+tbody a:hover, tbody a:focus {
+    color: unset;
+    text-decoration: underline;
+}
+
+div.scrollable {
+    width: 100%;
+    max-height: 75px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+.column1 {
+    width: 300px;
+    padding-left: 20px;
+}
+
+.column2 {
+    width: 500px;
+}
+
+.column3 {
+    width: 175px;
+}
+
+.column4 {
+    width: 260px;
+    padding-right: 20px;
+}
+
+
+/*SCROLL DESIGN*/
+
+.ScrollLook::-webkit-scrollbar {
+    height: 95%;
+    width: 6px;
+}
+
+.ScrollLook::-webkit-scrollbar-thumb {
+    background-color: #36304a;
+    border-radius: 2px;
+}
+
+/*LOADING DESIGN*/
+
+.loading {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    transition: 2s;
+    width: 50px;
+    animation-name: Loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+@keyframes Loading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
