@@ -5,7 +5,7 @@ namespace SKPpDB
 {
     public partial class WatchProject : System.Web.UI.Page
     {
-        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPpDB;");
+        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPDB;");
 
         protected void Page_Load(object sender, EventArgs e)
         {

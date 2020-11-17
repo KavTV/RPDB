@@ -1,8 +1,12 @@
 ﻿export class ProjectObject {
     ID;
+    StatusId;
+    ProjectManager;
     Headline;
     Description;
     Documentation;
+    StartDate;
+    EndDate;
     Students;
 
     //Set the object manual up.
@@ -25,9 +29,13 @@
             console.error(e);
         });
         this.ID = resulta["Id"];
+        this.StatusId = resulta["Statusid"];
+        this.ProjectManager = resulta["Projectmanager"];
         this.Headline = resulta["Headline"];
         this.Description = resulta["Description"];
         this.Documentation = resulta["Documentation"];
+        this.StartDate = new Date(resulta["Startdate"]);
+        this.EndDate = new Date(resulta["Enddate"]);
 
         console.log(this.ID);
     }

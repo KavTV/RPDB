@@ -31,14 +31,13 @@ export function StudentManager(settings = Array) {
 
     this.Update = function () {
         let Url = "https://api.projektdatabase.skprg.dk/students";
+        BoxLoading();
 
         if (Search && Search != " ") {
             Url = `https://api.projektdatabase.skprg.dk/searchstudents?search=${Search} `;
         }
 
         $.getJSON(Url, function (result) {
-            console.log(result);
-
             Students = [];
 
                 result.forEach(student => {
@@ -69,7 +68,6 @@ export function StudentManager(settings = Array) {
                     project.Project.forEach(project => {
                         projectArray.push(project.Headline);
                     });
-                    console.log(project);
                     let text = Settings['BoxTableDataElement'].toString();
                     text = text.replace('%ID%', project.ID)
                         .replace('%Username%', project.Username)
