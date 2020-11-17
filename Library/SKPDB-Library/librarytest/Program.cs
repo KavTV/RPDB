@@ -14,7 +14,6 @@ namespace librarytest
             //    Console.WriteLine(item.Timestamp);
             //}
             //Console.WriteLine(manager.GetAuthToken("kasp609g"));
-            
         }
     }
 }

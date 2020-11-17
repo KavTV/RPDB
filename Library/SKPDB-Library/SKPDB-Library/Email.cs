@@ -12,10 +12,10 @@ namespace SKPDB_Library
         public Email()
         {
 
-            smtpServer = new SmtpClient("smtp.gmail.com");
-            smtpServer.Port = 587;
-            smtpServer.Credentials = new NetworkCredential(clientEmail, clientPassword);
-            smtpServer.EnableSsl = true;
+            //smtpServer = new SmtpClient("smtp.gmail.com");
+            //smtpServer.Port = 587;
+            //smtpServer.Credentials = new NetworkCredential(clientEmail, clientPassword);
+            //smtpServer.EnableSsl = true;
         }
 
         public void SendEmail(string customerEmail, string subject, string message)

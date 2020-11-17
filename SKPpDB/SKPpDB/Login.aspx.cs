@@ -15,24 +15,47 @@ namespace SKPpDB
         private Manager manager = new Manager(ConfigurationManager.ConnectionStrings["default"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] != null)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void SubmitBTN_Click(object sender, EventArgs e)
         {
             string username = UsernameBox.Text;
             string pwd = PasswordBox.Text;
-
-            if (manager.AuthenticatePwd(username, pwd))
+            //if the username and password is verified, start a session.
+            if (manager.VerifyPwd(username, pwd))
             {
-                //Do some fancy session stuff.
-                Label1.Text = "Du har adgang";
+                //Save the username to the session
+                Session["username"] = username;
+
+                //If the user is instruktør, give admin access
+                if (manager.GetUserEducation(username) == 4)
+                {
+                    Session["admin"] = true;
+                }
+                else
+                {
+                    Session["admin"] = false;
+                }
+                //redirect user to the default page.
+                Response.Redirect("Default.aspx");
+
             }
             else
             {
-                Label1.Text = "Fuck dig";
+                Label1.Text = "Adgang nægtet";
             }
-            
+
+        }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
         }
     }
 }
