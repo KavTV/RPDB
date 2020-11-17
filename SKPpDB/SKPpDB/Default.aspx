@@ -16,10 +16,10 @@
         <table>
             <thead>
                 <tr>
-                    <th class="column1">Projekt Navn</th>
+                    <th class="column1 columnStart">Projekt Navn</th>
                     <th class="column2">Projekt Beskrivelse</th>
                     <th class="column3">Dokumention Link</th>
-                    <th class="column4">Medarbejdere</th>
+                    <th class="column4 columnEnd">Medarbejdere</th>
                 </tr>
             </thead>
             <tbody class="ScrollLook" id="TableList">

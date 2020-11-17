@@ -47,6 +47,11 @@ html, body {
     font-size: 60px;
 }
 
+.TitleContainer header h1 a {
+    color: unset;
+    text-decoration: unset;
+}
+
 .TitleContainer article {
     top: 20px;
     right: 30px;
@@ -122,7 +127,7 @@ html, body {
     text-align: center;
 }
 
-.TableOption button {
+button, input[type="submit"] {
     font-family: Avenir;
     font-size: 23px;
     padding: 10px 35px;
@@ -136,11 +141,11 @@ html, body {
     cursor: pointer;
 }
 
-.TableOption button:hover {
+button:hover, input[type="submit"]:hover {
     background-color: #4a416b;
 }
 
-.TableOption button:active {
+button:active, input[type="submit"]:active {
     background-color: #36304a;
 }
 
@@ -223,12 +228,11 @@ div.scrollable {
 }
 
 .column1 {
-    width: 300px;
-    padding-left: 20px;
+    width: 350px;
 }
 
 .column2 {
-    width: 500px;
+    width: 700px;
 }
 
 .column3 {
@@ -236,10 +240,44 @@ div.scrollable {
 }
 
 .column4 {
-    width: 260px;
+    width: 300px;
+}
+
+.columnStart {
+    padding-left: 20px;
+}
+
+.columnEnd {
     padding-right: 20px;
 }
 
+/* BOX DESIGN */
+
+.box {
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 80%;
+    background-color: white;
+    overflow: auto;
+}
+
+.box .title {
+    background-color: #36304a;
+    text-align: center;
+    color: white;
+    font-family: Avenir;
+    font-size: 28px;
+    padding: 10px 20px;
+}
+
+.box .MiddleBox {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.box .Content {
+    height: 400px;
+}
 
 /*SCROLL DESIGN*/
 

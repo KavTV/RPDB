@@ -2,19 +2,21 @@
 import { getParams } from '../Util/Tool.js';
 
 var params = getParams(window.location.href);
-
 const Project = new ProjectObject();
 
-//async () => {
+//HTML Element Variables
+var toptitle = document.getElementById("top-title");
+var title = document.getElementById("title");
 
-//    await Project.Api_Setup(params['projectid']);
 
-//}
-
-async function kage() {
+//Void Main
+async function Main() {
 
     await Project.Api_Setup(params['projectid']);
     console.log(Project);
+
+    toptitle.innerText = Project.Headline;
+    title.innerText = Project.Headline;
 }
 
-kage();
+Main();
