@@ -363,7 +363,7 @@ LANGUAGE plpgsql
 AS $$
 BEGIN
 	 
-	 UPDATE secret SET pwd = _pwd
+	 UPDATE secret SET pwd = _pwd, tokn = NULL
 	 WHERE username = _username;
 	 
 END

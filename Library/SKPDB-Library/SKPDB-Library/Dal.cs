@@ -518,6 +518,17 @@ namespace SKPDB_Library
                 return null;
             }
         }
+        public bool SetToken(string username, string token)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_settokn(@username, @tokn)", connection);
+
+            command.Parameters.AddWithValue("username", username);
+            command.Parameters.AddWithValue("tokn", NpgsqlTypes.NpgsqlDbType.Char, token);
+
+            return ExecuteNonQuery(command);
+        }
 
         public bool SetPwd(string username, string pwd)
         {
@@ -558,6 +569,24 @@ namespace SKPDB_Library
 
             reader.Read();
             string authtoken = reader["authtoken"].ToString();
+            connection.Close();
+
+            return authtoken;
+        }
+
+        public string GetResetTokenUsername(string token)
+        {
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_getresettokenusername(@tkn)", connection);
+
+            command.Parameters.AddWithValue("tkn", token);
+
+            // Opens connection
+            connection.Open();
+            NpgsqlDataReader reader = command.ExecuteReader();
+
+            reader.Read();
+            string authtoken = reader["username"].ToString();
             connection.Close();
 
             return authtoken;

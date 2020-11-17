@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "/QMFUsCUbzL7BQufSHGMq5Zpouq5xiULv4c5HpDrVFiKpfzfW6y37zpt5PltJVODEXmzJcF3sKZYNIeDjc/MUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\librarytest\\librarytest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kasp609g\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\npgsql\\4.1.4\\npgsql.4.1.4.nupkg.sha512",
+    "C:\\Users\\kasp609g\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -158,6 +158,7 @@ namespace APITEST2.Controllers
             }
             return JsonSerializer.Serialize<List<Student>>(manager.SearchStudents(search));
             
+
         }
 
         [Route("getprojectcomments")]
@@ -172,13 +173,23 @@ namespace APITEST2.Controllers
 
         [Route("CreateComment")]
         [HttpPost]
-        public string CreateComment(
+        public IActionResult CreateComment(
             [FromQuery] int projectid,
             [FromQuery] string username,
             [FromQuery] string msg)
         {
-
-            return JsonSerializer.Serialize(manager.CreateComment(projectid,username,msg));
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(msg))
+            {
+                return BadRequest();
+            }
+            if (manager.CreateComment(projectid, username, msg))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
 
         }
     }

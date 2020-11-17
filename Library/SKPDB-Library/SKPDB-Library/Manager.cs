@@ -148,5 +148,24 @@ namespace SKPDB_Library
         {
             return dal.GetAuthToken(username);
         }
+        public string GetResetTokenUsername(string token)
+        {
+            return dal.GetResetTokenUsername(token);
+        }
+        public bool MakeResetToken(string username)
+        {
+            string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+            string hashed = BCrypt.Net.BCrypt.HashPassword(token);
+
+            if (dal.SetToken(username, hashed))
+            {
+                //send email with the token
+
+
+                return true;
+            }
+            return false;
+        }
+        
     }
 }
