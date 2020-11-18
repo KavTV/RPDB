@@ -7,6 +7,8 @@ const Project = new ProjectObject();
 //HTML Element Variables
 var toptitle = document.getElementById("top-title");
 var title = document.getElementById("title");
+var description = document.getElementById("description");
+var Projectmanager = document.getElementById("Projectmanager");
 
 
 //Void Main
@@ -17,6 +19,8 @@ async function Main() {
 
     toptitle.innerText = Project.Headline;
     title.innerText = Project.Headline;
+    Projectmanager.innerText = Project.ProjectManager;
+    description.innerText = Project.Description;
 }
 
 Main();

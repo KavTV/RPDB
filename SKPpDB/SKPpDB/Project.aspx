@@ -15,6 +15,10 @@
         <article class="Content">
             <h1>Projekt Navn</h1>
             <header id="title"></header>
+            <h1>Projekt Leder</h1>
+            <header id="Projectmanager"></header>
+            <h1>Projekt Beskrivelse</h1>
+            <header id="description"></header>
         </article>
     </section>
     <script type="module" src="../JavaScript/Main/ProjectPage_Main.js"></script>
