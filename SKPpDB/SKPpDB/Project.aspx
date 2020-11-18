@@ -9,6 +9,7 @@
         <article class="MiddleBox">
             <form runat="server">
                 <asp:Button runat="server" CssClass="col-4 ButtonLook" Text="Rediger" OnClick="Redirect_Click" />
+                                
                 <asp:Button runat="server" ID="DeleteBTN" CssClass="col-4 ButtonLook" Text="Slet" OnClick="DeleteBTN_Click" />
             </form>
         </article>

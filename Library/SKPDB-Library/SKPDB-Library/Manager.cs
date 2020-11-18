@@ -170,5 +170,16 @@ namespace SKPDB_Library
         {
             return dal.GetUserEducation(username);
         }
+
+        /// <summary>
+        /// Changes the status of a project
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <param name="statusid"> 1 = Færdig, 2 = Aktiv, 3 = Mangler folk, 4 = standby, 5 = ikke startet</param>
+        /// <returns>True if changed successfully</returns>
+        public bool SetProjectStatus(int projectid, int statusid)
+        {
+            return dal.SetProjectStatus(projectid, statusid);
+        }
     }
 }

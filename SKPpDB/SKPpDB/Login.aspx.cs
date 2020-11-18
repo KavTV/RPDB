@@ -15,6 +15,8 @@ namespace SKPpDB
         private Manager manager = new Manager(ConfigurationManager.ConnectionStrings["default"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label1.Text = "";
+            //If user is already logged in, then redirect to default page.
             if (Session["username"] != null)
             {
                 Response.Redirect("Default.aspx");

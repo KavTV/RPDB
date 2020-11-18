@@ -437,3 +437,16 @@ END; $$
 LANGUAGE PLPGSQL;
 
 /**/
+CREATE OR REPLACE PROCEDURE SP_SetStatus(_projectid int, _statusid int )
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 UPDATE projects SET statusid = _statusid
+	 WHERE projectid = _projectid;
+	 
+END
+$$;
+
+/**/

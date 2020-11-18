@@ -1,14 +1,23 @@
 ﻿using SKPDB_Library;
 using System;
+using System.Configuration;
 
 namespace SKPpDB
 {
     public partial class WatchProject : System.Web.UI.Page
     {
-        private Manager manager = new Manager("Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPDB;");
+        private Manager manager = new Manager(ConfigurationManager.ConnectionStrings["default"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            ////Get the id from query, and 
+            //int projectid = 0;
+            //int.TryParse(Request.QueryString["projectid"], out projectid);
+            //if (projectid != 0)
+            //{
+            //    StatusList.SelectedValue = manager.GetProject(projectid).Statusid.ToString();
+            //}
         }
 
         protected void DeleteBTN_Click(object sender, EventArgs e)

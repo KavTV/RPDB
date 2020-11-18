@@ -627,5 +627,17 @@ namespace SKPDB_Library
             return 0;
         }
 
+        public bool SetProjectStatus(int projectid, int statusid)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_setstatus(@projectid, @statusid)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+            command.Parameters.AddWithValue("statusid", statusid);
+
+            return ExecuteNonQuery(command);
+        }
+
     }
 }
