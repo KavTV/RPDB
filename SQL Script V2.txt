@@ -221,6 +221,9 @@ BEGIN
 	 DELETE FROM studentprojects
 	 WHERE projectid = _projectid;
 	 
+	 INSERT INTO studentprojects
+	 VALUES(projectid, _projectmanager);
+	 
 	 FOREACH u IN ARRAY _username
 	LOOP
 		if u != '' then
@@ -404,6 +407,31 @@ BEGIN
 RETURN QUERY SELECT secret.username from secret
 WHERE secret.tokn = _tkn
 LIMIT 1;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE OR REPLACE PROCEDURE SP_SetTokn(_username varchar, _tokn char)
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 UPDATE secret SET tokn = _tokn
+	 WHERE username = _username;
+	 
+END
+$$;
+
+/**/
+CREATE OR REPLACE FUNCTION FN_UserEducationid(_username varchar)
+Returns Table(educationid int)
+as $$
+BEGIN
+
+RETURN QUERY SELECT students.educationid from students
+WHERE students.username = _username;
 
 END; $$
 LANGUAGE PLPGSQL;

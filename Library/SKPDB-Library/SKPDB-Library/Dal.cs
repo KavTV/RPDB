@@ -591,6 +591,41 @@ namespace SKPDB_Library
 
             return authtoken;
         }
-        
+
+
+        public int GetUserEducation(string username)
+        {
+            try
+            {
+
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_usereducationid(@username)", connection);
+
+                command.Parameters.AddWithValue("username", username);
+
+                // Opens connection
+                connection.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+
+                int educationid;
+                if (!int.TryParse(reader["educationid"].ToString(), out educationid))
+                {
+                    educationid = 0;
+                } 
+                connection.Close();
+
+                return educationid;
+            }
+            catch (Exception)
+            {
+
+
+            }
+            //Returns 0 if something was wrong, or nothing found
+            return 0;
+        }
+
     }
 }

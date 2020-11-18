@@ -128,7 +128,7 @@ namespace SKPDB_Library
         /// Checks the password is correct
         /// </summary>
         /// <returns>True if password matches.</returns>
-        public bool AuthenticatePwd(string username, string pwd)
+        public bool VerifyPwd(string username, string pwd)
         {
             string hash = dal.GetUserPwd(username);
             if (hash != null)
@@ -166,6 +166,9 @@ namespace SKPDB_Library
             }
             return false;
         }
-        
+        public int GetUserEducation(string username)
+        {
+            return dal.GetUserEducation(username);
+        }
     }
 }
