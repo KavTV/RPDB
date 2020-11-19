@@ -10,6 +10,23 @@ namespace SKPpDB
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Get the projectid parameter from url
+            int projectid = 0;
+            int.TryParse(Request.QueryString["projectid"], out projectid);
+            if (manager.ProjectExists(projectid))
+            {
+                if (Session["username"] != null)
+                {
+                    if (Session["admin"].Equals(true))
+                    {
+                        DeleteBTN.Visible = true;
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
 
             ////Get the id from query, and 
             //int projectid = 0;

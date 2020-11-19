@@ -639,5 +639,23 @@ namespace SKPDB_Library
             return ExecuteNonQuery(command);
         }
 
+        public bool ProjectExist(int projectid)
+        {
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_projectexist(@projectid)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+
+            // Opens connection
+            connection.Open();
+            NpgsqlDataReader reader = command.ExecuteReader();
+            
+            reader.Read();
+            bool exists = (bool)reader["fn_projectexist"];
+            connection.Close();
+
+            return exists;
+        }
+
     }
 }

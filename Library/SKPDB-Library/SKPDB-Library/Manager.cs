@@ -181,5 +181,14 @@ namespace SKPDB_Library
         {
             return dal.SetProjectStatus(projectid, statusid);
         }
+        /// <summary>
+        /// Checks if the project exists
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <returns>True if project exists</returns>
+        public bool ProjectExists(int projectid)
+        {
+            return dal.ProjectExist(projectid);
+        }
     }
 }

@@ -450,3 +450,23 @@ END
 $$;
 
 /**/
+CREATE OR REPLACE FUNCTION FN_ProjectExist(_projectid int)
+Returns bool
+as $$
+DECLARE
+	_count int;
+BEGIN
+	SELECT COUNT(*) FROM projects 
+	INTO _count 
+	WHERE projectid = _projectid;
+	
+	if _count > 0 then
+		return 'true';
+	else
+		return 'false';
+	end if;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
