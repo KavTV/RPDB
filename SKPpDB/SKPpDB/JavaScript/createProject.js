@@ -9,8 +9,12 @@ var createButtonElement = document.getElementById("CreateButton");
 
 //Student System elements
 var SelectElement = document.getElementById("Students");
+var SelectProjectmanager = document.getElementById("ProjectManager");
 var studentBox = document.getElementById("studentBox");
 var StudentListBox = document.getElementById("SelectedStudents");
+var SelectStatusId = document.getElementById("StatusId");
+var StartDate = document.getElementById("StartDate");
+var EndDate = document.getElementById("EndDate");
 
 //Student system variable
 var StudentIndexList = [];
@@ -31,6 +35,7 @@ function LoadSelect() {
 
 function SelectAddOption(Value, InnerText) {
     SelectElement.innerHTML += '<option value="' + Value + '">' + InnerText + '</option>';
+    SelectProjectmanager.innerHTML += '<option value="' + Value + '">' + InnerText + '</option>';
 }
 
 function AddSelectedStudent() {
@@ -80,7 +85,7 @@ function createProject() {
         studentString += projectLeader + ",";
         studentString = studentString.substring(0, studentString.length - 1);
 
-        PostData("createproject?headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&username=" + studentString)
+        PostData("createproject?statusid=" + SelectStatusId.value + "&projectmanager=" + SelectProjectmanager.value + "&headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&startdate=" + StartDate.value + "&enddate=" + EndDate.value + "&username=" + studentString)
             .done(function () {
                 LoadingScreen(false);
                 window.location.href = "../";
