@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="UTF-8">
     <title>Projekt Database</title>
-    <link href="../Style/Styling.css" rel="stylesheet"/>
+    <link href="../Style/Styling.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -20,6 +20,7 @@
         <article>
             <a href="../">Projekter</a>
             <a href="../students.aspx">Elever</a>
+            <a href="../Logout.aspx">Log ud</a>
         </article>
     </section>
 

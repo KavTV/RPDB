@@ -222,7 +222,7 @@ BEGIN
 	 WHERE projectid = _projectid;
 	 
 	 INSERT INTO studentprojects
-	 VALUES(projectid, _projectmanager);
+	 VALUES(_projectid, _projectmanager);
 	 
 	 FOREACH u IN ARRAY _username
 	LOOP

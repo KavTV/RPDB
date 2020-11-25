@@ -24,6 +24,11 @@
                     <asp:Button ID="SubmitBTN" runat="server" Text="Submit" OnClick="SubmitBTN_Click"/>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="ResetBTN" runat="server" Text="Reset password" OnClick="ResetBTN_Click"/>
+                </td>
+            </tr>
         </table>
         <asp:Label ID="Label1" runat="server"></asp:Label>
     </form>

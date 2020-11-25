@@ -19,6 +19,21 @@
             <h4>Dokumentions Link:
             </h4>
             <input id="DocumentationText" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Dokumentions Link">
+            <h4>Status</h4>
+            <select name="status" id="StatusId">
+                <option value="1">Færdig</option>
+                <option value="2">Aktiv</option>
+                <option value="3">Mangler folk</option>
+                <option value="4">Standby</option>
+                <option value="5">Ikke startet</option>
+            </select>
+            <h4>Start Dato:</h4>
+            <input type="date" id="StartDate" />
+            <h4>Slut Dato:</h4>
+            <input type="date" id="EndDate" />
+            <h4>Projekt Leder</h4>
+            <select name="projektleder" id="ProjectManager">
+            </select>
             <h4>Elever:
             </h4>
             <article id="studentBox">

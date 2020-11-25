@@ -53,11 +53,9 @@ namespace SKPpDB
 
         }
 
-        protected void Logout_Click(object sender, EventArgs e)
+        protected void ResetBTN_Click(object sender, EventArgs e)
         {
-            Session.Clear();
-            Session.Abandon();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("ResetPage.aspx");
         }
     }
 }

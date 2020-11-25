@@ -6,7 +6,7 @@ namespace SKPDB_Library
     public class Manager
     {
         Dal dal;
-
+        
 
         public Manager(string connectionString)
         {

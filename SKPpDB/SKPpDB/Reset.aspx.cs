@@ -14,13 +14,16 @@ namespace SKPpDB
         private Manager manager = new Manager(ConfigurationManager.ConnectionStrings["default"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (string.IsNullOrWhiteSpace(Request.QueryString["tkn"]))
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void ResetBTN_Click(object sender, EventArgs e)
         {
             //Get the token from url and find the user with the token.
-            string username = manager.GetResetTokenUsername(Request.QueryString["username"]);
+            string username = manager.GetResetTokenUsername(Request.QueryString["tkn"]);
             
             //Sets the password, and returns true if password reset was successful.
             if (manager.SetPwd(username, PasswordBox.Text))

@@ -430,8 +430,8 @@ namespace SKPDB_Library
 
         private bool ExecuteNonQuery(NpgsqlCommand command)
         {
-            try
-            {
+            //try
+            //{
                 // Creates connection
                 NpgsqlConnection connection = new NpgsqlConnection(connectionString);
                 command.Connection = connection;
@@ -441,11 +441,11 @@ namespace SKPDB_Library
                 command.ExecuteNonQuery();
                 connection.Close();
                 return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return false;
+            //}
         }
 
         public List<Comment> Getprojectcomments(int projectid)
