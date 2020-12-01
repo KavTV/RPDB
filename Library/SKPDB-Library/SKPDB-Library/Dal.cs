@@ -1,7 +1,6 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SKPDB_Library
 {
@@ -432,15 +431,15 @@ namespace SKPDB_Library
         {
             //try
             //{
-                // Creates connection
-                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-                command.Connection = connection;
+            // Creates connection
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            command.Connection = connection;
 
-                // Opens connections and writes to table
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+            // Opens connections and writes to table
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return true;
             //}
             //catch (Exception)
             //{
@@ -576,20 +575,28 @@ namespace SKPDB_Library
 
         public string GetResetTokenUsername(string token)
         {
-            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_getresettokenusername(@tkn)", connection);
+            try
+            {
+                NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_getresettokenusername(@tkn)", connection);
 
-            command.Parameters.AddWithValue("tkn", token);
+                command.Parameters.AddWithValue("tkn", token);
 
-            // Opens connection
-            connection.Open();
-            NpgsqlDataReader reader = command.ExecuteReader();
+                // Opens connection
+                connection.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
 
-            reader.Read();
-            string authtoken = reader["username"].ToString();
-            connection.Close();
+                reader.Read();
+                string authtoken = reader["username"].ToString();
+                connection.Close();
 
-            return authtoken;
+                return authtoken;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
 
@@ -613,7 +620,7 @@ namespace SKPDB_Library
                 if (!int.TryParse(reader["educationid"].ToString(), out educationid))
                 {
                     educationid = 0;
-                } 
+                }
                 connection.Close();
 
                 return educationid;
@@ -649,7 +656,7 @@ namespace SKPDB_Library
             // Opens connection
             connection.Open();
             NpgsqlDataReader reader = command.ExecuteReader();
-            
+
             reader.Read();
             bool exists = (bool)reader["fn_projectexist"];
             connection.Close();

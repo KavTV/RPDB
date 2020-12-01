@@ -24,15 +24,17 @@ namespace SKPpDB
         {
             //Get the token from url and find the user with the token.
             string username = manager.GetResetTokenUsername(Request.QueryString["tkn"]);
-            
-            //Sets the password, and returns true if password reset was successful.
-            if (manager.SetPwd(username, PasswordBox.Text))
+            if (username != null)
             {
-                Response.Redirect("DefaultV2.aspx");
-            }
-            else
-            {
-                ErrorLabel.Text = "Unable to change password";
+                //Sets the password, and returns true if password reset was successful.
+                if (manager.SetPwd(username, PasswordBox.Text))
+                {
+                    Response.Redirect("Default.aspx");
+                }
+                else
+                {
+                    ErrorLabel.Text = "Kan ikke skifte password";
+                }
             }
 
         }

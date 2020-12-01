@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SKPDB_Library
 {
     public class Manager
     {
         Dal dal;
-        
+
 
         public Manager(string connectionString)
         {
@@ -119,7 +122,11 @@ namespace SKPDB_Library
         {
             return dal.CreateComment(projectid, username, msg);
         }
-
+        /// <summary>
+        /// Get the comments on 1 project
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <returns></returns>
         public List<Comment> GetProjectComments(int projectid)
         {
             return dal.Getprojectcomments(projectid);
@@ -138,31 +145,72 @@ namespace SKPDB_Library
             }
             return false;
         }
+        /// <summary>
+        /// Sets and hashes the users password
+        /// </summary>
+        /// <returns>True if password set</returns>
         public bool SetPwd(string username, string pwd)
         {
             string hashed = BCrypt.Net.BCrypt.HashPassword(pwd, 10, BCrypt.Net.SaltRevision.Revision2B);
             //Save the hashed password
             return dal.SetPwd(username, hashed);
         }
+
         public string GetAuthToken(string username)
         {
             return dal.GetAuthToken(username);
         }
+        /// <summary>
+        /// Get the username of the user with the token
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
         public string GetResetTokenUsername(string token)
         {
+            //Using sha to hash token and tries to find match i database.
+            SHA256 sha = SHA256.Create();
+            token = sha.ComputeHash(Encoding.UTF8.GetBytes(token)).ToString();
+            sha.Dispose();
             return dal.GetResetTokenUsername(token);
         }
-        public bool MakeResetToken(string username)
+        /// <summary>
+        /// Creates a token and sends it to the users email if user exists.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns>True if token is created and email sent</returns>
+        public bool CreateResetToken(string username)
         {
-            string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
-            string hashed = BCrypt.Net.BCrypt.HashPassword(token);
-
-            if (dal.SetToken(username, hashed))
+            //Checks if username exists
+            if (dal.GetStudent(username) != null)
             {
-                //send email with the token
+                //make random string 
+                
+                string token = WebUtility.UrlEncode(Convert.ToBase64String(Guid.NewGuid().ToByteArray()));
+                SHA256 sha = SHA256.Create();
+                string hashed = sha.ComputeHash(Encoding.UTF8.GetBytes(token)).ToString();
 
+                if (dal.SetToken(username, hashed))
+                {
+                    sha.Dispose();
+                    //send email with the token
+                    try
+                    {
 
-                return true;
+                        Email email = new Email();
+
+                        string mail = username + "@zbc.dk";
+                        string message = "Brug dette link til at reset dit password: https://projektdatabase.skprg.dk/Reset.aspx?tkn=" + token;
+                        email.SendEmail(mail, "Reset Password, SKP PDB", message);
+
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+
+                        return false;
+                    }
+                }
+                sha.Dispose();
             }
             return false;
         }

@@ -20,8 +20,16 @@ namespace SKPpDB
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            //Send a mail with reset link
 
+            //Send a mail with reset link
+           if(manager.CreateResetToken(UsernameBox.Text))
+            {
+                Response.Redirect("Login.aspx");  
+            }
+            else
+            {
+                ErrorLabel.Text = "Der skete en fejl, måske findes brugernavnet ikke.";
+            }
         }
     }
 }
