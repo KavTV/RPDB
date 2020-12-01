@@ -3,24 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section id="Box" class="box">
+    <section style="max-width: 700px;" id="Box" class="box">
         <header id="top-name" class="title"></header>
         <article class="Content">
-            <header>
-                <h1>Navn</h1>
-                <span id="name"></span>
-            </header>
-            <header>
-                <h1>Studentere</h1>
-                <span id="education"></span>
-            </header>
-            <header>
-                <h1>Uni-Login</h1>
-                <span id="username"></span>
-            </header>
-            <header>
-                <h1>Projekter</h1>
-                <span id="projects"></span>
+            <article class="MiddleBox">
+                <header class="textbox inline">
+                    <h1 style="text-align: center;">Studentere</h1>
+                    <span id="education" class="MiddleBox"></span>
+                </header>
+                <header class="textbox inline">
+                    <h1 style="text-align: center;">Uni-Login</h1>
+                    <span id="username" class="MiddleBox"></span>
+                </header>
+                <header class="textbox inline">
+                    <h1 style="text-align: center;">Mail</h1>
+                    <span id="mail" class="MiddleBox"></span>
+                </header>
+            </article>
+            <header class="textbox MiddleBox">
+                <h1 style="text-align: center;">Projekter</h1>
+                <span id="projects" style="display: block; text-align: center;"></span>
             </header>
         </article>
     </section>

@@ -22,7 +22,6 @@ html, body {
     background-size: contain;
     background-attachment: fixed;
     font-family: sans-serif;
-    overflow: hidden;
 }
 
 .TitleContainer {
@@ -256,7 +255,6 @@ div.scrollable {
 .box {
     border-radius: 10px;
     margin: 0 auto;
-    width: 80%;
     background-color: white;
     overflow: auto;
 }
@@ -271,16 +269,44 @@ div.scrollable {
 }
 
 .box .MiddleBox {
+    display: block;
     width: fit-content;
     margin: 0 auto;
 }
 
 .box .Content {
-    height: 400px;
+    height: auto;
 }
 
-.box .Content .title {
+.box .Content .fullWidth {
+    width: 100%;
+}
 
+.box .Content .inline {
+    display: inline-block;
+}
+
+.box .Content .right {
+    float: right;
+}
+
+.box .Content .textbox {
+    padding: 10px 10px;
+}
+
+.box .Content .textbox h1 {
+    font-family: Avenir;
+    font-size: 22px;
+}
+
+.box .Content .textbox a {
+    color: unset;
+    text-decoration: none;
+}
+
+.box .Content .textbox a:hover, .box .Content .textbox a:focus {
+    color: unset;
+    text-decoration: underline;
 }
 
 /*SCROLL DESIGN*/

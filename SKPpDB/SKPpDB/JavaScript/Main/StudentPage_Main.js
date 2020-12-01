@@ -6,7 +6,7 @@ var Student = new StudentObject();
 
 //Element Variables
 var topName = document.getElementById("top-name");
-var name = document.getElementById("name");
+var mail = document.getElementById("mail");
 var education = document.getElementById("education");
 var username = document.getElementById("username");
 var projects = document.getElementById("projects");
@@ -21,7 +21,7 @@ async function Main() {
     }
 
     topName.innerText = Student.Name;
-    name.innerText = Student.Name;
+    mail.innerText = `${Student.Username}@zbc.dk`
     education.innerText = Student.Education;
     username.innerText = Student.Username;
 

@@ -6,7 +6,7 @@ const Project = new ProjectObject();
 
 //HTML Element Variables
 var toptitle = document.getElementById("top-title");
-var title = document.getElementById("title");
+var status = document.getElementById("status");
 var description = document.getElementById("description");
 var Projectmanager = document.getElementById("Projectmanager");
 var startDate = document.getElementById("startdate");
@@ -26,11 +26,11 @@ async function Main() {
     if (Project.Headline) {
 
         toptitle.innerText = Project.Headline;
-        title.innerText = Project.Headline;
         Projectmanager.innerText = Project.ProjectManager;
         description.innerText = Project.Description;
         startDate.innerText = SimpleDate(Project.StartDate);
         endDate.innerText = SimpleDate(Project.EndDate);
+        status.innerText = Project.StatusId;
 
         Project.Students.forEach(student => {
             console.log(student);
