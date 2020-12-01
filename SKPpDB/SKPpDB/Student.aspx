@@ -1,16 +1,28 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="SKPpDB.Student" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Master.Master" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="SKPpDB.Student" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="Table container-fluid">
-        <article class="TableHead row">
-            <header class="col-md-3 rightBorderGreen">Navn</header>
-            <header class="col-md-6 rightBorderGreen">Projekter</header>
-            <header class="col-md-3">Uddannelse</header>
+    <section id="Box" class="box">
+        <header id="top-name" class="title"></header>
+        <article class="Content">
+            <header>
+                <h1>Navn</h1>
+                <span id="name"></span>
+            </header>
+            <header>
+                <h1>Studentere</h1>
+                <span id="education"></span>
+            </header>
+            <header>
+                <h1>Uni-Login</h1>
+                <span id="username"></span>
+            </header>
+            <header>
+                <h1>Projekter</h1>
+                <span id="projects"></span>
+            </header>
         </article>
-        <section id="TableList" class="TableRowBox ScrollLook">
-        </section>
     </section>
-    <script src="../JavaScript/StudentPage.js"></script>
+    <script type="module" src="../JavaScript/Main/StudentPage_Main.js"></script>
 </asp:Content>

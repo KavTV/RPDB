@@ -36,8 +36,11 @@
         this.Documentation = resulta["Documentation"];
         this.StartDate = new Date(resulta["Startdate"]);
         this.EndDate = new Date(resulta["Enddate"]);
+        this.Students = [];
 
-        console.log(this.ID);
+        resulta["Students"].forEach(student => {
+            this.Students.push(new Student(student['Username'], student['Name']));
+        });
     }
 
     Edit() {

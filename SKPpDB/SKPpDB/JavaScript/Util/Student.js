@@ -1,14 +1,34 @@
-﻿export class Student {
+﻿export class StudentObject {
     Username = String;
     Education = String;
     Name = String;
-    Project = Array;
+    Projects = Array;
 
-    constructor(Username = String, Education = String, Name = String, Project = Array) {
+    Manual_Setup(Username = String, Education = String, Name = String, Project = Array) {
         this.Username = Username;
         this.Education = Education;
         this.Name = Name;
-        this.Project = Project;
+        this.Projects = Project;
+    }
+
+    async Api_Setup(Username = String) {
+        let URL = `https://api.projektdatabase.skprg.dk/student?username=${Username} `;
+        let resulta;
+
+        await $.getJSON(URL, function (result) {
+            resulta = result;
+        }).fail(function (e) {
+            console.error(e);
+        });
+
+        this.Username = resulta["Username"];
+        this.Education = resulta["Education"];
+        this.Name = resulta["Name"];
+        this.Projects = [];
+
+        resulta["ProjectList"].forEach(project => {
+            this.Projects.push(new Project(project['Id'], project['Headline'], project['Description'], project['Documentation']));
+        });
     }
 }
 
@@ -22,7 +42,6 @@ class Project {
 }
 
 export function StudentManager(settings = Array) {
-
     let Students = Array;
     let Settings = settings;
     let Search;
@@ -45,7 +64,9 @@ export function StudentManager(settings = Array) {
                     student['ProjectList'].forEach(project => {
                         projects.push(new Project(project['Id'], project['Headline'], project['Description'], project['Documentation']));
                     });
-                    Students.push(new Student(student['Username'], student['Education'], student['Name'], projects));
+                    var studentO = new StudentObject();
+                    studentO.Manual_Setup(student['Username'], student['Education'], student['Name'], projects);
+                    Students.push(studentO);
                 });
                 Box();
             try {
@@ -65,7 +86,7 @@ export function StudentManager(settings = Array) {
 
                 Students.forEach(project => {
                     let projectArray = [];
-                    project.Project.forEach(project => {
+                    project.Projects.forEach(project => {
                         projectArray.push(project.Headline);
                     });
                     let text = Settings['BoxTableDataElement'].toString();

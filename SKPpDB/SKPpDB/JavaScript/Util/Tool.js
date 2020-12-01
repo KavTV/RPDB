@@ -10,3 +10,7 @@
     }
     return params;
 };
+
+export var SimpleDate = function (Date) {
+    return `${("0" + Date.getDate()).slice(-2)}-${("0" + (Date.getMonth() + 1)).slice(-2)}-${Date.getFullYear()}`;
+};

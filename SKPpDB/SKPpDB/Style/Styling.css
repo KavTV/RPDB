@@ -279,6 +279,10 @@ div.scrollable {
     height: 400px;
 }
 
+.box .Content .title {
+
+}
+
 /*SCROLL DESIGN*/
 
 .ScrollLook::-webkit-scrollbar {

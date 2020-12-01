@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <section class="box">
+    <section id="Box" class="box">
         <header id="top-title" class="title"></header>
         <article class="MiddleBox">
             <form runat="server">
@@ -13,12 +13,30 @@
             </form>
         </article>
         <article class="Content">
-            <h1>Projekt Navn</h1>
-            <header id="title"></header>
-            <h1>Projekt Leder</h1>
-            <header id="Projectmanager"></header>
-            <h1>Projekt Beskrivelse</h1>
-            <header id="description"></header>
+            <header>
+                <h1>Projekt Navn</h1>
+                <span id="title"></span>
+            </header>
+            <header>
+                <h1>Projekt Leder</h1>
+                <span id="Projectmanager"></span>
+            </header>
+            <header>
+                <h1>Projekt Beskrivelse</h1>
+                <span id="description"></span>
+            </header>
+            <header>
+                <h1>Start Dato</h1>
+                <span id="startdate"></span>
+            </header>
+            <header>
+                <h1>Slut Dato</h1>
+                <span id="enddate"></span>
+            </header>
+            <header>
+                <h1>Medarbejder</h1>
+                <span id="students"></span>
+            </header>
         </article>
     </section>
     <script type="module" src="../JavaScript/Main/ProjectPage_Main.js"></script>

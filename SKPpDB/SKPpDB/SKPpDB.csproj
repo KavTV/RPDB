@@ -126,6 +126,7 @@
     <Content Include="JavaScript\EditPage.js" />
     <Content Include="JavaScript\FrontPageJS.js" />
     <Content Include="JavaScript\GetJson.js" />
+    <Content Include="JavaScript\Main\StudentPage_Main.js" />
     <Content Include="JavaScript\Others\Master-site.js" />
     <Content Include="JavaScript\Util\config.js" />
     <Content Include="JavaScript\Util\main.js" />
