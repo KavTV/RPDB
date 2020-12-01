@@ -141,7 +141,14 @@ namespace SKPDB_Library
             if (hash != null)
             {
                 //Returns true if the password matches
-                return BCrypt.Net.BCrypt.Verify(pwd, hash);
+                try
+                {
+                    return BCrypt.Net.BCrypt.Verify(pwd, hash);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
             return false;
         }
@@ -184,7 +191,7 @@ namespace SKPDB_Library
             if (dal.GetStudent(username) != null)
             {
                 //make random string 
-                
+
                 string token = WebUtility.UrlEncode(Convert.ToBase64String(Guid.NewGuid().ToByteArray()));
                 SHA256 sha = SHA256.Create();
                 string hashed = sha.ComputeHash(Encoding.UTF8.GetBytes(token)).ToString();

@@ -36,6 +36,10 @@ namespace SKPpDB
                     ErrorLabel.Text = "Kan ikke skifte password";
                 }
             }
+            else
+            {
+                ErrorLabel.Text = "Kan ikke skifte password";
+            }
 
         }
     }
