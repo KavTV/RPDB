@@ -430,8 +430,8 @@ namespace SKPDB_Library
 
         private bool ExecuteNonQuery(NpgsqlCommand command)
         {
-            try
-            {
+            //try
+            //{
                 // Creates connection
                 NpgsqlConnection connection = new NpgsqlConnection(connectionString);
                 command.Connection = connection;
@@ -441,11 +441,11 @@ namespace SKPDB_Library
                 command.ExecuteNonQuery();
                 connection.Close();
                 return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return false;
+            //}
         }
 
         public List<Comment> Getprojectcomments(int projectid)
@@ -625,6 +625,36 @@ namespace SKPDB_Library
             }
             //Returns 0 if something was wrong, or nothing found
             return 0;
+        }
+
+        public bool SetProjectStatus(int projectid, int statusid)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_setstatus(@projectid, @statusid)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+            command.Parameters.AddWithValue("statusid", statusid);
+
+            return ExecuteNonQuery(command);
+        }
+
+        public bool ProjectExist(int projectid)
+        {
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM fn_projectexist(@projectid)", connection);
+
+            command.Parameters.AddWithValue("projectid", projectid);
+
+            // Opens connection
+            connection.Open();
+            NpgsqlDataReader reader = command.ExecuteReader();
+            
+            reader.Read();
+            bool exists = (bool)reader["fn_projectexist"];
+            connection.Close();
+
+            return exists;
         }
 
     }

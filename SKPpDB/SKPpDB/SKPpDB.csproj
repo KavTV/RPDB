@@ -140,7 +140,9 @@
     <Content Include="JavaScript\StudentsPage.js" />
     <Content Include="JavaScript\Util\Tool.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Reset.aspx" />
+    <Content Include="ResetPage.aspx" />
     <Content Include="Student.aspx" />
     <Content Include="Students.aspx" />
     <Content Include="Style\Create.css" />
@@ -193,6 +195,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\DefaultMaster.Master.cs">
       <DependentUpon>DefaultMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +223,13 @@
     </Compile>
     <Compile Include="Reset.aspx.designer.cs">
       <DependentUpon>Reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPage.aspx.cs">
+      <DependentUpon>ResetPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPage.aspx.designer.cs">
+      <DependentUpon>ResetPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>

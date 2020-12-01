@@ -222,7 +222,7 @@ BEGIN
 	 WHERE projectid = _projectid;
 	 
 	 INSERT INTO studentprojects
-	 VALUES(projectid, _projectmanager);
+	 VALUES(_projectid, _projectmanager);
 	 
 	 FOREACH u IN ARRAY _username
 	LOOP
@@ -432,6 +432,39 @@ BEGIN
 
 RETURN QUERY SELECT students.educationid from students
 WHERE students.username = _username;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+/**/
+CREATE OR REPLACE PROCEDURE SP_SetStatus(_projectid int, _statusid int )
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 UPDATE projects SET statusid = _statusid
+	 WHERE projectid = _projectid;
+	 
+END
+$$;
+
+/**/
+CREATE OR REPLACE FUNCTION FN_ProjectExist(_projectid int)
+Returns bool
+as $$
+DECLARE
+	_count int;
+BEGIN
+	SELECT COUNT(*) FROM projects 
+	INTO _count 
+	WHERE projectid = _projectid;
+	
+	if _count > 0 then
+		return 'true';
+	else
+		return 'false';
+	end if;
 
 END; $$
 LANGUAGE PLPGSQL;

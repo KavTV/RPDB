@@ -4,6 +4,10 @@ var projectNameElement = document.getElementById("HeadlineText");
 var projectDescriptionElement = document.getElementById("DescriptionText");
 var projectDocumentationElement = document.getElementById("DocumentationText");
 var createButtonElement = document.getElementById("EditButton");
+var statusElement = document.getElementById("StatusId");
+var startDateElement = document.getElementById("StartDate");
+var endDateElement = document.getElementById("EndDate");
+var projectManagerElement= document.getElementById("ProjectManager");
 
 var students = FetchJson("students").done(function () {
     if (students.responseJSON != null) {
@@ -12,6 +16,10 @@ var students = FetchJson("students").done(function () {
             projectNameElement.value = Project.responseJSON["Headline"];
             projectDescriptionElement.value = Project.responseJSON["Description"];
             projectDocumentationElement.value = Project.responseJSON["Documentation"];
+            statusElement.value = Project.responseJSON["Statusid"];
+            startDateElement.value = `${new Date(Project.responseJSON["Startdate"]).getFullYear()}-${("0" + (new Date(Project.responseJSON["Startdate"]).getMonth() + 1)).slice(-2)}-${("0" + new Date(Project.responseJSON["Startdate"]).getDate()).slice(-2)}`;
+            endDateElement.value = `${new Date(Project.responseJSON["Enddate"]).getFullYear()}-${("0" + (new Date(Project.responseJSON["Enddate"]).getMonth() + 1)).slice(-2)}-${("0" + new Date(Project.responseJSON["Enddate"]).getDate()).slice(-2)}`;
+            projectManagerElement.value = Project.responseJSON["Projectmanager"];
             var students = Project.responseJSON["Students"];
             students.forEach(student => { FillStudents(student) });
             LoadingScreen(false);
@@ -41,6 +49,7 @@ function LoadSelect() {
 
 function SelectAddOption(Value, InnerText) {
     SelectElement.innerHTML += '<option value="' + Value + '">' + InnerText + '</option>';
+    projectManagerElement.innerHTML += '<option value="' + Value + '">' + InnerText + '</option>';
 }
 
 function AddSelectedStudent() {
@@ -110,7 +119,7 @@ function EditProject() {
         studentString += projectLeader + ",";
         studentString = studentString.substring(0, studentString.length - 1);
 
-        PostData("editproject?projectid=" + params['projectid'] + "&headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&usernames=" + studentString);
+        PostData("editproject?projectid=" + params['projectid'] + "&statusid=" + statusElement.value + "&projectmanager=" + projectManagerElement.value + "&headline=" + projectName + "&documentation=" + projectDocumentation + "&description=" + projectDescription + "&startdate=" + startDateElement.value + "&enddate=" + endDateElement.value + "&usernames=" + studentString);
         window.location.href = "../";
     }
     else {

@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace SKPDB_Library
 {
-    class Email
+    public class Email
     {
         private SmtpClient smtpServer;
         private string clientmail = "NoReply@projektdb.zbc.dk";
@@ -12,10 +12,10 @@ namespace SKPDB_Library
         public Email()
         {
 
-            //smtpServer = new SmtpClient("smtp.gmail.com");
-            //smtpServer.Port = 587;
-            //smtpServer.Credentials = new NetworkCredential(clientEmail, clientPassword);
-            //smtpServer.EnableSsl = true;
+            smtpServer = new SmtpClient("10.108.48.80");
+            smtpServer.Port = 25;
+            smtpServer.Credentials = new NetworkCredential("admin", "Kode123");
+            smtpServer.EnableSsl = false;
         }
 
         public void SendEmail(string customerEmail, string subject, string message)

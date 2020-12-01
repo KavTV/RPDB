@@ -6,7 +6,7 @@ namespace SKPDB_Library
     public class Manager
     {
         Dal dal;
-
+        
 
         public Manager(string connectionString)
         {
@@ -169,6 +169,26 @@ namespace SKPDB_Library
         public int GetUserEducation(string username)
         {
             return dal.GetUserEducation(username);
+        }
+
+        /// <summary>
+        /// Changes the status of a project
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <param name="statusid"> 1 = Færdig, 2 = Aktiv, 3 = Mangler folk, 4 = standby, 5 = ikke startet</param>
+        /// <returns>True if changed successfully</returns>
+        public bool SetProjectStatus(int projectid, int statusid)
+        {
+            return dal.SetProjectStatus(projectid, statusid);
+        }
+        /// <summary>
+        /// Checks if the project exists
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <returns>True if project exists</returns>
+        public bool ProjectExists(int projectid)
+        {
+            return dal.ProjectExist(projectid);
         }
     }
 }
