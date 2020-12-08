@@ -24,7 +24,7 @@ namespace SKPpDB
         {
             //Get the token from url and find the user with the token.
             string username = manager.GetResetTokenUsername(Request.QueryString["tkn"]);
-            if (username != null)
+            if (username != null && !string.IsNullOrWhiteSpace(PasswordBox.Text))
             {
                 //Sets the password, and returns true if password reset was successful.
                 if (manager.SetPwd(username, PasswordBox.Text))

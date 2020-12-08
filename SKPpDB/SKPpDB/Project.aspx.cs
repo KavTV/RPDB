@@ -19,7 +19,12 @@ namespace SKPpDB
                 {
                     if (Session["admin"].Equals(true))
                     {
+                        EditBTN.Visible = true;
                         DeleteBTN.Visible = true;
+                    }
+                    else if (Session["username"].ToString() == manager.GetProject(projectid).Projectmanager)
+                    {
+                        EditBTN.Visible = true;
                     }
                 }
             }

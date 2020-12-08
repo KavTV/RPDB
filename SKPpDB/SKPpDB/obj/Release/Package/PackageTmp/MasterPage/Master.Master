@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="SKPpDB.MasterPage.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <title>Projekt Database</title>
+    <link href="../Style/Styling.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <%-- Menu Elements --%>
+    <section id="MenuBox" class="Menu">
+        <header class="Close" onclick="MenuBoxWidth('0px');">
+            &times;
+        </header>
+        <article>
+            <a href="../">Projekter</a>
+            <a href="../students.aspx">Elever</a>
+            <a href="../Logout.aspx">Log ud</a>
+        </article>
+    </section>
+
+    <%-- Title Elements --%>
+    <section class="TitleContainer">
+        <article onclick="MenuBoxWidth('500px')">
+            <img src="../Style/Svg/MenuIcon2.svg" />
+        </article>
+        <header>
+            <h1>
+                <a href="../">
+                    <span>SKP</span> Projekt Database
+                </a>
+            </h1>
+        </header>
+    </section>
+    <%-- Site Elements --%>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="../JavaScript/Others/Master-site.js"></script>
+</body>
+</html>

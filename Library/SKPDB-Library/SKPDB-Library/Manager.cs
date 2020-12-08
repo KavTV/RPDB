@@ -206,7 +206,7 @@ namespace SKPDB_Library
                         Email email = new Email();
 
                         string mail = username + "@zbc.dk";
-                        string message = "Brug dette link til at reset dit password: https://projektdatabase.skprg.dk/Reset.aspx?tkn=" + token;
+                        string message = "Brug dette link til at reset dit password: projektdatabase.skprg.dk/Reset.aspx?tkn=" + token;
                         email.SendEmail(mail, "Reset Password, SKP PDB", message);
 
                         return true;

@@ -11,10 +11,10 @@ namespace SKPpDB.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["username"] == null)
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         

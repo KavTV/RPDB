@@ -34,7 +34,7 @@ namespace SKPpDB
                 Session["username"] = username;
 
                 //If the user is instruktør, give admin access
-                if (manager.GetUserEducation(username) == 3)
+                if (manager.GetUserEducation(username) == 4)
                 {
                     Session["admin"] = true;
                 }

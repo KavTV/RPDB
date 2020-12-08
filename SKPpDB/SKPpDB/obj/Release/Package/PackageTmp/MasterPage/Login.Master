@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="SKPpDB.MasterPage.Login" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="~/Style/Login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <%-- Title Elements --%>
+    <section class="TitleContainer">
+
+        <header>
+            <h1>
+                <a href="../">
+                    <span>SKP</span> Projekt Database
+                </a>
+            </h1>
+        </header>
+    </section>
+    <%-- Site Elements --%>
+
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+
+</body>
+</html>
