@@ -15,7 +15,7 @@ namespace librarytest
             //}
             //string[] jens = { "kasp609g", "seba6474" };
             //Console.WriteLine(manager.EditProject(14,1,"kasp609g","edit test","ik noget","N/A",DateTime.Now, new DateTime(2020,11,26),jens));
-            manager.CreateResetToken("kasp609g");
+            //manager.CreateResetToken("");
         }
     }
 }
