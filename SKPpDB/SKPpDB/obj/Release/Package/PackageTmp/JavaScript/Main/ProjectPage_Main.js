@@ -34,7 +34,7 @@ async function Main() {
 
         Project.Students.forEach(student => {
             console.log(student);
-            students.innerHTML += `<a href="https://localhost:44334/Student.aspx?username=${student.Username}">${student.Name}</a><br>`;
+            students.innerHTML += `<a href="Student.aspx?username=${student.Username}">${student.Name}</a><br>`;
         });
     }
     else {

@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj": {}
+    "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj": {
+    "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
+        "projectUniqueName": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
         "projectName": "SKPDB-Library",
-        "projectPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
+        "projectPath": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
         "packagesPath": "C:\\Users\\kasp609g\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\obj\\",
+        "outputPath": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\kasp609g\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -31,6 +30,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -42,6 +42,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "BCrypt.Net-Core": {
               "target": "Package",
@@ -68,7 +69,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

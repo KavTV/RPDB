@@ -15,7 +15,7 @@ var students = FetchJson("students").done(function () {
         var Project = FetchJson("project?projectid=" + getParams(window.location.href)['projectid']).done(function () {
             projectNameElement.value = Project.responseJSON["Headline"];
             projectDescriptionElement.value = Project.responseJSON["Description"];
-            projectDocumentationElement.value = Project.responseJSON["Documentation"];
+            //projectDocumentationElement.value = Project.responseJSON["Documentation"];
             statusElement.value = Project.responseJSON["Statusid"];
             startDateElement.value = `${new Date(Project.responseJSON["Startdate"]).getFullYear()}-${("0" + (new Date(Project.responseJSON["Startdate"]).getMonth() + 1)).slice(-2)}-${("0" + new Date(Project.responseJSON["Startdate"]).getDate()).slice(-2)}`;
             endDateElement.value = `${new Date(Project.responseJSON["Enddate"]).getFullYear()}-${("0" + (new Date(Project.responseJSON["Enddate"]).getMonth() + 1)).slice(-2)}-${("0" + new Date(Project.responseJSON["Enddate"]).getDate()).slice(-2)}`;
@@ -113,7 +113,7 @@ function EditProject() {
         var params = getParams(window.location.href);
         var projectName = projectNameElement.value;
         var projectDescription = projectDescriptionElement.value;
-        var projectDocumentation = "";
+        var projectDocumentation = "N/A";
 
         var studentString = "";
         studentString += projectLeader + ",";
@@ -128,7 +128,7 @@ function EditProject() {
 }
 
 function FillmentRequire() {
-    if (projectNameElement.value && projectDescriptionElement.value && StudentIndexList.length > 0) {
+    if (projectNameElement.value && projectDescriptionElement.value && StudentIndexList.length > 0 && startDateElement.value && endDateElement.value && statusElement.value) {
         createButtonElement.disabled = false;
     }
     else {

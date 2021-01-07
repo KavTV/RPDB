@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NPG+C1E0vCKsKeH82tXyRYPlDvgRP0cmDPrQfMoTNcFenXM89YQ74sZIygyqyiWijkb1VooTDF71DC+fz0tGmA==",
+  "dgSpecHash": "QRZivqU3AT3reoI4834Y0X+TVZVLIK4U/yYBxfYdV2OhgeA9uXuRQuL+8U1kzg1U3UYJwWVFNWoN5paxossBWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
+  "projectFilePath": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kasp609g\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\kasp609g\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",

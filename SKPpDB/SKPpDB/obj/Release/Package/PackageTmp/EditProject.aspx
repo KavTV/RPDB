@@ -20,7 +20,7 @@
             </h4>
             <input id="DocumentationText" onchange="FillmentRequire()" class="col-md" type="text" placeholder="Dokumentions Link">--%>
             <h4>Status</h4>
-            <select name="status" id="StatusId">
+            <select name="status" id="StatusId" onchange="FillmentRequire()">
                 <option value="1">Færdig</option>
                 <option value="2">Aktiv</option>
                 <option value="3">Mangler folk</option>
@@ -28,9 +28,9 @@
                 <option value="5">Ikke startet</option>
             </select>
             <h4>Start Dato:</h4>
-            <input type="date" id="StartDate" />
+            <input type="date" id="StartDate" onchange="FillmentRequire()" />
             <h4>Slut Dato:</h4>
-            <input type="date" id="EndDate" />
+            <input type="date" id="EndDate" onchange="FillmentRequire()" />
             <h4>Projekt Leder</h4>
             <select name="projektleder" id="ProjectManager">
             </select>

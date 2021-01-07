@@ -20,7 +20,7 @@
 
     //Make an Api Search and let it do it by an ID.
     async Api_Setup(ID = Int32Array) {
-        let URL = `https://api.projektdatabase.skprg.dk/project?projectid=${ID} `;
+        let URL = `https://api.skprgopg.zbc.dk/project?projectid=${ID} `;
         let resulta;
 
         await $.getJSON(URL, function (result) {
@@ -63,10 +63,10 @@ export function ProjectManager(settings = Object) {
 
     this.Update = function () {
         BoxLoading();
-        let Url = "https://api.projektdatabase.skprg.dk/projects";
+        let Url = "https://api.skprgopg.zbc.dk/projects";
 
         if (Search && Search != " ") {
-            Url = `https://api.projektdatabase.skprg.dk/searchprojects?search=${Search} `;
+            Url = `https://api.skprgopg.zbc.dk/searchprojects?search=${Search} `;
         }
 
         $.getJSON(Url, function (result) {

@@ -26,7 +26,7 @@ async function Main() {
     username.innerText = Student.Username;
 
     Student.Projects.forEach(project => {
-        projects.innerHTML += `<a href="https://localhost:44334/Project.aspx?projectid=${project.ID}">${project.Headline}</a><br>`;
+        projects.innerHTML += `<a href="Project.aspx?projectid=${project.ID}">${project.Headline}</a><br>`;
     });
 }
 

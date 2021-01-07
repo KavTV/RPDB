@@ -470,3 +470,17 @@ END; $$
 LANGUAGE PLPGSQL;
 
 /**/
+CREATE OR REPLACE PROCEDURE SP_CreateStudent(_username varchar(30), _educationid int, _fullname varchar(255))
+LANGUAGE plpgsql
+
+AS $$
+BEGIN
+	 
+	 INSERT INTO Students(username,educationid,fullname)
+	 VALUES(_username, _educationid, _fullname);
+	 
+	 INSERT INTO Secret(pwd, username)
+	 VALUES('notdetermined',_username);
+	 
+END
+$$;

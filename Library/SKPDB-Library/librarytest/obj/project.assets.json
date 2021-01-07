@@ -130,21 +130,19 @@
   },
   "packageFolders": {
     "C:\\Users\\kasp609g\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\librarytest\\librarytest.csproj",
+      "projectUniqueName": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\librarytest\\librarytest.csproj",
       "projectName": "librarytest",
-      "projectPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\librarytest\\librarytest.csproj",
+      "projectPath": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\librarytest\\librarytest.csproj",
       "packagesPath": "C:\\Users\\kasp609g\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\librarytest\\obj\\",
+      "outputPath": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\librarytest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\kasp609g\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -160,9 +158,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj": {
-              "projectPath": "C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj"
+            "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj": {
+              "projectPath": "C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\Library\\SKPDB-Library\\SKPDB-Library\\SKPDB-Library.csproj"
             }
           }
         }
@@ -175,6 +174,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -190,7 +190,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

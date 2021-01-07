@@ -4,7 +4,7 @@ var projectNameElement = document.getElementById("ProjectName");
 var projectDescriptionElement = document.getElementById("ProjectDesription");
 //var projectDocumentationElement = document.getElementById("ProjectDocumentation");
 var createButtonElement = document.getElementById("CreateButton");
-skprgopg.zbc.dk
+
 //#region STUDENT SYSTEM
 
 //Student System elements
@@ -79,7 +79,7 @@ function createProject() {
         var projectLeader = GetSelectedStudents();
         var projectName = projectNameElement.value;
         var projectDescription = projectDescriptionElement.value;
-        var projectDocumentation = "";
+        var projectDocumentation = "N/A";
 
         var studentString = "";
         studentString += projectLeader + ",";

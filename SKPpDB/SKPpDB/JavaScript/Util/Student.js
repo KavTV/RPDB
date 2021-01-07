@@ -12,7 +12,7 @@
     }
 
     async Api_Setup(Username = String) {
-        let URL = `https://api.projektdatabase.skprg.dk/student?username=${Username} `;
+        let URL = `https://api.skprgopg.zbc.dk/student?username=${Username} `;
         let resulta;
 
         await $.getJSON(URL, function (result) {
@@ -49,11 +49,11 @@ export function StudentManager(settings = Array) {
     console.log(Settings);
 
     this.Update = function () {
-        let Url = "https://api.projektdatabase.skprg.dk/students";
+        let Url = "https://api.skprgopg.zbc.dk/students";
         BoxLoading();
 
         if (Search && Search != " ") {
-            Url = `https://api.projektdatabase.skprg.dk/searchstudents?search=${Search} `;
+            Url = `https://api.skprgopg.zbc.dk/searchstudents?search=${Search} `;
         }
 
         $.getJSON(Url, function (result) {
