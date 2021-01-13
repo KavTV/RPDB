@@ -176,9 +176,17 @@ namespace SKPDB_Library
         {
             //Using sha to hash token and tries to find match i database.
             SHA256 sha = SHA256.Create();
-            token = sha.ComputeHash(Encoding.UTF8.GetBytes(token)).ToString();
+            byte[] hashedbyte = sha.ComputeHash(Encoding.UTF8.GetBytes(token));
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hashedbyte.Length; i++)
+            {
+                sb.Append(hashedbyte[i].ToString("x2"));
+            }
+            string hashed = sb.ToString();
             sha.Dispose();
-            return dal.GetResetTokenUsername(token);
+            return dal.GetResetTokenUsername(hashed);
         }
         /// <summary>
         /// Creates a token and sends it to the users email if user exists.
@@ -192,9 +200,17 @@ namespace SKPDB_Library
             {
                 //make random string 
 
-                string token = WebUtility.UrlEncode(Convert.ToBase64String(Guid.NewGuid().ToByteArray()));
+                string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
                 SHA256 sha = SHA256.Create();
-                string hashed = sha.ComputeHash(Encoding.UTF8.GetBytes(token)).ToString();
+                byte[] hashedbyte = sha.ComputeHash(Encoding.UTF8.GetBytes(token));
+
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < hashedbyte.Length; i++)
+                {
+                    sb.Append(hashedbyte[i].ToString("x2"));
+                }
+                string hashed = sb.ToString();
 
                 if (dal.SetToken(username, hashed))
                 {
@@ -206,14 +222,14 @@ namespace SKPDB_Library
                         Email email = new Email();
 
                         string mail = username + "@zbc.dk";
-                        string message = "Brug dette link til at reset dit password: http://skprgopg.zbc.dk/Reset.aspx?tkn=" + token;
+                        string message = "Brug dette link til at reset dit password: <http://skprgopg.zbc.dk/Reset.aspx?tkn=" + token + ">";
                         email.SendEmail(mail, "Reset Password, SKP PDB", message);
 
                         return true;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        Console.WriteLine(ex);
                         return false;
                     }
                 }
@@ -244,6 +260,17 @@ namespace SKPDB_Library
         public bool ProjectExists(int projectid)
         {
             return dal.ProjectExist(projectid);
+        }
+        /// <summary>
+        /// Creates a student in database
+        /// </summary>
+        /// <param name="username">could be unilogin</param>
+        /// <param name="educationid">1 = Supporter. 2 = Infrastruktur. 3 = Programmering. 4 = Instruktør.</param>
+        /// <param name="fullname"></param>
+        /// <returns>True if query successful</returns>
+        public bool CreateStudent(string username, int educationid, string fullname)
+        {
+            return dal.CreateStudent(username, educationid, fullname);
         }
     }
 }

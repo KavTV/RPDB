@@ -7,11 +7,12 @@ namespace SKPpDB
     public partial class WatchProject : System.Web.UI.Page
     {
         private Manager manager = new Manager(ConfigurationManager.ConnectionStrings["default"].ConnectionString);
-
+        int projectid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //Get the projectid parameter from url
-            int projectid = 0;
+            
             int.TryParse(Request.QueryString["projectid"], out projectid);
             if (manager.ProjectExists(projectid))
             {
@@ -32,14 +33,11 @@ namespace SKPpDB
             {
                 Response.Redirect("Default.aspx");
             }
+            //Load comments
+            commentList.DataSource = manager.GetProjectComments(projectid);
+            commentList.DataBind();
 
-            ////Get the id from query, and 
-            //int projectid = 0;
-            //int.TryParse(Request.QueryString["projectid"], out projectid);
-            //if (projectid != 0)
-            //{
-            //    StatusList.SelectedValue = manager.GetProject(projectid).Statusid.ToString();
-            //}
+            
         }
 
         protected void DeleteBTN_Click(object sender, EventArgs e)
@@ -63,6 +61,26 @@ namespace SKPpDB
         {
             string query = Request.QueryString["projectid"];
             Response.Redirect($"EditProject.aspx?projectid={query}");
+        }
+
+        protected void CreateComment(object sender, EventArgs e)
+        {
+            //Ignore if nothing is written in comment field.
+            if (string.IsNullOrWhiteSpace(createCommentBox.Text))
+            {
+                return;
+            }
+            //Create the comment in database
+            if (manager.CreateComment(projectid, Session["username"].ToString(), createCommentBox.Text))
+            {
+                //created successfully
+                errorLabel.Text = "Kommentar er oprettet!";
+                createCommentBox.Text = "";
+            }
+            else
+            {
+                errorLabel.Text = "Der skete en fejl";
+            }
         }
     }
 }

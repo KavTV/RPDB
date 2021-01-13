@@ -11,44 +11,35 @@ namespace SKPpDB
 {
 
 
-    public partial class WatchProject
+    public partial class CreateStudent
     {
 
         /// <summary>
-        /// EditBTN control.
+        /// usernameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EditBTN;
+        protected global::System.Web.UI.WebControls.TextBox usernameBox;
 
         /// <summary>
-        /// DeleteBTN control.
+        /// educationList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteBTN;
+        protected global::System.Web.UI.WebControls.DropDownList educationList;
 
         /// <summary>
-        /// commentList control.
+        /// fullnameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView commentList;
-
-        /// <summary>
-        /// createCommentBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox createCommentBox;
+        protected global::System.Web.UI.WebControls.TextBox fullnameBox;
 
         /// <summary>
         /// errorLabel control.
@@ -58,14 +49,5 @@ namespace SKPpDB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorLabel;
-
-        /// <summary>
-        /// createCommentBTN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createCommentBTN;
     }
 }

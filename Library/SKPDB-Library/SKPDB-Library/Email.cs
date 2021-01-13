@@ -14,7 +14,7 @@ namespace SKPDB_Library
 
             smtpServer = new SmtpClient("smtp.gmail.com");
             smtpServer.Port = 587;
-            smtpServer.Credentials = new NetworkCredential("skpprojektdatabase@gmail.com", "Kode123!");
+            smtpServer.Credentials = new NetworkCredential("skprgopg@gmail.com", "Kode123!");
             smtpServer.EnableSsl = true;
         }
         /// <summary>

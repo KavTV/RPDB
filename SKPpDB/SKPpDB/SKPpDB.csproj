@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateProject.aspx" />
+    <Content Include="CreateStudent.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DefaultV2.aspx" />
     <Content Include="EditProject.aspx" />
@@ -167,6 +168,13 @@
     </Compile>
     <Compile Include="CreateProject.aspx.designer.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateStudent.aspx.cs">
+      <DependentUpon>CreateStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateStudent.aspx.designer.cs">
+      <DependentUpon>CreateStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -268,7 +276,8 @@
     <None Include="packages.config" />
     <Content Include="Style\Font\AvenirLTStd-Medium.otf" />
     <Content Include="Style\Font\LEMONMILK-Medium.otf" />
-    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Web deploy package.pubxml" />
+    <None Include="Properties\PublishProfiles\Web deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

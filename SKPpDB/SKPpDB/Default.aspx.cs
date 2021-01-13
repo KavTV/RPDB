@@ -6,6 +6,19 @@ namespace SKPpDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            if (Session["admin"].Equals(true))
+            {
+                CreateStudentBTN.Visible = true;
+            }
+        }
+
+        protected void CreateStudent_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateStudent.aspx");
         }
     }
 }

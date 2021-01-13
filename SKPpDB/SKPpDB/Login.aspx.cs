@@ -25,7 +25,7 @@ namespace SKPpDB
 
         protected void SubmitBTN_Click(object sender, EventArgs e)
         {
-            string username = UsernameBox.Text;
+            string username = UsernameBox.Text.ToLower();
             string pwd = PasswordBox.Text;
             //if the username and password is verified, start a session.
             if (manager.VerifyPwd(username, pwd))

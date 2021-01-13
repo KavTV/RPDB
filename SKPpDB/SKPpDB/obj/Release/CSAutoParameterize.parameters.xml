@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="default-Web.config Connection String" description="default Connection String used in web.config by the application to access the database." defaultValue="Server = 10.108.48.80; Port=5432; User Id = postgres; Password=Kode123; Database=SKPDB;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\kasp609g\\Documents\\GitHub\\SKPDB\\SKPpDB\\SKPpDB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='default']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\kasp609g\\Documents\\Github\\SKPDB\\SKPpDB\\SKPpDB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='default']/@connectionString" />
   </parameter>
 </parameters>

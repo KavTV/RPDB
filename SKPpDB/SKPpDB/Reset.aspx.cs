@@ -23,7 +23,8 @@ namespace SKPpDB
         protected void ResetBTN_Click(object sender, EventArgs e)
         {
             //Get the token from url and find the user with the token.
-            string username = manager.GetResetTokenUsername(Request.QueryString["tkn"]);
+            string tkn1 = Request.QueryString["tkn"];
+            string username = manager.GetResetTokenUsername(tkn1);
             if (username != null && !string.IsNullOrWhiteSpace(PasswordBox.Text))
             {
                 //Sets the password, and returns true if password reset was successful.

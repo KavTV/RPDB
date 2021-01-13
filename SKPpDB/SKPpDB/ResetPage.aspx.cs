@@ -22,7 +22,7 @@ namespace SKPpDB
         {
 
             //Send a mail with reset link
-           if(manager.CreateResetToken(UsernameBox.Text))
+           if(manager.CreateResetToken(UsernameBox.Text.ToLower()))
             {
                 Response.Redirect("Login.aspx");  
             }

@@ -333,14 +333,15 @@ LANGUAGE PLPGSQL;
 
 /**/
 CREATE or replace FUNCTION FN_getprojectcomments(_projectid int) 
-Returns Table(commentid int, username varchar, msg varchar, time_stamp timestamp)
+Returns Table(commentid int, username varchar,fullname varchar, msg varchar, time_stamp timestamp)
 as $$
 BEGIN
 
-RETURN QUERY SELECT projectcomments.commentid, projectcomments.Username, projectcomments.msg, DATE_TRUNC('second', projectcomments.time_stamp::timestamp) from projectcomments
+RETURN QUERY SELECT projectcomments.commentid, projectcomments.Username, students.fullname, projectcomments.msg, DATE_TRUNC('second', projectcomments.time_stamp::timestamp) from projectcomments
+JOIN students
+ON students.username = projectcomments.username
 WHERE projectcomments.projectid = _projectid
 ORDER BY projectcomments.time_stamp;
-
 
 END; $$
 LANGUAGE PLPGSQL;
@@ -366,8 +367,11 @@ LANGUAGE plpgsql
 AS $$
 BEGIN
 	 
-	 UPDATE secret SET pwd = _pwd, tokn = NULL
+	 DELETE FROM secret
 	 WHERE username = _username;
+	 
+	 INSERT INTO secret(username, pwd) 
+	 VALUES(_username, _pwd);
 	 
 END
 $$;
@@ -416,10 +420,23 @@ CREATE OR REPLACE PROCEDURE SP_SetTokn(_username varchar, _tokn char)
 LANGUAGE plpgsql
 
 AS $$
+DECLARE
+_count int;
 BEGIN
 	 
-	 UPDATE secret SET tokn = _tokn
+	SELECT COUNT(username) FROM secret 
+	INTO _count 
+	WHERE username = _username;
+	
+	if _count > 0 then
+		UPDATE secret SET tokn = _tokn
 	 WHERE username = _username;
+	else
+		INSERT INTO secret(username,pwd,tokn) VALUES(_username, 'notdetermined', _tokn);
+	end if;
+
+	 
+	 
 	 
 END
 $$;

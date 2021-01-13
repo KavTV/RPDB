@@ -194,6 +194,18 @@ namespace SKPDB_Library
             return ExecuteNonQuery(command);
 
         }
+        public bool CreateStudent(string username, int educationid, string fullname)
+        {
+            // Execute function
+            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            NpgsqlCommand command = new NpgsqlCommand("CALL sp_createstudent(@username, @educationid, @fullname)", connection);
+
+            command.Parameters.AddWithValue("username", username);
+            command.Parameters.AddWithValue("educationid", NpgsqlTypes.NpgsqlDbType.Integer, educationid);
+            command.Parameters.AddWithValue("fullname", fullname);
+
+            return ExecuteNonQuery(command);
+        }
         /// <summary>
         /// Deletes the project
         /// </summary>
@@ -475,6 +487,7 @@ namespace SKPDB_Library
                     comments.Add(new Comment(
                         commentid,
                         reader["username"].ToString(),
+                        reader["fullname"].ToString(),
                         reader["msg"].ToString(),
                         timestamp
                         ));
@@ -633,7 +646,12 @@ namespace SKPDB_Library
             //Returns 0 if something was wrong, or nothing found
             return 0;
         }
-
+        /// <summary>
+        /// Sets the status of a project
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <param name="statusid"></param>
+        /// <returns>true if query was successful</returns>
         public bool SetProjectStatus(int projectid, int statusid)
         {
             // Execute function
@@ -645,7 +663,11 @@ namespace SKPDB_Library
 
             return ExecuteNonQuery(command);
         }
-
+        /// <summary>
+        /// Checks if project exists
+        /// </summary>
+        /// <param name="projectid"></param>
+        /// <returns>true if project exists</returns>
         public bool ProjectExist(int projectid)
         {
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
