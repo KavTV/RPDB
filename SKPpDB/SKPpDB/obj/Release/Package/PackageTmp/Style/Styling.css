@@ -25,45 +25,45 @@ html, body {
 }
 
 .TitleContainer {
-    height: 200px;
+    height: 150px;
     text-align: center;
 }
 
-.TitleContainer header {
-    position: relative;
-    cursor: pointer;
-    top: 40px;
-    width: 500px;
-    margin: 0 auto;
-    font-family: Avenir;
-    color: white;
-    text-shadow: 0px 0px 10px black;
-    font-size: 25px;
-}
+    .TitleContainer header {
+        position: relative;
+        cursor: pointer;
+        top: 40px;
+        width: 500px;
+        margin: 0 auto;
+        font-family: Avenir;
+        color: white;
+        text-shadow: 0px 0px 10px black;
+        font-size: 25px;
+    }
 
-.TitleContainer header span {
-    font-family: Milk;
-    font-size: 60px;
-}
+        .TitleContainer header span {
+            font-family: Milk;
+            font-size: 60px;
+        }
 
-.TitleContainer header h1 a {
-    color: unset;
-    text-decoration: unset;
-}
+        .TitleContainer header h1 a {
+            color: unset;
+            text-decoration: unset;
+        }
 
-.TitleContainer article {
-    top: 20px;
-    right: 30px;
-    cursor: pointer;
-    position: absolute;
-    height: 70px;
-    width: 70px;
-}
+    .TitleContainer article {
+        top: 20px;
+        right: 30px;
+        cursor: pointer;
+        position: absolute;
+        height: 70px;
+        width: 70px;
+    }
 
-.TitleContainer article img {
-    height: 100%;
-    width: 100%;
-}
+        .TitleContainer article img {
+            height: 100%;
+            width: 100%;
+        }
 
 /*MENU DESIGN*/
 
@@ -82,39 +82,39 @@ html, body {
     box-shadow: 1px 1px 20px 1px #0008;
 }
 
-.Menu .Close {
-    position: absolute;
-    right: 35px;
-    font-size: 100px;
-    cursor: pointer;
-    color: #fff;
-    text-shadow: 3px 3px 15px black;
-}
+    .Menu .Close {
+        position: absolute;
+        right: 35px;
+        font-size: 100px;
+        cursor: pointer;
+        color: #fff;
+        text-shadow: 3px 3px 15px black;
+    }
 
-.Menu .Close:hover {
-    color: #d0d0d0;
-}
+        .Menu .Close:hover {
+            color: #d0d0d0;
+        }
 
-.Menu article {
-    position: absolute;
-    top: 35%;
-    width: 100%;
-    text-align: center;
-}
+    .Menu article {
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        text-align: center;
+    }
 
-.Menu a {
-    font-size: 42px;
-    color: #fff;
-    text-decoration: none;
-    padding: 15px 10px;
-    display: block;
-    text-shadow: 3px 3px 15px black;
-}
+    .Menu a {
+        font-size: 42px;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px 10px;
+        display: block;
+        text-shadow: 3px 3px 15px black;
+    }
 
-.Menu a:hover, .Menu a:focus {
-    text-decoration: none;
-    color: #d0d0d0;
-}
+        .Menu a:hover, .Menu a:focus {
+            text-decoration: none;
+            color: #d0d0d0;
+        }
 
 /*TABLE CONTAINER*/
 .TableContainer {
@@ -140,13 +140,13 @@ button, input[type="submit"] {
     cursor: pointer;
 }
 
-button:hover, input[type="submit"]:hover {
-    background-color: #4a416b;
-}
+    button:hover, input[type="submit"]:hover {
+        background-color: #4a416b;
+    }
 
-button:active, input[type="submit"]:active {
-    background-color: #36304a;
-}
+    button:active, input[type="submit"]:active {
+        background-color: #36304a;
+    }
 
 .TableOption input[type=text] {
     font-family: Avenir;
@@ -173,13 +173,13 @@ thead {
     background-color: #36304a;
 }
 
-thead tr {
-    font-family: Avenir;
-    font-size: 20px;
-    color: white;
-    text-align: left;
-    height: 60px;
-}
+    thead tr {
+        font-family: Avenir;
+        font-size: 20px;
+        color: white;
+        text-align: left;
+        height: 60px;
+    }
 
 tbody {
     display: block;
@@ -188,24 +188,24 @@ tbody {
     overflow-x: hidden;
 }
 
-tbody tr {
-    color: #808080;
-    height: 50px;
-    max-height: 75px;
-    background-color: white;
-}
+    tbody tr {
+        color: #808080;
+        height: 50px;
+        max-height: 75px;
+        background-color: white;
+    }
 
-tbody tr:nth-child(even) {
-    background-color: #f0f0f0;
-}
+        tbody tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
 
-tbody tr:hover {
-    background-color: #d8d8d8;
-    color: black;
-}
+        tbody tr:hover {
+            background-color: #d8d8d8;
+            color: black;
+        }
 
 td, th {
-    padding: 5px;    
+    padding: 5px;
 }
 
 tbody a {
@@ -213,10 +213,10 @@ tbody a {
     text-decoration: none;
 }
 
-tbody a:hover, tbody a:focus {
-    color: unset;
-    text-decoration: underline;
-}
+    tbody a:hover, tbody a:focus {
+        color: unset;
+        text-decoration: underline;
+    }
 
 div.scrollable {
     width: 100%;
@@ -259,55 +259,55 @@ div.scrollable {
     overflow: auto;
 }
 
-.box .title {
-    background-color: #36304a;
-    text-align: center;
-    color: white;
-    font-family: Avenir;
-    font-size: 28px;
-    padding: 10px 20px;
-}
+    .box .title {
+        background-color: #36304a;
+        text-align: center;
+        color: white;
+        font-family: Avenir;
+        font-size: 28px;
+        padding: 10px 20px;
+    }
 
-.box .MiddleBox {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-}
+    .box .MiddleBox {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
 
-.box .Content {
-    height: auto;
-}
+    .box .Content {
+        height: auto;
+    }
 
-.box .Content .fullWidth {
-    width: 100%;
-}
+        .box .Content .fullWidth {
+            width: 100%;
+        }
 
-.box .Content .inline {
-    display: inline-block;
-}
+        .box .Content .inline {
+            display: inline-block;
+        }
 
-.box .Content .right {
-    float: right;
-}
+        .box .Content .right {
+            float: right;
+        }
 
-.box .Content .textbox {
-    padding: 10px 10px;
-}
+        .box .Content .textbox {
+            padding: 10px 10px;
+        }
 
-.box .Content .textbox h1 {
-    font-family: Avenir;
-    font-size: 22px;
-}
+            .box .Content .textbox h1 {
+                font-family: Avenir;
+                font-size: 22px;
+            }
 
-.box .Content .textbox a {
-    color: unset;
-    text-decoration: none;
-}
+            .box .Content .textbox a {
+                color: unset;
+                text-decoration: none;
+            }
 
-.box .Content .textbox a:hover, .box .Content .textbox a:focus {
-    color: unset;
-    text-decoration: underline;
-}
+                .box .Content .textbox a:hover, .box .Content .textbox a:focus {
+                    color: unset;
+                    text-decoration: underline;
+                }
 
 /*SCROLL DESIGN*/
 
@@ -344,4 +344,14 @@ div.scrollable {
     to {
         transform: rotate(360deg);
     }
+}
+
+/*Comment Design*/
+.comment span{
+    padding: 10px 10px;
+    display:block;
+}
+.comment textarea {
+    margin-left: 20px;
+    font-family:sans-serif;
 }

@@ -76,6 +76,7 @@ namespace SKPpDB
                 //created successfully
                 errorLabel.Text = "Kommentar er oprettet!";
                 createCommentBox.Text = "";
+                Response.Redirect("Project.aspx");
             }
             else
             {
