@@ -59,7 +59,7 @@ CREATE TABLE Projectcomments (
 	(start with 1 increment 1),
 	Projectid integer,
 	Username varchar(30),
-	Msg varchar(255),
+	Msg varchar(600),
 	Time_stamp timestamp,
 	
 	FOREIGN KEY (Projectid) REFERENCES Projects(ProjectId),

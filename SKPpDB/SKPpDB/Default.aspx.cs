@@ -20,5 +20,10 @@ namespace SKPpDB
         {
             Response.Redirect("CreateStudent.aspx");
         }
+
+        protected void CreateProject_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateProject.aspx");
+        }
     }
 }

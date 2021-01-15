@@ -168,7 +168,6 @@ C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\bin\System.ValueTuple.xml
 C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\bin\System.Web.Http.xml
 C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\bin\System.Web.Http.WebHost.xml
 C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\obj\Debug\SKPpDB.csprojAssemblyReference.cache
 C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\obj\Debug\SKPpDB.csproj.CoreCompileInputs.cache
 C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\obj\Debug\SKPpDB.csproj.CopyComplete
 C:\Users\kasp609g\Documents\GitHub\SKPDB\SKPpDB\SKPpDB\obj\Debug\SKPpDB.dll

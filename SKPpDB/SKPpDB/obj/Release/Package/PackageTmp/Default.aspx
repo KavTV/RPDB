@@ -10,9 +10,7 @@
                     Opdater
                 </button>
                 <input id="searchbar" type="text" placeholder="Søg" />
-                <button onclick="window.location.href = 'CreateProject.aspx';">
-                    Tilføj Projekt
-                </button>
+                <asp:Button runat="server" Text="Tilføj Projekt" OnClick="CreateProject_Click"/>
                 <asp:Button runat="server" ID="CreateStudentBTN" Text="Tilføj Elev" Visible="false" OnClick="CreateStudent_Click" />
             </form>
         </article>
